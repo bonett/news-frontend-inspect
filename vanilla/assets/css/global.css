@@ -14,6 +14,61 @@ body {
     width: 960px;
 }
 
+
+.title-section {
+    font-size: 30px !important;
+}
+
+
+p {
+    font-size: 16px;
+    letter-spacing: -0.09px;
+    line-height: 22px;
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.alert {
+    height: 45px;
+    padding: 12px 18px;
+    width: 100%;
+}
+
+.alert .close {
+    align-items: center;
+    justify-content: flex-end;
+    width: 5%;
+}
+
+.alert .close button {
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.alert .description {
+    align-items: center;
+    justify-content: flex-start;
+    width: 95%;
+}
+
+.alert .description p {
+    font-size: 14px !important;
+    letter-spacing: -0.08px !important;
+    line-height: 19px !important;
+}
+
+.alert .primary {
+    background-color: #DFEFFD;
+}
+
 .button {
     border-radius: 2px;
     box-sizing: border-box;
@@ -30,22 +85,22 @@ body {
     text-transform: uppercase !important;
 }
 
-.button.primary {
+.button .primary {
     background-color: #0073E9;
     border: 1px solid #0073E9;
 }
 
-.button.primary:hover {
+.button .primary:hover {
     background-color: #0050a2;
     border: 1px solid #0050a2;
 }
 
-.button.outline {
+.button .outline {
     background-color: transparent;
     border: 1px solid #ffffff;
 }
 
-.button.outline:hover {
+.button .outline:hover {
     background-color: #ffffff !important;
     border: 1px solid #1D2121 !important;
     color: #1D2121 !important;
