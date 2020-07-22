@@ -62,6 +62,10 @@ button > span {
     background-color: #9100AD;
 }
 
+.white {
+    background-color: #ffffff;
+}
+
 .rounded {
     border-radius: 50%;
 }
@@ -92,6 +96,11 @@ nav .nav-bar-content .logo {
     width: 10%;
 }
 
+nav .nav-bar-content .logo a > img {
+    height: 43px;
+    width: 61px;
+}
+
 nav .nav-bar-content .menu {
     align-content: center;
     justify-content: space-between;
@@ -99,18 +108,64 @@ nav .nav-bar-content .menu {
     width: 90%;
 }
 
-.logo a > img {
-    height: 43px;
-    width: 61px;
+nav .menu-content .menu-item {
+    margin-right: 21px;
 }
 
-.account {
+nav .menu-content .menu-item > a {
+    color: #1D2121;
+    font-size: 16px;
+    letter-spacing: -0.09px;
+    line-height: 22px;
+}
+
+nav .menu-content .dropdown-button {
+    display: inline-block;
+    position: relative;
+}
+
+nav .menu-content .dropdown-list {
+    background-color: #f1f4f9;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    display: none;
+    min-width: 160px;
+    overflow: auto;
+    position: absolute;
+    z-index: 1;
+}
+
+nav .menu-content .dropdown-list > li {
+    display: inline-block;
+}
+
+nav .menu-content .dropdown-list .dropdown-item > a {
+    color: black;
+    display: block;
+    padding: 12px 16px;
+    text-decoration: none;
+}
+
+nav .menu-content .dropdown-list .dropdown-item {
+    width: 100%;
+}
+
+nav .menu-content .dropdown-list .dropdown-item:hover {
+    background-color: #ddd;
+}
+
+nav .menu-content .dropdown-button:hover .dropdown-list {
+    display: block;
+    transition: 0.4s all ease-in;
+}
+
+
+nav .account {
     height: 25px;
     text-align: center;
     width: 25px;
 }
 
-.account > a {
+nav .account > a {
     color: #ffffff;
     font-size: 11px;
     font-weight: bold;
@@ -121,6 +176,7 @@ nav .nav-bar-content .menu {
 
 .alert {
     height: 45px;
+    margin: 10px 0;
     padding: 12px 18px;
 }
 
@@ -188,4 +244,28 @@ nav .nav-bar-content .menu {
     background-color: #ffffff !important;
     border: 1px solid #1D2121 !important;
     color: #1D2121 !important;
+}
+
+section {
+    height: auto;
+    min-height: 576px;
+}
+
+.stories-content {
+    padding: 14px 0;
+}
+
+.stories-wrapper {
+    padding: 14px 0;
+}
+
+.stories-wrapper .content {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 10px;
+    padding: 14px 10px;
+}
+
+.stories-wrapper > h1 {
+    margin: 14px 0 22px 0;
 }
