@@ -11,6 +11,7 @@ body {
 
 * {
     outline: none !important;
+    text-decoration: none;
 }
 
 .container {
@@ -34,11 +35,35 @@ img {
     width: 100%;
 }
 
+ul, li {
+    display: inline;
+}
+
+button {
+    cursor: pointer;
+}
+
 button > span {
     color: #D8D8D8;
     font-size: 18px;
-    height: 10.56px;
+    height: 11.9px;
+    left: 7.5px;
+    position: absolute;
+    transform: rotate(45deg);
+    top: -4px;
     width: 1.41px;
+}
+
+.light {
+    background-color: #ffffff;
+}
+
+.purple {
+    background-color: #9100AD;
+}
+
+.rounded {
+    border-radius: 50%;
 }
 
 .flex-col {
@@ -51,10 +76,52 @@ button > span {
     flex-direction: row;
 }
 
+nav.nav-bar {
+    box-shadow: 0.2px 0 2px rgb(0,0,0,0.18);
+    height: 66px;
+}
+
+nav .nav-bar-content {
+    justify-content: space-between;
+    padding: 10px 0;
+}
+
+nav .nav-bar-content .logo {
+    align-content: center;
+    justify-content: flex-start;
+    width: 10%;
+}
+
+nav .nav-bar-content .menu {
+    align-content: center;
+    justify-content: space-between;
+    padding: 10px 0 10px 14px;
+    width: 90%;
+}
+
+.logo a > img {
+    height: 43px;
+    width: 61px;
+}
+
+.account {
+    height: 25px;
+    text-align: center;
+    width: 25px;
+}
+
+.account > a {
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: -0.06px;
+    line-height: 15px;
+    vertical-align: middle;
+}
+
 .alert {
     height: 45px;
     padding: 12px 18px;
-    width: 100%;
 }
 
 .alert .close {
@@ -68,6 +135,7 @@ button > span {
     border-radius: 50%;
     border-style: none;
     height: 16.10px;
+    position: relative;
     width: 16.10px;
 }
 
@@ -91,7 +159,6 @@ button > span {
     border-radius: 2px;
     box-sizing: border-box;
     color: #ffffff;
-    cursor: pointer;
     height: 39px;
     padding: 8px 26px;
     text-transform: lowercase;
