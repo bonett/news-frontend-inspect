@@ -9,6 +9,10 @@ body {
     
 }
 
+* {
+    outline: none !important;
+}
+
 .container {
     margin: 0 auto;
     width: 960px;
@@ -19,11 +23,22 @@ body {
     font-size: 30px !important;
 }
 
-
 p {
     font-size: 16px;
     letter-spacing: -0.09px;
     line-height: 22px;
+}
+
+img {
+    height: auto;
+    width: 100%;
+}
+
+button > span {
+    color: #D8D8D8;
+    font-size: 18px;
+    height: 10.56px;
+    width: 1.41px;
 }
 
 .flex-col {
@@ -48,9 +63,12 @@ p {
     width: 5%;
 }
 
-.alert .close button {
-    align-items: center;
-    justify-content: flex-end;
+.alert .close > button {    
+    background-color: #282E2E;
+    border-radius: 50%;
+    border-style: none;
+    height: 16.10px;
+    width: 16.10px;
 }
 
 .alert .description {
@@ -59,13 +77,13 @@ p {
     width: 95%;
 }
 
-.alert .description p {
+.alert .description > p {
     font-size: 14px !important;
     letter-spacing: -0.08px !important;
     line-height: 19px !important;
 }
 
-.alert .primary {
+.alert.primary {
     background-color: #DFEFFD;
 }
 
@@ -75,7 +93,6 @@ p {
     color: #ffffff;
     cursor: pointer;
     height: 39px;
-    outline: none !important;
     padding: 8px 26px;
     text-transform: lowercase;
     transition: 0.4s all ease-in;
@@ -85,22 +102,22 @@ p {
     text-transform: uppercase !important;
 }
 
-.button .primary {
+.button.primary {
     background-color: #0073E9;
     border: 1px solid #0073E9;
 }
 
-.button .primary:hover {
+.button.primary:hover {
     background-color: #0050a2;
     border: 1px solid #0050a2;
 }
 
-.button .outline {
+.button.outline {
     background-color: transparent;
     border: 1px solid #ffffff;
 }
 
-.button .outline:hover {
+.button.outline:hover {
     background-color: #ffffff !important;
     border: 1px solid #1D2121 !important;
     color: #1D2121 !important;
