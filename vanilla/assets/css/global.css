@@ -18,7 +18,7 @@ body {
     width: 960px;
 }
 
-.grid-section {
+.grid-content {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-template-areas: "logo menu menu menu menu . . . . . . account"
@@ -240,7 +240,7 @@ nav .account > a {
 .alert {
     grid-area: alert;
     height: 25px;
-    margin: 22px 0;
+    margin: 14px 0;
     padding: 10px 22px;
 }
 
@@ -291,7 +291,6 @@ nav .account > a {
     height: 39px;
     padding: 8px 26px;
     text-transform: lowercase;
-    transition: 0.4s all ease-in;
 }
 
 .button::first-letter {
@@ -306,6 +305,7 @@ nav .account > a {
 .button.primary:hover {
     background-color: #0050a2;
     border: 1px solid #0050a2;
+    transition: 0.4s all ease;
 }
 
 .button.outline {
@@ -317,45 +317,46 @@ nav .account > a {
     background-color: #ffffff !important;
     border: 1px solid #1D2121 !important;
     color: #1D2121 !important;
+    transition: 0.4s all ease;
 }
 
-#stories .wrapper {
+#stories .stories-wrapper {
     grid-area: wrapper;
     padding: 14px 0 30px 0;
 }
 
-#stories .wrapper .content {
+#stories .stories-wrapper .wrapper-content {
     display: grid;
     grid-template-columns: auto auto;
     grid-gap: 10px;
     padding: 14px 10px;
 }
 
-#stories .wrapper > h1 {
-    margin: 14px 0 22px 0;
+#stories .stories-wrapper > h1 {
+    margin: 18px 0 22px 0;
     text-transform: lowercase;
 }
 
-#stories .wrapper > h1::first-letter {
+#stories .stories-wrapper > h1::first-letter {
     text-transform: uppercase !important;
 }
 
-#stories .wrapper .content {
+#stories .stories-wrapper .wrapper-content {
     column-gap: 0;
     grid-template-columns: auto auto;
 }
 
-#stories .wrapper .content > article:nth-child(odd) {
+#stories .stories-wrapper .wrapper-content > article:nth-child(odd) {
     margin-bottom: 20px;
     padding: 28px 37px 30px 18px;
 }
 
-#stories .wrapper .content > article:nth-child(even) {
+#stories .stories-wrapper .wrapper-content > article:nth-child(even) {
     margin-bottom: 20px;
     padding: 28px 18px 30px 37px;
 }
 
-#stories .wrapper .action {
+#stories .stories-wrapper .action {
     align-items: center;
     display: flex;
     flex-direction: row;
