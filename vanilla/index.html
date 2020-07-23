@@ -4,57 +4,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Wilfrido Bonett Paez">
     <meta name="description" content="News is a SPA based on html, css and vanilla">
     <meta name="keywords" content="html5, css, news, frontend, training, landing page">
     <title>News - FrontEnd training inspection</title>
     <link rel="shortcut icon" href="./assets/img/favicon.ico" type="image/x-icon">
     <link rel="icon" href="./assets/img/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="./assets/css/reset.css">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./assets/css/global.css">
 </head>
 
 <body>
     <header>
-        <nav class="nav-bar background-white">
+        <nav class="navbar background--white">
             <div class="container">
-                <div class="grid-content">
-                    <div class="logo">
+                <div class="navbar__content grid render--column">
+                    <div class="navbar__logo">
                         <a href="#">
-                            <img src="./assets/img/logo.svg" alt="News">
+                            <img src="./assets/img/logo.svg" alt="News" class="logo__image--size">
                         </a>
                     </div>
-                    <ul class="menu">
-                        <li class="dropdown-button menu-item">
-                            <a href="#">Sections <span class="chevron bottom"></span></a>
-                            <ul class="dropdown-list">
-                                <li class="dropdown-item">
-                                    <a href="#"><i class="fa fa-motorcycle"></i> Sports</a>
+                    <ul class="navbar__menu">
+                        <li class="dropdown__button menu__item">
+                            <a href="#" class="item--size color--dark">Sections <span class="chevron bottom"></span></a>
+                            <ul class="dropdown__list">
+                                <li class="sub__item">
+                                    <a href="#" class="sub__item--size color--dark"><i class="fa fa-motorcycle"></i>
+                                        Sports</a>
                                 </li>
-                                <li class="dropdown-item">
-                                    <a href="#"><i class="fa fa-home"></i> Entertainment</a>
+                                <li class="sub__item">
+                                    <a href="#" class="sub__item--size color--dark"><i class="fa fa-home"></i>
+                                        Entertainment</a>
                                 </li>
-                                <li class="dropdown-item">
-                                    <a href="#"><i class="fa fa-btc"></i> Economics</a>
+                                <li class="sub__item">
+                                    <a href="#" class="sub__item--size color--dark"><i class="fa fa-btc"></i>
+                                        Economics</a>
                                 </li>
-                                <li class="dropdown-item">
-                                    <a href="#"><i class="fa fa-laptop"></i> Technology</a>
+                                <li class="sub__item">
+                                    <a href="#" class="sub__item--size color--dark"><i class="fa fa-laptop"></i>
+                                        Technology</a>
                                 </li>
-                                <li class="dropdown-item">
-                                    <a href="#"><i class="fa fa-money"></i> Financial</a>
+                                <li class="sub__item">
+                                    <a href="#" class="sub__item--size color--dark"><i class="fa fa-money"></i>
+                                        Financial</a>
                                 </li>
                             </ul>
                         </li>
-                        <li class="menu-item">
-                            <a href="#">Editorial</a>
+                        <li class="menu__item">
+                            <a href="#" class="item--size color--dark">Editorial</a>
                         </li>
-                        <li class="menu-item">
-                            <a href="#">Contact Us</a>
+                        <li class="menu__item">
+                            <a href="#" class="item--size color--dark">Contact Us</a>
                         </li>
                     </ul>
-                    <div class="account">
-                        <a href="#" class="rounded background-purple">JS</a>
+                    <div class="navbar__account">
+                        <a href="#" class="account__content--size item--rounded color--white background--purple">JS</a>
                     </div>
                 </div>
             </div>
@@ -64,135 +71,137 @@
     <main>
         <section id="stories">
             <div class="container">
-                <div class="grid-content">
-                    <div class="stories-wrapper">
-                        <div class="alert background-primary">
-                            <div class="alert-content">
-                                <div class="description">
-                                    <p>Welcome to the new look of News.com. Keep scrolling to discover
+                <div class="grid render--column">
+                    <div class="stories__wrapper">
+                        <div class="alert background--light">
+                            <div class="alert__content">
+                                <div class="alert__description">
+                                    <p class="alert__message--paragraph">Welcome to the new look of News.com. Keep
+                                        scrolling to discover
                                         interesting new features
                                         and
                                         news.</p>
                                 </div>
-                                <div class="button-close">
-                                    <button>
-                                        <span>+</span>
+                                <div class="alert__button">
+                                    <button class="alert__button--size item--rounded background--dark">
+                                        <span class="alert__button-text--size color--light">+</span>
                                     </button>
                                 </div>
                             </div>
                         </div>
-                        <h1>top news</h1>
-                        <div class="wrapper-content card background-white">
-                            <article class="article">
+                        <h1 class="wrapper__heading--size">top news</h1>
+                        <div class="wrapper__content card--border background--white">
+                            <article class="wrapper__item">
                                 <img src="https://images.unsplash.com/photo-1555020368-9e1b4cf78a52?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2036&q=80"
                                     alt="article">
-                                <h2>Facebook to add gift cards, jobs and donation tools to its COVID-19 Community Help
+                                <h2 class="color--dark">Facebook to add gift card--borders, jobs and donation tools to its COVID-19 Community Help
                                     hub</h2>
-                                <p>Facebook is expanding its Community Help hub to better serve local communities amid
+                                <p class="color--dark">Facebook is expanding its Community Help hub to better serve local communities amid
                                     the
                                     COVID-19 pandemic. The hub has already seen significant usage by those requesting
                                     food,
                                     supplies and information about local resources, as well as use by volunteers and gr…
                                 </p>
                             </article>
-                            <article class="article">
+                            <article class="wrapper__item">
                                 <img src="https://images.unsplash.com/photo-1555020368-9e1b4cf78a52?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2036&q=80"
                                     alt="article">
-                                <h2>35 things on sale this weekend that you actually want (or need) right now</h2>
-                                <p>Let's get down to business: with no access to in-person shopping, you don't have the
+                                <h2 class="color--dark">35 things on sale this weekend that you actually want (or need) right now</h2>
+                                <p class="color--dark">Let's get down to business: with no access to in-person shopping, you don't have the
                                     luxury of window shopping anymore. So we did you a favor and scoured deals around
                                     the internet you'll actually want to take advantage of. \nBelow is a list of items
                                     you'll fin…</p>
                             </article>
-                            <article class="article">
+                            <article class="wrapper__item">
                                 <img src="https://images.unsplash.com/photo-1555020368-9e1b4cf78a52?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2036&q=80"
                                     alt="article">
-                                <h2>Facebook to add gift cards, jobs and donation tools to its COVID-19 Community Help
+                                <h2 class="color--dark">Facebook to add gift card--borders, jobs and donation tools to its COVID-19 Community Help
                                     hub</h2>
-                                <p>Facebook is expanding its Community Help hub to better serve local communities amid
+                                <p class="color--dark">Facebook is expanding its Community Help hub to better serve local communities amid
                                     the
                                     COVID-19 pandemic. The hub has already seen significant usage by those requesting
                                     food,
                                     supplies and information about local resources, as well as use by volunteers and gr…
                                 </p>
                             </article>
-                            <article class="article">
+                            <article class="wrapper__item">
                                 <img src="https://images.unsplash.com/photo-1555020368-9e1b4cf78a52?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2036&q=80"
                                     alt="article">
-                                <h2>35 things on sale this weekend that you actually want (or need) right now</h2>
-                                <p>Let's get down to business: with no access to in-person shopping, you don't have the
+                                <h2 class="color--dark">35 things on sale this weekend that you actually want (or need) right now</h2>
+                                <p class="color--dark">Let's get down to business: with no access to in-person shopping, you don't have the
                                     luxury of window shopping anymore. So we did you a favor and scoured deals around
                                     the internet you'll actually want to take advantage of. \nBelow is a list of items
                                     you'll fin…</p>
                             </article>
                         </div>
-                        <div class="action">
-                            <button type="button" class="button primary">View more stories</button>
+                        <div class="wrapper__button">
+                            <button type="button" class="button color--white button--primary">View more stories</button>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="newsletter">
+        <section id="newsletter" class="newsletter">
             <div class="container">
-                <div class="grid-content">
-                    <div class="newsletter-content">
-                        <h2>Subscribe to our newsletter.</h2>
-                        <p>Subscribe to our newsletter to receive weekly digests of the best and most
+                <div class="grid render--column">
+                    <div class="newsletter__content">
+                        <h2 class="newsletter__title--size color--white">Subscribe to our newsletter.</h2>
+                        <p class="newsletter__paragraph--size color--white">Subscribe to our newsletter to receive
+                            weekly digests of the best and most
                             ground-breaking news.
                             Also receive a discount on your monthly subscription.</p>
-                        <button type="button" class="button outline">subscribe</button>
+                        <button type="button"
+                            class="newsletter__button--unlog button button--outline color--white">subscribe</button>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="contact-us">
+        <section id="contact-us" class="contact-us">
             <div class="container">
-                <div class="grid-content">
-                    <div class="contact-title">
-                        <h2>Contact Us</h2>
+                <div class="contact-us__content grid render--column">
+                    <div class="contact-us__heading">
+                        <h2 class="heading--size">Contact Us</h2>
                     </div>
-                    <form class="contact-form card background-white">
+                    <form class="contact-us__form card--border background--white">
                         <div class="form-group-input">
-                            <label for="fname">First name</label>
+                            <label for="fname" class="input--label color--gray">First name</label>
                             <input type="text" id="fname" name="fname">
                         </div>
 
                         <div class="form-group-input">
-                            <label for="lname">Last name</label>
+                            <label for="lname" class="input--label color--gray">Last name</label>
                             <input type="text" id="lname" name="lname">
                         </div>
 
                         <div class="form-group-input">
-                            <label for="email">Email</label>
+                            <label for="email" class="input--label color--gray">Email</label>
                             <input type="email" id="email" name="email">
                         </div>
 
                         <div class="form-group-input">
-                            <label for="pnumber">Phone number</label>
+                            <label for="pnumber" class="input--label color--gray">Phone number</label>
                             <input type="number" id="pnumber" name="pnumber">
                         </div>
 
                         <div class="form-group-area">
-                            <label for="message">Message</label>
+                            <label for="message" class="input--label color--gray">Message</label>
                             <textarea name="message" id="message" cols="30" rows="10"></textarea>
                         </div>
 
                         <div class="form-group-checkbox">
                             <input type="checkbox" id="accept" name="accept">
-                            <label for="accept">Send me emails about breaking news and promotions.</label>
+                            <label for="accept" class="check--label">Send me emails about breaking news and promotions.</label>
                         </div>
 
-                        <div class="form-button">
-                            <button type="submit" class="button primary">Submit form</button>
+                        <div class="form-group-button">
+                            <button type="submit" class="button color--white button--primary">Submit form</button>
                         </div>
                     </form>
                 </div>
             </div>
         </section>
-
     </main>
 </body>
 
