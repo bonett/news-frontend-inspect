@@ -3,7 +3,7 @@ html { }
 body {
     background-color: #f1f4f9;
     color: #1D2121;
-    font-family: "Open Sans";
+    font-family: 'Open Sans', sans-serif !important;
     font-size: 14px;
     line-height: 1.42857143;
 }
@@ -24,7 +24,9 @@ body {
     grid-template-areas: "logo menu menu menu menu . . . . . . account"
                          "alert alert alert alert alert alert alert alert alert alert alert alert"
                          "wrapper wrapper wrapper wrapper wrapper wrapper wrapper wrapper wrapper wrapper wrapper wrapper"
-                         "newsletter newsletter newsletter newsletter newsletter newsletter . . . . . .";
+                         "newsletter newsletter newsletter newsletter newsletter newsletter . . . . . ."
+                         ". . . . contact-title contact-title contact-title contact-title . . . ."
+                         "contact-form contact-form contact-form contact-form contact-form contact-form contact-form contact-form contact-form contact-form contact-form contact-form";
 }
 
 section {
@@ -58,12 +60,12 @@ button {
 button > span {
     color: #D8D8D8;
     font-size: 18px;
-    height: 11.9px;
+    height: 11px;
     left: 7px;
     position: absolute;
     transform: rotate(45deg);
     top: -3px;
-    width: 1.41px;
+    width: 1px;
 }
 
 article > img {
@@ -85,6 +87,43 @@ article > p {
     letter-spacing: -0.09px;
     line-height: 22px;
     margin: 12px 0;
+}
+
+input[type=checkbox] {
+    border: 2px solid #BEC6C6;
+    border-radius: 2px;
+    box-sizing: border-box;
+    height: 21px;
+    width: 21px;
+}
+
+input[type=text],
+input[type=email],
+input[type=number],
+textarea{
+    border: 1px solid #D3DBE7;
+    border-radius: 3px;
+    box-sizing: border-box;
+    color: #7e8b8b;
+    height: 35px;
+    padding: 10px;
+    width: 100%;
+}
+
+textarea {
+    font-family: inherit !important;
+    height: 88px;
+    min-height: 88px;
+    resize: none;
+}
+
+label::first-letter {
+    text-transform: uppercase !important;
+}
+
+.card {
+    border-radius: 3px;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.05), 0 2px 4px 0 rgba(0,0,0,0.04);
 }
 
 .background-primary {
@@ -302,18 +341,17 @@ nav .account > a {
 }
 
 #stories .wrapper .content {
-    border-radius: 3px;
-    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.05), 0 2px 4px 0 rgba(0,0,0,0.04);
     column-gap: 0;
     grid-template-columns: auto auto;
 }
 
 #stories .wrapper .content > article:nth-child(odd) {
+    margin-bottom: 20px;
     padding: 28px 37px 30px 18px;
 }
 
 #stories .wrapper .content > article:nth-child(even) {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     padding: 28px 18px 30px 37px;
 }
 
@@ -361,4 +399,109 @@ nav .account > a {
 
 #newsletter .newsletter-content > button {
     margin: 26px 0 6px 0;
+}
+
+#contact-us {
+    padding: 60px 0;
+}
+
+#contact-us .contact-title {
+    align-items: center;
+    grid-area: contact-title;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#contact-us .contact-title > h2 {
+    font-size: 30px;
+    letter-spacing: -0.16px;
+    line-height: 41px;
+}
+
+#contact-us .contact-form {
+    display: grid;
+    grid-area: contact-form;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-areas: "form-group-firstname form-group-firstname form-group-firstname form-group-firstname form-group-firstname form-group-firstname form-group-lastname form-group-lastname form-group-lastname form-group-lastname form-group-lastname form-group-lastname"
+                         "form-group-email form-group-email form-group-email form-group-email form-group-email form-group-email form-group-phone form-group-phone form-group-phone form-group-phone form-group-phone form-group-phone"
+                         "form-group-area form-group-area form-group-area form-group-area form-group-area form-group-area form-group-area form-group-area form-group-area form-group-area form-group-area form-group-area"
+                         "form-group-checkbox form-group-checkbox form-group-checkbox form-group-checkbox form-group-checkbox form-group-checkbox form-group-checkbox form-group-checkbox form-group-checkbox form-group-checkbox form-group-checkbox form-group-checkbox"
+                         ". . . . form-button form-button form-button form-button . . . .";
+    margin: 14px 0 40px 0;
+    padding: 12px 0 14px 0;
+}
+
+#contact-us .form-group-input,
+#contact-us .form-group-area {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+#contact-us .form-group-input label,
+#contact-us .form-group-area label {
+    color: #4B5353;
+    font-size: 13px;
+    letter-spacing: -0.07px;
+    line-height: 18px;
+    margin: 4px 0;
+    text-transform: lowercase;
+}
+
+#contact-us .form-group-input:nth-child(1) {
+    grid-area: form-group-firstname;
+}
+
+#contact-us .form-group-input:nth-child(2) {
+    grid-area: form-group-lastname;
+}
+
+#contact-us .form-group-input:nth-child(3) {
+    grid-area: form-group-email;
+}
+
+#contact-us .form-group-input:nth-child(4) {
+    grid-area: form-group-phone;
+}
+
+#contact-us .form-group-input:nth-child(odd) {
+    padding: 20px 42px 20px 28px;
+}
+
+#contact-us .form-group-input:nth-child(even) {
+    padding: 20px 28px 20px 42px;
+}
+
+#contact-us .form-group-area {
+    grid-area: form-group-area;
+    padding: 20px 28px;
+}
+
+#contact-us .form-group-checkbox {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    grid-area: form-group-checkbox;
+    justify-content: flex-start;
+    padding: 20px 28px;
+}
+
+#contact-us .form-group-checkbox label {
+    color: #1D2121;
+    font-size: 16px;
+    letter-spacing: -0.09px;
+    line-height: 22px;
+    margin-left: 6px;
+}
+
+#contact-us .form-button {
+    align-items: center;
+    grid-area: form-button;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 30px 0;
 }
