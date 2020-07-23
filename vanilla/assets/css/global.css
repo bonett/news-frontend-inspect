@@ -327,13 +327,10 @@ nav .account > a {
 }
 
 #newsletter {
-    background-image: url('./../img/newsletter.jpg');
+    background-image: url(./../img/newsletter.jpg);
+    background-position: center bottom;
     background-repeat: no-repeat;
-    background-size: contain;
-    height: 576px;
-    min-height: 576px;
-    max-height: 576px;
-    width: 100%;
+    background-size: cover;
 }
 
 #newsletter .newsletter-content {
@@ -351,7 +348,7 @@ nav .account > a {
     font-size: 30px;
     letter-spacing: -0.16px;
     line-height: 41px;
-    margin: 12px 0;
+    margin: 0 0 6px 0;
 }
 
 #newsletter .newsletter-content > p {
@@ -359,9 +356,9 @@ nav .account > a {
     font-size: 16px;
     letter-spacing: -0.09px;
     line-height: 22px;
-    margin: 12px 0;
+    margin: 6px 0 16px 0;
 }
 
 #newsletter .newsletter-content > button {
-    margin: 24px 0;
+    margin: 26px 0 6px 0;
 }
