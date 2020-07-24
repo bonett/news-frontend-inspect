@@ -110,6 +110,7 @@ var navbar        = document.querySelector('.navbar');
                     }
 
                     refOffset = newOffset;
+                    dropdownSubMenu.classList.remove("show__menu");
                 }
             }
         }
