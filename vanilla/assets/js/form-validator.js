@@ -4,64 +4,92 @@ var phoneNumberRegexp = /^\D?(\d{2})\D?\D?(\d{3})\D?(\d{4})$/;
 
 const validateElements = document.getElementsByClassName("validate");
 
-var termIsChecked = document.getElementById("accept-terms");
+var firstname     = document.getElementById("fname");
+var lastname      = document.getElementById("lname");
 var email         = document.getElementById("email");
 var phoneNumber   = document.getElementById("pnumber");
+var message       = document.getElementById("message");
 var inputList     = document.querySelectorAll('input');
-var emailIsVerified, phoneNumberIsVerified = false;
+var acceptTerms   = document.getElementById("accept-terms");
+var dialog        = document.getElementById("myDialog");
+var dialogContent = document.getElementById('response')
+var dialogClose   = document.getElementsByClassName("dialog--close")[0];
 
-function getErrorElements() {
-    return document.getElementsByClassName("error__message");
+var emailVerified      = false;
+var phonNumberVerified = false
+
+dialogClose.onclick = function () {
+    dialog.style.display = "none";
+    clearForm();
 }
 
-function emailValidation() {
-
-    var errorMessage = getErrorElements();
-console.log(email.value.length)
-    if (!email.value.match(emailRegexp)) {
-        showErrorMessage(errorMessage[0], inputList[2], !emailIsVerified);
-        emailIsVerified = false;
-    } else {
-        showErrorMessage(errorMessage[0], inputList[2], emailIsVerified);
-        emailIsVerified = true;
+window.onclick = function (event) {
+    if (event.target == dialogClose) {
+        dialog.style.display = "none";
+        clearForm();
     }
-    validateForm();
+}
+
+function formValidations() {
+
+    var errorMessage = document.getElementsByClassName("error__message");
+
+    if (email.value == "") {
+        showErrorMessage(errorMessage[0], inputList[2], !emailVerified);
+    } else {
+        if (emailRegexp.test(email) === false) {
+            showErrorMessage(errorMessage[0], inputList[2], emailVerified);
+            emailVerified = !emailVerified;
+        } else {
+            showErrorMessage(errorMessage[0], inputList[2], !emailVerified);
+        }
+    }
+
+    if (phoneNumber.value == "") {
+        showErrorMessage(errorMessage[1], inputList[3], !phonNumberVerified);
+    } else {
+        if (phoneNumberRegexp.test(email) === false) {
+            showErrorMessage(errorMessage[1], inputList[3], phonNumberVerified);
+            phonNumberVerified = !phonNumberVerified;
+        } else {
+            showErrorMessage(errorMessage[1], inputList[3], !phonNumberVerified);
+        }
+    }
+    if ((emailVerified || phonNumberVerified) === false) {
+        return false;
+    } else {
+        var form = {
+            firstname: firstname.value,
+            lastname: lastname.value,
+            email: email.value,
+            phoneNumber: phoneNumber.value,
+            message: message.value,
+            acceptTerms: acceptTerms.checked
+        };
+
+        dialogContent.innerHTML = "<pre> Firstname: " + form.firstname + "\n Lastname: " + form.lastname + "\n Email: " + form.email + "\n Phone number: " + form.phoneNumber + "\n Message: " + form.message + "\n send newsletter: " + form.acceptTerms + "</pre>"
+        dialog.style.display    = "block";
+        return false
+    }
+
+
+    function showErrorMessage(error, element, validate) {
+        if (validate) {
+            element.classList.add('input--error');
+            error.classList.add('error__message--show');
+        } else {
+            element.classList.remove('input--error');
+            error.classList.remove('error__message--show');
+        }
+    }
+
 };
 
-function phoneNumberValidation() {
-
-    var errorMessage = getErrorElements();
-
-    if (phoneNumber.value < 10 || !phoneNumber.value.match(phoneNumberRegexp)) {
-        showErrorMessage(errorMessage[1], inputList[3], !phoneNumberIsVerified);
-        phoneNumberIsVerified = false;
-    } else {
-        showErrorMessage(errorMessage[1], inputList[3], phoneNumberIsVerified);
-        phoneNumberIsVerified = true;
-    }
-    validateForm();
-};
-
-function validateForm() {
-    if (emailIsVerified && phoneNumberIsVerified) {
-        document.getElementById('submit-form').disabled = false;
-    } else {
-        document.getElementById('submit-form').disabled = true;
-    }
-}
-
-function sendMessage() {
-    if (emailIsVerified && phoneNumberIsVerified) {
-        alert('sent')
-    }
-}
-
-function showErrorMessage(error, element, validate) {
-    if (validate) {
-        element.classList.add('input--error');
-        error.classList.add('error__message--show');
-    } else {
-        element.classList.remove('input--error');
-        error.classList.remove('error__message--show');
-    }
+function clearForm() {
+    firstname.value     = "";
+    lastname.value      = "";
+    email.value         = "";
+    phoneNumber.value   = "";
+    message.value       = "";
+    acceptTerms.checked = false
 }
