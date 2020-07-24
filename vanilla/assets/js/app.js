@@ -1,9 +1,20 @@
+var path            = 'https://jsonplaceholder.typicode.com/posts';
 var navbar          = document.querySelector('.navbar');
 var navbarContent   = document.querySelector('.navbar__menu');
 var menuContent     = document.querySelector('.menu__content');
 var dropdownButton  = document.querySelector('.dropdown__button');
 var dropdownSubMenu = document.querySelector(".dropdown__list");
 var isOpen          = false;
+var articleImages   = [
+    "https://images.unsplash.com/photo-1489533119213-66a5cd877091?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1651&q=80",
+    "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80",
+    "https://images.unsplash.com/photo-1505678261036-a3fcc5e884ee?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80",
+    "https://images.unsplash.com/photo-1508138221679-760a23a2285b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjQzMzEwfQ&auto=format&fit=crop&w=1567&q=80",
+    "https://images.unsplash.com/photo-1496449903678-68ddcb189a24?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80",
+    "https://images.unsplash.com/photo-1504805572947-34fad45aed93?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80",
+    "https://images.unsplash.com/photo-1498019559366-a1cbd07b5160?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1640&q=80",
+    "https://images.unsplash.com/photo-1496551572277-76011ca2a6e9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1651&q=80"
+];
 
 /**
  * resizeMenu allows check screen width of devices
@@ -52,10 +63,13 @@ function resizeMenu() {
     dropdownSubMenu.classList.remove("show__menu--mobile");
 }
 
+function displayImage() {
+    return articleImages[Math.floor(Math.random() * 7)];
+}
+
 /**
  * onLoad functions
  */
-
 window.onload = function () {
 
     var refOffset    = 0;
@@ -67,6 +81,8 @@ window.onload = function () {
     closeDialog.addEventListener('click', closeDialogMessage);
     menuIcon.addEventListener('click', toggleMenuIcon);
     dropdownButton.addEventListener('click', handleDropdown);
+
+    getAllData();
 
     window.addEventListener('scroll', stickyNavigationControl, false);
 
@@ -81,6 +97,56 @@ window.onload = function () {
         } else {
             dropdownSubMenu.classList.toggle("show__menu");
         }
+    }
+
+    function createNode(element) {
+        return document.createElement(element);
+    }
+  
+    function append(parent, el) {
+      return parent.appendChild(el);
+    }
+    
+    function getAllData() {
+
+        var wrapper = document.getElementById('wrapper-content');
+
+        fetch(path, {
+            method: "GET",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+          })
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(data) {
+            data.forEach(function(post) {
+                var article     = createNode('article');
+                var image       = createNode('img');
+                var title       = createNode('h2');
+                var description = createNode('p');
+
+                append(wrapper, article);
+                article.setAttribute("class","wrapper__item");
+
+                image.setAttribute("src", displayImage());
+                image.setAttribute("alt", post.title);
+                append(article, image);
+
+                title.setAttribute("class","color--dark");
+                title.innerHTML = post.title;
+                append(article, title);
+
+                description.setAttribute("class","color--dark");
+                description.innerHTML = post.body;
+                append(article, description);
+            });
+        })
+        .catch(function(error) {
+            console.log(error)
+        });
     }
 
     /**
