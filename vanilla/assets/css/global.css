@@ -395,6 +395,8 @@ label {
 .navbar__logo {
     grid-area: logo;
     padding: 10px 0;
+    position: relative;
+    z-index: 3;
 }
 
 .logo__image--size {
@@ -492,6 +494,7 @@ label {
     padding: 16px 0px;
     place-items: center;
     width: 60px;
+    z-index: 4;
 }
 
 .bar {
@@ -526,6 +529,18 @@ label {
     transform-origin: center center;
     transform: rotate(45deg) translate(-2px, -14px);
     width: 40px;
+}
+
+.mobile-menu {
+    height: 0%;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgba(255,255,255, 0.9);
+    transition: 0.1s all ease-in;
+    z-index: 2;
 }
 
 /* || STORIES */

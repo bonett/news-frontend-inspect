@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="./assets/css/responsive.css">
 </head>
 
-<body class="background--steel">
+<body onresize="handleDeviceControl()" class="background--steel">
     <header>
         <nav class="navbar background--white">
             <div class="container">
@@ -226,13 +226,68 @@
     </main>
 
     <script>
-        window.onload = function() {
-            var menuIcon = document.querySelector('.toogle-menu')
+        
+        var isOpen = false;
+
+        function handleDeviceControl() {
+
+            var navbarContent = document.querySelector('.navbar__menu');
+
+            var width = window.innerWidth
+                || document.documentElement.clientWidth
+                || document.body.clientWidth;
+
+            console.log(width);
+
+            if (width >= 992 && isOpen) {
+                navbarContent.classList.remove('mobile-menu');
+                document.body.style.overflowY = "scroll";
+                navbarContent.style.height = "0%";
+                navbarContent.style.display = "block";
+            } 
+            
+            if (width <= 991 && isOpen){
+                navbarContent.classList.add('mobile-menu');
+                document.body.style.overflowY = "none";
+                navbarContent.style.height = "100%";
+                navbarContent.style.display = "block";
+            }
+
+            if (width >= 992 && !isOpen){
+                navbarContent.classList.remove('mobile-menu');
+                document.body.style.overflowY = "scroll";
+                navbarContent.style.height = "0%";
+                navbarContent.style.display = "block";
+            }
+
+            if (width <= 991 && !isOpen){
+                navbarContent.classList.remove('mobile-menu');
+                document.body.style.overflowY = "scroll";
+                navbarContent.style.height = "0%";
+                navbarContent.style.display = "none";
+            }
+        }
+
+        window.onload = function () {
+            var menuIcon = document.querySelector('.toogle-menu');
+            var navbarContent = document.querySelector('.navbar__menu');
 
             menuIcon.addEventListener('click', toggleMenuIcon);
 
             function toggleMenuIcon() {
-                menuIcon.classList.toggle('active')
+                isOpen = menuIcon.classList.toggle('active');
+
+                if (isOpen) {
+                    navbarContent.classList.add('mobile-menu');
+                    document.body.style.overflowY = "hidden";
+                    navbarContent.style.display = "block";
+                    navbarContent.style.height = "100%";
+                } else {
+                    navbarContent.classList.remove('mobile-menu');
+                    document.body.style.overflowY = "scroll";
+                    navbarContent.style.height = "0%";
+                    navbarContent.style.display = "none";
+                }
             }
         }
     </script>
