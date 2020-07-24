@@ -28,10 +28,10 @@
                             <img src="./assets/img/logo.svg" alt="News" class="logo__image--size">
                         </a>
                     </div>
-                    <div class="toogle-menu">
-                        <span class="bar line-1 background--dark"></span>
-                        <span class="bar line-2 background--dark"></span>
-                        <span class="bar line-3 background--dark"></span>
+                    <div class="toogle__menu">
+                        <span class="bar background--dark"></span>
+                        <span class="bar background--dark"></span>
+                        <span class="bar background--dark"></span>
                     </div>
                     <div class="navbar__menu">
                         <div class="menu__content">
@@ -229,6 +229,7 @@
 
         var navbar        = document.querySelector('.navbar');
         var navbarContent = document.querySelector('.navbar__menu');
+        var menuContent   = document.querySelector('.menu__content');
         var isOpen        = false;
 
         function resizeMenu() {
@@ -238,7 +239,7 @@
                 || document.body.clientWidth;
 
             if (width >= 992 && isOpen) {
-                navbarContent.classList.remove('mobile-menu');
+                navbarContent.classList.remove('mobile__menu');
                 document.body.style.overflowY = "scroll";
                 navbar.style.height           = "initial";
                 navbarContent.style.height    = "0%";
@@ -246,21 +247,21 @@
             }
 
             if (width <= 991 && isOpen) {
-                navbarContent.classList.add('mobile-menu');
+                navbarContent.classList.add('mobile__menu');
                 document.body.style.overflowY = "none";
                 navbarContent.style.height    = "100%";
                 navbarContent.style.display   = "block";
             }
 
             if (width >= 992 && !isOpen) {
-                navbarContent.classList.remove('mobile-menu');
+                navbarContent.classList.remove('mobile__menu');
                 document.body.style.overflowY = "scroll";
                 navbarContent.style.height    = "0%";
                 navbarContent.style.display   = "block";
             }
 
             if (width <= 991 && !isOpen) {
-                navbarContent.classList.remove('mobile-menu');
+                navbarContent.classList.remove('mobile__menu');
                 document.body.style.overflowY = "scroll";
                 navbarContent.style.height    = "0%";
                 navbarContent.style.display   = "none";
@@ -273,7 +274,7 @@
             var navbarheight  = 66;
             var dialog        = document.getElementById('dialog');
             var closeDialog   = document.getElementById('close-button');
-            var menuIcon      = document.querySelector('.toogle-menu');
+            var menuIcon      = document.querySelector('.toogle__menu');
 
             closeDialog.addEventListener('click', closeDialogMessage);
             menuIcon.addEventListener('click', toggleMenuIcon);
@@ -284,13 +285,14 @@
                 isOpen = menuIcon.classList.toggle('active');
 
                 if (isOpen) {
-                    navbarContent.classList.add('mobile-menu');
+                    navbarContent.classList.add('mobile__menu');
                     document.body.style.overflowY = "hidden";
                     navbar.style.height           = "100%";
                     navbarContent.style.display   = "block";
                     navbarContent.style.height    = "100%";
+                    menuContent.classList.add('mobile__content')
                 } else {
-                    navbarContent.classList.remove('mobile-menu');
+                    navbarContent.classList.remove('mobile__menu');
                     document.body.style.overflowY = "scroll";
                     navbar.style.height           = "initial"
                     navbarContent.style.height    = "0%";

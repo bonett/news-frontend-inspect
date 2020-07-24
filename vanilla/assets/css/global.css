@@ -498,7 +498,7 @@ label {
     width: 25px;
 }
 
-.toogle-menu {
+.toogle__menu {
     cursor: pointer;
     grid-area: mobile;
     height: 34px;
@@ -542,7 +542,7 @@ label {
     width: 40px;
 }
 
-.mobile-menu {
+.mobile__menu {
     height: 0%;
     width: 100%;
     position: fixed;

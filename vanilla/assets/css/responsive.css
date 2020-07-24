@@ -11,7 +11,7 @@
                              "contact-form contact-form contact-form contact-form contact-form contact-form contact-form contact-form contact-form contact-form contact-form contact-form";
     }
 
-    .toogle-menu {
+    .toogle__menu {
         display: grid;
     }
     
@@ -108,7 +108,7 @@
                              "contact-form contact-form contact-form contact-form contact-form contact-form contact-form contact-form contact-form contact-form contact-form contact-form";
     }
 
-    .toogle-menu {
+    .toogle__menu {
         display: none;
     }
 
