@@ -3,7 +3,7 @@
 
     .render--column {
         grid-template-columns: repeat(12, 1fr);
-        grid-template-areas: "logo . . . . . . . . . . account"
+        grid-template-areas: "logo . . . . . . . . . . mobile"
                              "alert alert alert alert alert alert alert alert alert alert alert alert"
                              "wrapper wrapper wrapper wrapper wrapper wrapper wrapper wrapper wrapper wrapper wrapper wrapper"
                              "newsletter newsletter newsletter newsletter newsletter newsletter newsletter newsletter newsletter newsletter newsletter newsletter"
@@ -11,6 +11,10 @@
                              "contact-form contact-form contact-form contact-form contact-form contact-form contact-form contact-form contact-form contact-form contact-form contact-form";
     }
 
+    .toogle-menu {
+        display: grid;
+    }
+    
     .navbar__menu {
         display: none;
     }
@@ -96,12 +100,20 @@
 
     .render--column {
         grid-template-columns: repeat(12, 1fr);
-        grid-template-areas: "logo menu menu menu menu . . . . . . account"
+        grid-template-areas: "logo menu menu menu menu menu menu menu menu menu menu menu"
                              "alert alert alert alert alert alert alert alert alert alert alert alert"
                              "wrapper wrapper wrapper wrapper wrapper wrapper wrapper wrapper wrapper wrapper wrapper wrapper"
                              "newsletter newsletter newsletter newsletter newsletter newsletter newsletter . . . . ."
                              ". . . contact-title contact-title contact-title contact-title contact-title contact-title . . ."
                              "contact-form contact-form contact-form contact-form contact-form contact-form contact-form contact-form contact-form contact-form contact-form contact-form";
+    }
+
+    .toogle-menu {
+        display: none;
+    }
+
+    .navbar__menu {
+        display: block;
     }
 
     .newsletter__content {
@@ -118,20 +130,6 @@
 
     .container {
         width: 960px;
-    }
-
-    .render--column {
-        grid-template-columns: repeat(12, 1fr);
-        grid-template-areas: "logo menu menu menu menu . . . . . . account"
-                             "alert alert alert alert alert alert alert alert alert alert alert alert"
-                             "wrapper wrapper wrapper wrapper wrapper wrapper wrapper wrapper wrapper wrapper wrapper wrapper"
-                             "newsletter newsletter newsletter newsletter newsletter newsletter . . . . . ."
-                             ". . . contact-title contact-title contact-title contact-title contact-title contact-title . . ."
-                             "contact-form contact-form contact-form contact-form contact-form contact-form contact-form contact-form contact-form contact-form contact-form contact-form";
-    }
-
-    .navbar__menu {
-        display: block;
     }
 
     .wrapper__content {
