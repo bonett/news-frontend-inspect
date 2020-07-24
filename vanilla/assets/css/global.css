@@ -187,7 +187,9 @@ label {
 }
 
 .error__message {
+    bottom: -2px;
     display: none;
+    position: absolute;
 }
 
 .error__message--text {
@@ -205,6 +207,7 @@ label {
     flex-direction: column;
     justify-content: center;
     padding: 20px 0;
+    position: relative;
 }
 
 .form-group-input:nth-child(1) {

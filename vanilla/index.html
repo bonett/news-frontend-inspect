@@ -203,23 +203,17 @@
                     <form class="contact-us__form card--border background--white">
                         <div class="form-group-input">
                             <label for="fname" class="input--label color--gray">First name</label>
-                            <input type="text" id="fname" name="fname" onblur="inputFormValidation()" required>
-                            <div class="error__message">
-                                <label for="error" class="error__message--text">Enter a valid firstname</label>
-                            </div>
+                            <input type="text" id="fname" name="fname">
                         </div>
 
                         <div class="form-group-input">
                             <label for="lname" class="input--label color--gray">Last name</label>
-                            <input type="text" id="lname" name="lname" onblur="inputFormValidation()" required>
-                            <div class="error__message">
-                                <label for="error" class="error__message--text">Enter a valid lastname</label>
-                            </div>
+                            <input type="text" id="lname" name="lname">
                         </div>
 
                         <div class="form-group-input">
                             <label for="email" class="input--label color--gray">Email</label>
-                            <input type="email" id="email" name="email" onblur="inputFormValidation()" required>
+                            <input type="email" id="email" name="email" onkeydown="emailValidation()" class="validate">
                             <div class="error__message">
                                 <label for="error" class="error__message--text">Enter a valid email</label>
                             </div>
@@ -227,7 +221,7 @@
 
                         <div class="form-group-input">
                             <label for="pnumber" class="input--label color--gray">Phone number</label>
-                            <input type="number" id="pnumber" name="pnumber" onblur="inputFormValidation()" required>
+                            <input type="number" id="pnumber" name="pnumber" onkeydown="phoneNumberValidation()" class="validate">
                             <div class="error__message">
                                 <label for="error" class="error__message--text">Enter a valid phone number, 10 digits</label>
                             </div>
@@ -235,10 +229,7 @@
 
                         <div class="form-group-area">
                             <label for="message" class="input--label color--gray">Message</label>
-                            <textarea name="message" id="message" cols="30" rows="10" onblur="inputFormValidation()" required></textarea>
-                            <div class="error__message">
-                                <label for="error" class="error__message--text">Enter a valid message, 10 characters minimum</label>
-                            </div>
+                            <textarea name="message" id="message" cols="30" rows="10"></textarea>
                         </div>
 
                         <div class="form-group-checkbox">
@@ -248,7 +239,7 @@
                         </div>
 
                         <div class="form-group-button">
-                            <button type="submit" onclick="sendEmail()" id="submit-form" class="button color--white button--primary" disabled="disabled">Submit form</button>
+                            <button type="submit" onclick="sendMessage()" id="submit-form" class="button color--white button--primary" disabled="disabled">Submit form</button>
                         </div>
                     </form>
                 </div>
