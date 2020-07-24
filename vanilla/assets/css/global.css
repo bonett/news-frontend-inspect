@@ -58,6 +58,10 @@ button {
     cursor: pointer;
 }
 
+button[disabled] {
+    opacity: 0.4;
+}
+
 /* || UTILITIES STYLES */
 
 .container {
@@ -176,6 +180,22 @@ label {
 
 .input--error{
     border: 1px solid rgb(255 0 0 / 35%) !important;
+}
+
+.error__message--show {
+    display: block !important;
+}
+
+.error__message {
+    display: none;
+}
+
+.error__message--text {
+    color: rgb(255 0 0 / 68%) !important;
+    font-size: 12px;
+    font-weight: 300;
+    margin: 0;
+    padding: 0 4px;
 }
 
 .form-group-input,
