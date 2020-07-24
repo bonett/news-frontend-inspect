@@ -1,4 +1,6 @@
-/* || GENERAL STYLES */
+/***********************************
+    GENERAL STYLES
+************************************/
 
 html {
     font-family: 'Open Sans', sans-serif !important;
@@ -8,6 +10,7 @@ body {
     color: #1D2121;
     font-size: 14px;
     line-height: 1.42857143;
+    overflow-x: hidden !important
 }
 
 * {
@@ -169,6 +172,10 @@ label {
     line-height: 18px;
     margin: 4px 0;
     text-transform: lowercase;
+}
+
+.input--error{
+    border: 1px solid rgb(255 0 0 / 35%) !important;
 }
 
 .form-group-input,

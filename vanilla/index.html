@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <!-- Meta Tags - Information -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Wilfrido Bonett Paez">
@@ -10,16 +11,23 @@
     <title>News - FrontEnd training inspection</title>
     <link rel="shortcut icon" href="./assets/img/favicon.ico" type="image/x-icon">
     <link rel="icon" href="./assets/img/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="./assets/css/reset.css">
+    <!-- Open sans by Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap"
         rel="stylesheet">
+    <!-- Font awesome by cdn.js -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Import Css -->
+    <link rel="stylesheet" href="./assets/css/reset.css">
     <link rel="stylesheet" href="./assets/css/global.css">
     <link rel="stylesheet" href="./assets/css/responsive.css">
 </head>
 
 <body onresize="resizeMenu()" class="background--steel">
+
+    <!-- Header -->
     <header class="header">
+
+        <!-- Navigation -->
         <nav class="navbar background--white">
             <div class="container">
                 <div class="navbar__content grid render--column">
@@ -37,8 +45,7 @@
                         <div class="menu__content">
                             <ul>
                                 <li class="dropdown__button menu__item">
-                                    <a class="item--size color--dark">Sections <span
-                                            class="chevron bottom"></span></a>
+                                    <a class="item--size color--dark">Sections <span class="chevron bottom"></span></a>
                                     <ul class="dropdown__list">
                                         <li class="sub__item">
                                             <a href="#" class="sub__item--size color--dark"><i
@@ -79,9 +86,14 @@
                 </div>
             </div>
         </nav>
-    </header>
+        <!-- End Navigation -->
 
+    </header>
+    <!-- End Header -->
+
+    <!-- Main -->
     <main>
+        <!-- Story Section -->
         <section id="stories">
             <div class="container">
                 <div class="grid render--column">
@@ -161,7 +173,9 @@
                 </div>
             </div>
         </section>
+        <!-- End Section -->
 
+        <!-- Newsletter Section -->
         <section id="newsletter" class="newsletter">
             <div class="container">
                 <div class="grid render--column">
@@ -177,7 +191,9 @@
                 </div>
             </div>
         </section>
+        <!-- End Section -->
 
+        <!-- Contact Us Seciton -->
         <section id="contact-us" class="contact-us">
             <div class="container">
                 <div class="contact-us__content grid render--column">
@@ -197,12 +213,12 @@
 
                         <div class="form-group-input">
                             <label for="email" class="input--label color--gray">Email</label>
-                            <input type="email" id="email" name="email">
+                            <input type="email" id="email" name="email" class="validate" required>
                         </div>
 
                         <div class="form-group-input">
                             <label for="pnumber" class="input--label color--gray">Phone number</label>
-                            <input type="number" id="pnumber" name="pnumber">
+                            <input type="number" id="pnumber" name="pnumber" class="validate" required>
                         </div>
 
                         <div class="form-group-area">
@@ -211,21 +227,27 @@
                         </div>
 
                         <div class="form-group-checkbox">
-                            <input type="checkbox" id="accept" name="accept">
+                            <input type="checkbox" id="accept" name="accept" class="validate" required>
                             <label for="accept" class="label--size color--dark">Send me emails about breaking news and
                                 promotions.</label>
                         </div>
 
                         <div class="form-group-button">
-                            <button type="submit" class="button color--white button--primary">Submit form</button>
+                            <button type="submit" class="button color--white button--primary"
+                                onclick="customInputValidation()">Submit form</button>
                         </div>
                     </form>
                 </div>
             </div>
         </section>
+        <!-- End Section -->
     </main>
+    <!-- End Main -->
 
+    <!-- Scripts -->
+    <script src="./assets/js/form-validator.js"></script>
     <script src="./assets/js/app.js"></script>
+    <!-- End Scripts -->
 </body>
 
 </html>
