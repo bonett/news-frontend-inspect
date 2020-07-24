@@ -5,6 +5,9 @@ var dropdownButton  = document.querySelector('.dropdown__button');
 var dropdownSubMenu = document.querySelector(".dropdown__list");
 var isOpen          = false;
 
+/**
+ * resizeMenu allows check screen width of devices
+ */
 function resizeMenu() {
 
     var width = window.innerWidth
@@ -49,6 +52,10 @@ function resizeMenu() {
     dropdownSubMenu.classList.remove("show__menu--mobile");
 }
 
+/**
+ * onLoad functions
+ */
+
 window.onload = function () {
 
     var refOffset    = 0;
@@ -76,6 +83,9 @@ window.onload = function () {
         }
     }
 
+    /**
+     * toogleMenu for mobile devices
+     */
     function toggleMenuIcon() {
 
         isOpen = menuIcon.classList.toggle('active');
@@ -96,10 +106,16 @@ window.onload = function () {
         }
     }
 
+    /**
+     * dialog should be close
+     */
     function closeDialogMessage() {
         dialog.style.display = "none";
     }
 
+    /**
+     * stickyNavigationControl allows set animation with scroll on devices
+     */
     function stickyNavigationControl() {
 
         var newOffset = window.scrollY || window.pageYOffset;

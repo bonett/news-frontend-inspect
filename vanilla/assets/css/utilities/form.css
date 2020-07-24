@@ -1,0 +1,92 @@
+/***********************************
+    FORM & INPUT STYLES
+************************************/
+
+input[type=checkbox] {
+    border: 2px solid #BEC6C6;
+    border-radius: 2px;
+    box-sizing: border-box;
+    height: 21px;
+    width: 21px;
+}
+
+input[type=text],
+input[type=email],
+input[type=number],
+textarea{
+    border: 1px solid #D3DBE7;
+    border-radius: 3px;
+    box-sizing: border-box;
+    color: #7e8b8b;
+    height: 35px;
+    padding: 10px;
+    width: 100%;
+}
+
+textarea {
+    font-family: inherit !important;
+    height: 88px;
+    min-height: 88px;
+    resize: none;
+}
+
+label {
+    letter-spacing: -0.09px;
+    line-height: 22px;
+    margin-left: 6px;
+}
+
+.error__message {
+    bottom: -2px;
+    display: none;
+    position: absolute;
+}
+
+.form-group-input,
+.form-group-area {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px 0;
+    position: relative;
+}
+
+.form-group-input:nth-child(1) {
+    grid-area: form-group-firstname;
+}
+
+.form-group-input:nth-child(2) {
+    grid-area: form-group-lastname;
+}
+
+.form-group-input:nth-child(3) {
+    grid-area: form-group-email;
+}
+
+.form-group-input:nth-child(4) {
+    grid-area: form-group-phone;
+}
+
+.form-group-area {
+    grid-area: form-group-area;
+    padding: 20px 28px;
+}
+
+.form-group-checkbox {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    grid-area: form-group-checkbox;
+    justify-content: flex-start;
+    padding: 20px 28px;
+}
+
+.form-group-button {
+    align-items: center;
+    grid-area: form-button;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 30px 0;
+}

@@ -1,0 +1,65 @@
+/***********************************
+    ALERT STYLES
+************************************/
+.alert {
+    grid-area: alert;
+    margin: 14px 0;
+    padding: 11px 22px;
+}
+
+.alert__content {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-areas: "description description description description description description description description description description description button-close";
+}
+
+.alert__description {
+    grid-area: description;
+    font-size: 14px !important;
+    letter-spacing: -0.08px !important;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 3px 0;
+}
+
+.alert__message--paragraph {
+    font-size: 14px;
+    letter-spacing: -0.08px;
+    line-height: 19px;
+}
+
+.alert__button {
+    align-items: center;
+    grid-area: button-close;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.alert__button--content {
+    align-items: center;
+    border-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+}
+
+.alert__button--size {
+    height: 16px;
+    width: 16px;
+}
+
+.alert__button-text--size {
+    font-size: 18px;
+    height: 11px;
+    left: 7px;
+    top: -3px;
+    width: 1px;
+}

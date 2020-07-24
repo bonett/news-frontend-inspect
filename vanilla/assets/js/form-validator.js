@@ -18,11 +18,17 @@ var dialogClose   = document.getElementsByClassName("dialog--close")[0];
 var emailVerified      = false;
 var phonNumberVerified = false
 
+/**
+ * Shold be close dialog and clear form
+ */
 dialogClose.onclick = function () {
     dialog.style.display = "none";
     clearForm();
 }
 
+/**
+ * Shold be close dialog and clear form when the click is ourside dialog content
+ */
 window.onclick = function (event) {
     if (event.target == dialogClose) {
         dialog.style.display = "none";
@@ -33,7 +39,10 @@ window.onclick = function (event) {
 function formValidations() {
 
     var errorMessage = document.getElementsByClassName("error__message");
-
+    
+    /**
+     * It allows valiate email field
+     */
     if (email.value == "") {
         showErrorMessage(errorMessage[0], inputList[2], !emailVerified);
     } else {
@@ -45,6 +54,9 @@ function formValidations() {
         }
     }
 
+    /**
+     * It allows valiate phone number field
+     */
     if (phoneNumber.value == "") {
         showErrorMessage(errorMessage[1], inputList[3], !phonNumberVerified);
     } else {
@@ -55,6 +67,10 @@ function formValidations() {
             showErrorMessage(errorMessage[1], inputList[3], !phonNumberVerified);
         }
     }
+
+    /**
+     * It allows to show dialog content if the form has been filled
+     */
     if ((emailVerified || phonNumberVerified) === false) {
         return false;
     } else {
@@ -72,7 +88,9 @@ function formValidations() {
         return false
     }
 
-
+    /**
+     * It allows show error message on the inputs
+     */
     function showErrorMessage(error, element, validate) {
         if (validate) {
             element.classList.add('input--error');
@@ -85,6 +103,9 @@ function formValidations() {
 
 };
 
+/**
+ * It allows clear form
+ */
 function clearForm() {
     firstname.value     = "";
     lastname.value      = "";
