@@ -1,9 +1,7 @@
 function customInputValidation() {
 
     var validateElements = document.getElementsByClassName("validate");
-
-    console.log(validateElements)
-
+    var isChecked = termsConditionsChecked();
     var inputs = Array.prototype.filter.call(validateElements,
         (element) => {
             return element.nodeName === 'INPUT';
@@ -19,8 +17,16 @@ function customInputValidation() {
         }
 
         if (input.value.length < 1 && input.id === 'pnumber') {
-            input.placeholder = "Enter a valid phone number";
+            input.placeholder = "Enter value email";
             input.classList.add("input--error");
         }
     }
+
+    if (isChecked) {
+        alert('sent');
+    }
+}
+
+function termsConditionsChecked(input) {
+    return document.getElementById('accept-terms').checked;
 }
