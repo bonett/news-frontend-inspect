@@ -86,7 +86,7 @@
             <div class="container">
                 <div class="grid render--column">
                     <div class="stories__wrapper">
-                        <div class="alert background--light">
+                        <div id="dialog" class="alert background--light">
                             <div class="alert__content">
                                 <div class="alert__description">
                                     <p class="alert__message--paragraph">Welcome to the new look of News.com. Keep
@@ -96,7 +96,7 @@
                                         news.</p>
                                 </div>
                                 <div class="alert__button">
-                                    <button
+                                    <button type="button" id="close-button"
                                         class="alert__button--content alert__button--size color--white item--rounded background--dark">+</button>
                                 </div>
                             </div>
@@ -226,7 +226,7 @@
     </main>
 
     <script>
-        
+
         var isOpen = false;
 
         function handleDeviceControl() {
@@ -240,54 +240,74 @@
             console.log(width);
 
             if (width >= 992 && isOpen) {
+             
                 navbarContent.classList.remove('mobile-menu');
+             
                 document.body.style.overflowY = "scroll";
-                navbarContent.style.height = "0%";
-                navbarContent.style.display = "block";
-            } 
-            
-            if (width <= 991 && isOpen){
+                navbarContent.style.height    = "0%";
+                navbarContent.style.display   = "block";
+            }
+
+            if (width <= 991 && isOpen) {
+                
                 navbarContent.classList.add('mobile-menu');
+
                 document.body.style.overflowY = "none";
-                navbarContent.style.height = "100%";
-                navbarContent.style.display = "block";
+                navbarContent.style.height    = "100%";
+                navbarContent.style.display   = "block";
             }
 
-            if (width >= 992 && !isOpen){
+            if (width >= 992 && !isOpen) {
+                
                 navbarContent.classList.remove('mobile-menu');
+                
                 document.body.style.overflowY = "scroll";
-                navbarContent.style.height = "0%";
-                navbarContent.style.display = "block";
+                navbarContent.style.height    = "0%";
+                navbarContent.style.display   = "block";
             }
 
-            if (width <= 991 && !isOpen){
+            if (width <= 991 && !isOpen) {
+
                 navbarContent.classList.remove('mobile-menu');
+
                 document.body.style.overflowY = "scroll";
-                navbarContent.style.height = "0%";
-                navbarContent.style.display = "none";
+                navbarContent.style.height    = "0%";
+                navbarContent.style.display   = "none";
             }
         }
 
         window.onload = function () {
-            var menuIcon = document.querySelector('.toogle-menu');
+
+            var dialog        = document.getElementById('dialog');
+            var closeDialog   = document.getElementById('close-button');
+            var menuIcon      = document.querySelector('.toogle-menu');
             var navbarContent = document.querySelector('.navbar__menu');
 
+            closeDialog.addEventListener('click', closeDialogMessage);
             menuIcon.addEventListener('click', toggleMenuIcon);
 
             function toggleMenuIcon() {
                 isOpen = menuIcon.classList.toggle('active');
 
                 if (isOpen) {
+
                     navbarContent.classList.add('mobile-menu');
+
                     document.body.style.overflowY = "hidden";
-                    navbarContent.style.display = "block";
-                    navbarContent.style.height = "100%";
+                    navbarContent.style.display   = "block";
+                    navbarContent.style.height    = "100%";
                 } else {
+                    
                     navbarContent.classList.remove('mobile-menu');
+
                     document.body.style.overflowY = "scroll";
-                    navbarContent.style.height = "0%";
-                    navbarContent.style.display = "none";
+                    navbarContent.style.height    = "0%";
+                    navbarContent.style.display   = "none";
                 }
+            }
+
+            function closeDialogMessage() {
+                dialog.style.display = "none";
             }
         }
     </script>
