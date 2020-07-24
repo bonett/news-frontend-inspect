@@ -1,4 +1,4 @@
-var path            = 'https://jsonplaceholder.typicode.com/posts';
+var path            = 'https://jsonplaceholder.typicode.com/posts?length=4';
 var navbar          = document.querySelector('.navbar');
 var navbarContent   = document.querySelector('.navbar__menu');
 var menuContent     = document.querySelector('.menu__content');
@@ -67,24 +67,71 @@ function displayImage() {
     return articleImages[Math.floor(Math.random() * 7)];
 }
 
-/**
- * onLoad functions
- */
-window.onload = function () {
+function createNode(element) {
+    return document.createElement(element);
+}
 
+function append(parent, el) {
+  return parent.appendChild(el);
+}
+
+function onloadData() {
+
+    var wrapper = document.getElementById('wrapper-content');
+
+    fetch(path, {
+        method: "GET",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }
+      })
+    .then(function(response) {
+        return response.json();
+    })
+    .then(function(data) {        
+        data.forEach(function(post) {
+            var article     = createNode('article');
+            var image       = createNode('img');
+            var title       = createNode('h2');
+            var description = createNode('p');
+
+            append(wrapper, article);
+            article.setAttribute("class","wrapper__item");
+
+            image.setAttribute("src", displayImage());
+            image.setAttribute("alt", post.title);
+            append(article, image);
+
+            title.setAttribute("class","color--dark");
+            title.innerHTML = post.title;
+            append(article, title);
+
+            description.setAttribute("class","color--dark");
+            description.innerHTML = post.body;
+            append(article, description);
+        });
+    })
+    .catch(function(error) {
+        console.log(error)
+    });
+}
+
+function loadMainEvent() {
     var refOffset    = 0;
     var navbarheight = 66;
     var dialog       = document.getElementById('dialog');
     var closeDialog  = document.getElementById('close__button');
     var menuIcon     = document.querySelector('.toogle__menu');
+    var loadMore     = document.getElementById('load-more');
 
     closeDialog.addEventListener('click', closeDialogMessage);
     menuIcon.addEventListener('click', toggleMenuIcon);
     dropdownButton.addEventListener('click', handleDropdown);
-
-    getAllData();
-
+    loadMore.addEventListener('click', onloadData);
     window.addEventListener('scroll', stickyNavigationControl, false);
+
+    onloadData(); 
 
     function handleDropdown() {
 
@@ -97,56 +144,6 @@ window.onload = function () {
         } else {
             dropdownSubMenu.classList.toggle("show__menu");
         }
-    }
-
-    function createNode(element) {
-        return document.createElement(element);
-    }
-  
-    function append(parent, el) {
-      return parent.appendChild(el);
-    }
-    
-    function getAllData() {
-
-        var wrapper = document.getElementById('wrapper-content');
-
-        fetch(path, {
-            method: "GET",
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            }
-          })
-        .then(function(response) {
-            return response.json();
-        })
-        .then(function(data) {
-            data.forEach(function(post) {
-                var article     = createNode('article');
-                var image       = createNode('img');
-                var title       = createNode('h2');
-                var description = createNode('p');
-
-                append(wrapper, article);
-                article.setAttribute("class","wrapper__item");
-
-                image.setAttribute("src", displayImage());
-                image.setAttribute("alt", post.title);
-                append(article, image);
-
-                title.setAttribute("class","color--dark");
-                title.innerHTML = post.title;
-                append(article, title);
-
-                description.setAttribute("class","color--dark");
-                description.innerHTML = post.body;
-                append(article, description);
-            });
-        })
-        .catch(function(error) {
-            console.log(error)
-        });
     }
 
     /**
@@ -199,4 +196,11 @@ window.onload = function () {
             dropdownSubMenu.classList.remove("show__menu");
         }
     }
+}
+
+/**
+ * onLoad functions
+ */
+window.onload = function () {
+    loadMainEvent();
 }
