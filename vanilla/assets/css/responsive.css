@@ -1,0 +1,153 @@
+
+@media (min-width: 316px) {
+
+    .render--column {
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-areas: "logo . . . . . . . . . . mobile"
+                             "alert alert alert alert alert alert alert alert alert alert alert alert"
+                             "wrapper wrapper wrapper wrapper wrapper wrapper wrapper wrapper wrapper wrapper wrapper wrapper"
+                             "newsletter newsletter newsletter newsletter newsletter newsletter newsletter newsletter newsletter newsletter newsletter newsletter"
+                             ". . . contact-title contact-title contact-title contact-title contact-title contact-title . . ."
+                             "contact-form contact-form contact-form contact-form contact-form contact-form contact-form contact-form contact-form contact-form contact-form contact-form";
+    }
+
+    .toogle-menu {
+        display: grid;
+    }
+    
+    .navbar__menu {
+        display: none;
+    }
+
+    .form-group-input:nth-child(odd) {
+        padding: 20px 28px;
+    }
+    
+    .form-group-input:nth-child(even) {
+        padding: 20px 28px;
+    }
+
+    .wrapper__item:nth-child(odd) {
+        margin-bottom: 20px;
+        padding: 28px 12px;
+    }
+    
+    .wrapper__item:nth-child(even) {
+        margin-bottom: 20px;
+        padding: 28px 12px;
+    }
+
+    .newsletter__content {
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        height: calc(72vh + 10px);
+        padding: 10px 22px 10px 26px;
+        text-align: center;
+    }
+
+    .contact-us__form {
+        grid-template-areas: "form-group-firstname form-group-firstname form-group-firstname form-group-firstname form-group-firstname form-group-firstname form-group-firstname form-group-firstname form-group-firstname form-group-firstname form-group-firstname form-group-firstname"
+                             "form-group-lastname form-group-lastname form-group-lastname form-group-lastname form-group-lastname form-group-lastname form-group-lastname form-group-lastname form-group-lastname form-group-lastname form-group-lastname form-group-lastname"
+                             "form-group-email form-group-email form-group-email form-group-email form-group-email form-group-email form-group-email form-group-email form-group-email form-group-email form-group-email form-group-email"
+                             "form-group-phone form-group-phone form-group-phone form-group-phone form-group-phone form-group-phone form-group-phone form-group-phone form-group-phone form-group-phone form-group-phone form-group-phone"
+                             "form-group-area form-group-area form-group-area form-group-area form-group-area form-group-area form-group-area form-group-area form-group-area form-group-area form-group-area form-group-area"
+                             "form-group-checkbox form-group-checkbox form-group-checkbox form-group-checkbox form-group-checkbox form-group-checkbox form-group-checkbox form-group-checkbox form-group-checkbox form-group-checkbox form-group-checkbox form-group-checkbox"
+                             "form-button form-button form-button form-button form-button form-button form-button form-button form-button form-button form-button form-button";
+    }
+
+    .label--size {
+        font-size: 13px;
+    }
+}
+
+@media (min-width: 768px) {
+
+    .container {
+        width: 720px;
+    }
+
+    .form-group-input:nth-child(odd) {
+        padding: 20px 42px 20px 28px;
+    }
+    
+    .form-group-input:nth-child(even) {
+        padding: 20px 28px 20px 42px;
+    }
+
+    .wrapper__content {
+        grid-template-columns: auto !important;
+    }
+
+    .contact-us__form {
+        grid-template-areas: "form-group-firstname form-group-firstname form-group-firstname form-group-firstname form-group-firstname form-group-firstname form-group-lastname form-group-lastname form-group-lastname form-group-lastname form-group-lastname form-group-lastname"
+                             "form-group-email form-group-email form-group-email form-group-email form-group-email form-group-email form-group-phone form-group-phone form-group-phone form-group-phone form-group-phone form-group-phone"
+                             "form-group-area form-group-area form-group-area form-group-area form-group-area form-group-area form-group-area form-group-area form-group-area form-group-area form-group-area form-group-area"
+                             "form-group-checkbox form-group-checkbox form-group-checkbox form-group-checkbox form-group-checkbox form-group-checkbox form-group-checkbox form-group-checkbox form-group-checkbox form-group-checkbox form-group-checkbox form-group-checkbox"
+                             "form-button form-button form-button form-button form-button form-button form-button form-button form-button form-button form-button form-button";
+    }
+
+    .label--size {
+        font-size: 16px;
+    }
+}
+
+@media (min-width: 992px) {
+
+    .container {
+        width: 760px;
+    }
+
+    .render--column {
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-areas: "logo menu menu menu menu menu menu menu menu menu menu menu"
+                             "alert alert alert alert alert alert alert alert alert alert alert alert"
+                             "wrapper wrapper wrapper wrapper wrapper wrapper wrapper wrapper wrapper wrapper wrapper wrapper"
+                             "newsletter newsletter newsletter newsletter newsletter newsletter newsletter . . . . ."
+                             ". . . contact-title contact-title contact-title contact-title contact-title contact-title . . ."
+                             "contact-form contact-form contact-form contact-form contact-form contact-form contact-form contact-form contact-form contact-form contact-form contact-form";
+    }
+
+    .toogle-menu {
+        display: none;
+    }
+
+    .navbar__menu {
+        display: block;
+    }
+
+    .newsletter__content {
+        align-items: flex-start;
+        flex-direction: column;
+        justify-content: center;
+        height: calc(72vh + 10px);
+        padding: 10px 22px 10px 26px;
+        text-align: left;
+    }
+}
+
+@media (min-width: 1200px) {
+
+    .container {
+        width: 960px;
+    }
+
+    .wrapper__content {
+        grid-template-columns: auto auto !important;
+    }
+
+    .wrapper__item:nth-child(odd) {
+        margin-bottom: 20px;
+        padding: 28px 37px 30px 18px;
+    }
+    
+    .wrapper__item:nth-child(even) {
+        margin-bottom: 20px;
+        padding: 28px 18px 30px 37px;
+    }
+
+    .newsletter__content {
+        padding: 10px 50px 10px 26px;
+    }
+    
+}
