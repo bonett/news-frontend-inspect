@@ -274,15 +274,32 @@
 
         window.onload = function () {
 
-            var refOffset     = 0;
-            var navbarheight  = 66;
-            var dialog        = document.getElementById('dialog');
-            var closeDialog   = document.getElementById('close__button');
-            var menuIcon      = document.querySelector('.toogle__menu');
+            var refOffset       = 0;
+            var navbarheight    = 66;
+            var dialog          = document.getElementById('dialog');
+            var closeDialog     = document.getElementById('close__button');
+            var menuIcon        = document.querySelector('.toogle__menu');
+            var dropdownButton  = document.querySelector('.dropdown__button');
+            var dropdownSubMenu = document.querySelector(".dropdown__list");
 
             closeDialog.addEventListener('click', closeDialogMessage);
             menuIcon.addEventListener('click', toggleMenuIcon);
-            window.addEventListener('scroll', sitckyNavigationControl, false);
+            dropdownButton.addEventListener('click', handleDropdown);
+            
+            window.addEventListener('scroll', stickyNavigationControl, false);
+            
+            function handleDropdown() {
+
+                var screen = window.innerWidth
+                || document.documentElement.clientWidth
+                || document.body.clientWidth;
+
+                if(screen <= 991) {
+                    dropdownSubMenu.classList.toggle("show__menu--mobile");
+                } else {
+                    dropdownSubMenu.classList.toggle("show__menu");
+                }
+            }
 
             function toggleMenuIcon() {
 
@@ -308,7 +325,7 @@
                 dialog.style.display = "none";
             }
 
-            function sitckyNavigationControl() {
+            function stickyNavigationControl() {
                 
                 var newOffset = window.scrollY || window.pageYOffset;
 

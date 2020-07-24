@@ -370,7 +370,7 @@ label {
 .button--primary:hover {
     background-color: #0050a2;
     border: 1px solid #0050a2;
-    transition: 0.4s all ease;
+    transition: all 400ms ease;
 }
 
 .button--outline {
@@ -384,7 +384,7 @@ label {
     background-color: #ffffff !important;
     border: 1px solid #1D2121 !important;
     color: #1D2121 !important;
-    transition: 0.4s all ease;
+    transition: all 400ms ease;
 }
 
 /* || HEADER AND NAVIGATION */
@@ -397,7 +397,7 @@ label {
     box-shadow: 0.2px 0 2px rgb(0,0,0,0.18);
     height: 66px;
     position: fixed;
-    transition: all 300ms ease-in-out;
+    transition: all 300ms ease;
     top: 0;
     width: 100%;
     z-index: 4;
@@ -449,6 +449,7 @@ label {
     min-width: 160px;
     overflow: auto;
     position: absolute;
+    top: 44px;
     z-index: 1;
 }
 
@@ -463,17 +464,12 @@ label {
 }
 
 .sub__item {
-    border-bottom: 1px solid #e6e6e6 !important;
+    border-bottom: 1px solid #ebebeb;
     width: 100%;
 }
 
 .sub__item:hover {
-    background-color: #e6e6e6 !important;
-}
-
-.dropdown__button:hover .dropdown__list {
-    display: block;
-    transition: 0.4s all ease-in;
+    background-color: #f0f0f0;
 }
 
 .navbar__account {
@@ -510,7 +506,7 @@ label {
 .bar {
     display: block;
     height: 3px;
-    transition: all 0.3s ease-in-out;
+    transition: all 400ms ease;
     width: 60px;
 }
 
@@ -549,14 +545,14 @@ label {
     top: 0;
     left: 0;
     background-color: rgba(255,255,255);
-    transition: 0.1s all ease-in;
+    transition: all 400ms ease;
     z-index: 2;
 }
 
 .mobile__content {
     flex-direction: column !important;
     justify-content: center !important;
-    height: calc(100vh - 32px);
+    height: 100vh;
 }
 
 .mobile__content > ul,
@@ -565,15 +561,28 @@ label {
 }
 
 .mobile__menu .menu__item {
-    margin: 14px 0;
-}
-
-.mobile__menu .item--size {
-    font-size: 28px;
+    margin: 4px 0;
+    text-align: center;
 }
 
 .mobile__menu .chevron::before {
     top: 0.3em !important;
+}
+
+.show__menu {
+    display: block;
+}
+
+.show__menu--mobile {
+    background-color: #f8f8f8;
+    display: block;
+    position: relative;
+    top: 10px;
+    transition: all 400ms ease;
+}
+
+.show__menu .sub__item--size {
+    padding: 8px 12px;
 }
 
 /* || STORIES */

@@ -20,6 +20,10 @@
         padding: 0;
     }
 
+    .mobile__menu .item--size {
+        font-size: 20px;
+    }
+
     .form-group-input:nth-child(odd) {
         padding: 20px 28px;
     }
@@ -70,6 +74,10 @@
 
     .form-group-input:nth-child(odd) {
         padding: 20px 42px 20px 28px;
+    }
+
+    .mobile__menu .item--size {
+        font-size: 26px;
     }
     
     .form-group-input:nth-child(even) {
