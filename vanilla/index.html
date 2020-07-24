@@ -18,8 +18,8 @@
     <link rel="stylesheet" href="./assets/css/responsive.css">
 </head>
 
-<body onresize="handleDeviceControl()" class="background--steel">
-    <header>
+<body onresize="resizeMenu()" class="background--steel">
+    <header class="header">
         <nav class="navbar background--white">
             <div class="container">
                 <div class="navbar__content grid render--column">
@@ -227,49 +227,40 @@
 
     <script>
 
-        var isOpen = false;
+        var navbar        = document.querySelector('.navbar');
+        var navbarContent = document.querySelector('.navbar__menu');
+        var isOpen        = false;
 
-        function handleDeviceControl() {
-
-            var navbarContent = document.querySelector('.navbar__menu');
+        function resizeMenu() {
 
             var width = window.innerWidth
                 || document.documentElement.clientWidth
                 || document.body.clientWidth;
 
-            console.log(width);
-
             if (width >= 992 && isOpen) {
-             
                 navbarContent.classList.remove('mobile-menu');
-             
                 document.body.style.overflowY = "scroll";
+                navbar.style.height           = "initial";
                 navbarContent.style.height    = "0%";
                 navbarContent.style.display   = "block";
             }
 
             if (width <= 991 && isOpen) {
-                
                 navbarContent.classList.add('mobile-menu');
-
                 document.body.style.overflowY = "none";
                 navbarContent.style.height    = "100%";
                 navbarContent.style.display   = "block";
             }
 
             if (width >= 992 && !isOpen) {
-                
                 navbarContent.classList.remove('mobile-menu');
-                
                 document.body.style.overflowY = "scroll";
                 navbarContent.style.height    = "0%";
                 navbarContent.style.display   = "block";
             }
 
             if (width <= 991 && !isOpen) {
-
                 navbarContent.classList.remove('mobile-menu');
-
                 document.body.style.overflowY = "scroll";
                 navbarContent.style.height    = "0%";
                 navbarContent.style.display   = "none";
@@ -278,29 +269,30 @@
 
         window.onload = function () {
 
+            var refOffset     = 0;
+            var navbarheight  = 66;
             var dialog        = document.getElementById('dialog');
             var closeDialog   = document.getElementById('close-button');
             var menuIcon      = document.querySelector('.toogle-menu');
-            var navbarContent = document.querySelector('.navbar__menu');
 
             closeDialog.addEventListener('click', closeDialogMessage);
             menuIcon.addEventListener('click', toggleMenuIcon);
+            window.addEventListener('scroll', sitckyNavigationControl, false);
 
             function toggleMenuIcon() {
+
                 isOpen = menuIcon.classList.toggle('active');
 
                 if (isOpen) {
-
                     navbarContent.classList.add('mobile-menu');
-
                     document.body.style.overflowY = "hidden";
+                    navbar.style.height           = "100%";
                     navbarContent.style.display   = "block";
                     navbarContent.style.height    = "100%";
                 } else {
-                    
                     navbarContent.classList.remove('mobile-menu');
-
                     document.body.style.overflowY = "scroll";
+                    navbar.style.height           = "initial"
                     navbarContent.style.height    = "0%";
                     navbarContent.style.display   = "none";
                 }
@@ -308,6 +300,23 @@
 
             function closeDialogMessage() {
                 dialog.style.display = "none";
+            }
+
+            function sitckyNavigationControl() {
+                
+                var newOffset = window.scrollY || window.pageYOffset;
+
+                if (newOffset > navbarheight) {
+                    if (newOffset > refOffset) {
+                        navbar.classList.remove('animateIn');
+                        navbar.classList.add('animateOut');
+                    } else {
+                        navbar.classList.remove('animateOut');
+                        navbar.classList.add('animateIn');
+                    }
+
+                    refOffset = newOffset;
+                }
             }
         }
     </script>
