@@ -417,7 +417,6 @@ label {
 
 .navbar__menu {
     grid-area: menu;
-    padding: 10px 0 14px 30px;
 }
 
 .menu__content {
