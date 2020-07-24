@@ -29,9 +29,9 @@
                         </a>
                     </div>
                     <div class="toogle__menu">
-                        <span class="bar background--dark"></span>
-                        <span class="bar background--dark"></span>
-                        <span class="bar background--dark"></span>
+                        <span class="bar line-1 background--dark"></span>
+                        <span class="bar line-2 background--dark"></span>
+                        <span class="bar line-3 background--dark"></span>
                     </div>
                     <div class="navbar__menu">
                         <div class="menu__content">
@@ -96,7 +96,7 @@
                                         news.</p>
                                 </div>
                                 <div class="alert__button">
-                                    <button type="button" id="close-button"
+                                    <button type="button" id="close__button"
                                         class="alert__button--content alert__button--size color--white item--rounded background--dark">+</button>
                                 </div>
                             </div>
@@ -244,6 +244,7 @@
                 navbar.style.height           = "initial";
                 navbarContent.style.height    = "0%";
                 navbarContent.style.display   = "block";
+                menuContent.classList.remove('mobile__content');
             }
 
             if (width <= 991 && isOpen) {
@@ -251,6 +252,7 @@
                 document.body.style.overflowY = "none";
                 navbarContent.style.height    = "100%";
                 navbarContent.style.display   = "block";
+                menuContent.classList.add('mobile__content');
             }
 
             if (width >= 992 && !isOpen) {
@@ -258,6 +260,7 @@
                 document.body.style.overflowY = "scroll";
                 navbarContent.style.height    = "0%";
                 navbarContent.style.display   = "block";
+                menuContent.classList.remove('mobile__content');
             }
 
             if (width <= 991 && !isOpen) {
@@ -265,6 +268,7 @@
                 document.body.style.overflowY = "scroll";
                 navbarContent.style.height    = "0%";
                 navbarContent.style.display   = "none";
+                menuContent.classList.add('mobile__content');
             }
         }
 
@@ -273,7 +277,7 @@
             var refOffset     = 0;
             var navbarheight  = 66;
             var dialog        = document.getElementById('dialog');
-            var closeDialog   = document.getElementById('close-button');
+            var closeDialog   = document.getElementById('close__button');
             var menuIcon      = document.querySelector('.toogle__menu');
 
             closeDialog.addEventListener('click', closeDialogMessage);
@@ -290,7 +294,7 @@
                     navbar.style.height           = "100%";
                     navbarContent.style.display   = "block";
                     navbarContent.style.height    = "100%";
-                    menuContent.classList.add('mobile__content')
+                    menuContent.classList.add('mobile__content');
                 } else {
                     navbarContent.classList.remove('mobile__menu');
                     document.body.style.overflowY = "scroll";
