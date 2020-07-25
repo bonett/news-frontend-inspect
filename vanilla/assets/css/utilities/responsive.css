@@ -39,6 +39,10 @@
         padding: 20px 28px;
     }
 
+    .wrapper__content {
+        min-height: 1822px;   
+    }
+
     .wrapper__item:nth-child(odd) {
         margin-bottom: 20px;
         padding: 28px 12px;
@@ -147,6 +151,10 @@
     .navbar__menu {
         display: block;
         padding: 10px 0 14px 30px;
+    }
+
+    .wrapper__content {
+        min-height: 912px;   
     }
 
     .newsletter__content {
