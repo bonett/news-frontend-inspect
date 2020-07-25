@@ -1,4 +1,4 @@
-var path            = 'https://jsonplaceholder.typicode.com/posts?length=4';
+var path            = 'https://jsonplaceholder.typicode.com/posts';
 var navbar          = document.querySelector('.navbar');
 var navbarContent   = document.querySelector('.navbar__menu');
 var menuContent     = document.querySelector('.menu__content');
@@ -6,6 +6,12 @@ var dropdownButton  = document.querySelector('.dropdown__button');
 var dropdownSubMenu = document.querySelector(".dropdown__list");
 var wrapper         = document.getElementById('wrapper-content');
 var isOpen          = false;
+var itemPerPage     = 4;
+var totalPages      = 0;
+var flagScreen;
+var setHeight;
+var initialHeight = 0;
+var autoHeight;
 var articleImages   = [
     "https://images.unsplash.com/photo-1489533119213-66a5cd877091?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1651&q=80",
     "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80",
@@ -16,13 +22,19 @@ var articleImages   = [
     "https://images.unsplash.com/photo-1498019559366-a1cbd07b5160?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1640&q=80",
     "https://images.unsplash.com/photo-1496551572277-76011ca2a6e9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1651&q=80"
 ];
-var flagScreen;
-var setHeight;
-var initialHeight = 0;
-var autoHeight;
 
+function resizeScreenDetect() {
+    return window.innerWidth
+        || document.documentElement.clientWidth
+        || document.body.clientWidth;
+}
+/**
+ * It allows check initial screen width of devices
+ */
 function screenDevice() {
-    if (window.screen.width >= 992){
+    var width = resizeScreenDetect();
+
+    if (width >= 992){
         wrapper.style.height = '912px';
         autoHeight = 912;
         flagScreen = 912;
@@ -32,14 +44,13 @@ function screenDevice() {
         flagScreen = 1822;
     }
 }
+
 /**
- * resizeMenu allows check screen width of devices
+ * resizeMenu allows check screen width of devices if width resized
  */
 function resizeMenu() {
 
-    var width = window.innerWidth
-        || document.documentElement.clientWidth
-        || document.body.clientWidth;
+    var width = resizeScreenDetect();
 
     if (width >= 992 && isOpen) {
         navbarContent.classList.remove('mobile__menu');
@@ -75,16 +86,30 @@ function resizeMenu() {
         dropdownSubMenu.classList.remove("show__menu");
     }
 
+    if (width >= 992) {
+        wrapper.style.height = '912px';
+        autoHeight = 912;
+        flagScreen = 912;
+    } else {
+        wrapper.style.height = '1822px';
+        autoHeight = 1822;
+        flagScreen = 1822;
+    }
+
     dropdownSubMenu.classList.remove("show__menu");
     dropdownSubMenu.classList.remove("show__menu--mobile");
 }
 
 function loadMoreData() {
+    if (totalPages !== 0) {
+        setInterval(setHeightContent, 1);
 
-    setInterval(setHeightContent, 1);
-
-    initialHeight += flagScreen;
-    autoHeight    += flagScreen;
+        initialHeight += flagScreen;
+        autoHeight    += flagScreen;
+        totalPages    -= 1;
+    } else {
+        alert('no stories found');
+    }
 }
 
 function setHeightContent() {
@@ -120,7 +145,8 @@ function onloadData() {
     .then(function(response) {
         return response.json();
     })
-    .then(function(data) {        
+    .then(function(data) {
+        totalPages = data.length / itemPerPage;
         data.forEach(function(post) {
             var article     = createNode('article');
             var image       = createNode('img');
@@ -162,7 +188,7 @@ function loadMainEvent() {
     var dialog       = document.getElementById('dialog');
     var closeDialog  = document.getElementById('close__button');
     var menuIcon     = document.querySelector('.toogle__menu');
-    var loadMore     = document.getElementById('load-more');
+    var loadMore        = document.getElementById('load-more');
 
     closeDialog.addEventListener('click', closeDialogMessage);
     menuIcon.addEventListener('click', toggleMenuIcon);
