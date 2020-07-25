@@ -6,6 +6,7 @@ var dropdownButton  = document.querySelector('.dropdown__button');
 var dropdownSubMenu = document.querySelector(".dropdown__list");
 var wrapper         = document.getElementById('wrapper-content');
 var skeletonLoader  = document.querySelectorAll('.skeleton');
+var loadMore        = document.getElementById('load-more');
 var isOpen          = false;
 var itemPerPage     = 4;
 var totalPages      = 0;
@@ -116,7 +117,8 @@ function loadMoreData() {
         autoHeight    += flagScreen;
         totalPages    -= 1;
     } else {
-        alert('no stories found');
+        loadMore.style.pointerEvents = "none";
+        loadMore.style.opacity       = "0.4";
     }
 }
 
@@ -225,12 +227,10 @@ function loadMainEvent() {
     var dialog       = document.getElementById('dialog');
     var closeDialog  = document.getElementById('close__button');
     var menuIcon     = document.querySelector('.toogle__menu');
-    var loadMore        = document.getElementById('load-more');
 
     closeDialog.addEventListener('click', closeDialogMessage);
     menuIcon.addEventListener('click', toggleMenuIcon);
     dropdownButton.addEventListener('click', handleDropdown);
-    loadMore.addEventListener('click', onloadData);
     window.addEventListener('scroll', stickyNavigationControl, false);
 
     onloadData(); 
