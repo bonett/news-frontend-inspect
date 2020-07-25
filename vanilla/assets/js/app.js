@@ -4,6 +4,7 @@ var navbarContent   = document.querySelector('.navbar__menu');
 var menuContent     = document.querySelector('.menu__content');
 var dropdownButton  = document.querySelector('.dropdown__button');
 var dropdownSubMenu = document.querySelector(".dropdown__list");
+var wrapper         = document.getElementById('wrapper-content');
 var isOpen          = false;
 var articleImages   = [
     "https://images.unsplash.com/photo-1489533119213-66a5cd877091?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1651&q=80",
@@ -15,6 +16,11 @@ var articleImages   = [
     "https://images.unsplash.com/photo-1498019559366-a1cbd07b5160?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1640&q=80",
     "https://images.unsplash.com/photo-1496551572277-76011ca2a6e9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1651&q=80"
 ];
+
+
+var ww1 = "";
+var ww2 = 0;
+var autoHeight;
 
 /**
  * resizeMenu allows check screen width of devices
@@ -63,6 +69,20 @@ function resizeMenu() {
     dropdownSubMenu.classList.remove("show__menu--mobile");
 }
 
+function loadMoreData() {
+    autoHeight = setInterval(setHeightContent, 1);
+}
+
+function setHeightContent() {
+
+    ww1 = wrapper.style.height;
+    ww2 = ww1.replace("px", ""); 
+
+    if(parseFloat(ww2) <= 1830){
+        wrapper.style.height = (parseFloat(ww2) + 5) + 'px';
+    }
+}
+
 function displayImage() {
     return articleImages[Math.floor(Math.random() * 7)];
 }
@@ -76,9 +96,6 @@ function append(parent, el) {
 }
 
 function onloadData() {
-
-    var wrapper = document.getElementById('wrapper-content');
-
     fetch(path, {
         method: "GET",
         headers: {
