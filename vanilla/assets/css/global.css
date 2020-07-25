@@ -1,0 +1,286 @@
+@import url('./utilities/reset.css');
+@import url('./utilities/responsive.css');
+@import url('./utilities/alert.css');
+@import url('./utilities/button.css');
+@import url('./utilities/colors.css');
+@import url('./utilities/dialog.css');
+@import url('./utilities/form.css');
+@import url('./utilities/navigation.css');
+@import url('./utilities/loader.css');
+
+/***********************************
+    GENERAL STYLES
+************************************/
+
+html {
+    font-family: 'Open Sans', sans-serif !important;
+}
+
+body {
+    color: #1D2121;
+    font-size: 14px;
+    line-height: 1.42857143;
+    overflow-x: hidden !important
+}
+
+* {
+    outline: none !important;
+    text-decoration: none;
+}
+
+section {
+    height: auto;
+    min-height: 576px;
+    position: relative;
+    z-index: 2;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    letter-spacing: -0.16px;
+    line-height: 41px;
+}
+
+h1 {
+    font-size: 30px;
+}
+
+p {
+    font-size: 16px;
+    letter-spacing: -0.09px;
+    line-height: 22px;
+}
+
+img {
+    height: auto;
+    width: 100%;
+}
+
+ul, li {
+    display: inline;
+}
+
+button {
+    cursor: pointer;
+}
+
+button[disabled] {
+    opacity: 0.4;
+}
+
+.container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.grid {
+    display: grid;
+}
+
+i {
+    margin-right: 4px;
+}
+
+article > img {
+    height: 212px;
+    max-height: 212px;
+    min-height: 212px;
+}
+
+article > h2 {
+    font-size: 21px;
+    font-weight: 600;
+    letter-spacing: -0.11px;
+    line-height: 28px;
+    margin: 18px 0 22px 0;
+    text-transform: lowercase;
+    
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+article > h2::first-letter {
+    text-transform: uppercase !important;
+}
+
+article > p {
+    font-size: 16px;
+    letter-spacing: -0.09px;
+    line-height: 22px;
+}
+
+/***********************************
+    MODIFIERS
+************************************/
+
+.item--rounded {
+    border-radius: 50%;
+}
+
+.render--column {
+    grid-template-columns: repeat(12, 1fr);
+}
+
+.card--border {
+    border-radius: 3px;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.05), 0 2px 4px 0 rgba(0,0,0,0.04);
+}
+
+.animateIn{
+    transform: translateY(0px);
+}
+  
+.animateOut{
+    transform: translateY(-100%);
+}
+
+label::first-letter {
+    text-transform: uppercase !important;
+}
+
+.chevron {
+    margin-right: 4px !important;
+}
+
+.chevron::before {
+    border-color: #1D2121;
+    border-style: solid;
+    border-width: 0.08em 0.08em 0 0;
+    content: '';
+    display: inline-block;
+    height: 0.25em;
+    left: 0.25em;
+    position: relative;
+    top: 0.55em !important;
+    transform: rotate(135deg) !important;
+    vertical-align: top;
+    width: 0.25em;
+}
+
+.chevron.bottom:before {
+	top: 0;
+	transform: rotate(135deg);
+}
+
+.input--label {
+    font-size: 13px;
+    letter-spacing: -0.07px;
+    line-height: 18px;
+    margin: 4px 0;
+    text-transform: lowercase;
+}
+
+.input--error{
+    border: 1px solid rgb(255 0 0 / 35%) !important;
+}
+
+.error__message--show {
+    display: block !important;
+}
+
+.error__message--text {
+    color: rgb(255 0 0 / 68%) !important;
+    font-size: 12px;
+    font-weight: 300;
+    margin: 0;
+    padding: 0 4px;
+}
+
+/***********************************
+    STORIES SECTION
+************************************/
+
+.stories__wrapper {
+    grid-area: wrapper;
+    padding: 14px 0 30px 0;
+}
+
+.wrapper__heading--size {
+    margin: 18px 0 22px 0;
+    text-transform: lowercase;
+}
+
+.wrapper__heading--size::first-letter {
+    text-transform: uppercase !important;
+}
+
+.wrapper__content {
+    display: grid;
+    grid-gap: 0;
+    overflow: hidden;
+    padding: 14px 10px;
+    transition:transform 0.3s ease-out;
+}
+
+.wrapper__button {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 20px 0;
+    padding: 16px 0;
+}
+
+/***********************************
+    MEWSLETTER SECTION
+************************************/
+
+.newsletter {
+    background-image: url(./../img/newsletter.jpg);
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.newsletter__content {
+    display: flex;
+    grid-area: newsletter;
+}
+
+.newsletter__title--size {
+    margin: 0 0 6px 0;
+}
+
+.newsletter__paragraph--size {
+    margin: 6px 0 16px 0;
+}
+
+.newsletter__button--unlog {
+    margin: 26px 0 6px 0;
+}
+
+/***********************************
+    CONTACT US SECTION
+************************************/
+
+.contact-us {
+    padding: 60px 0;
+}
+
+.contact-us__heading {
+    align-items: center;
+    grid-area: contact-title;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.heading--size {
+    font-size: 30px;
+    letter-spacing: -0.16px;
+    line-height: 41px;
+}
+
+.contact-us__form {
+    display: grid;
+    grid-area: contact-form;
+    grid-template-columns: repeat(12, 1fr);
+    margin: 14px 0 40px 0;
+    padding: 12px 0 14px 0;
+}

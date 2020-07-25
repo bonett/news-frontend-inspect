@@ -1,0 +1,45 @@
+/***********************************
+    DIALOG STYLES
+************************************/
+
+.dialog {
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+    display: none;
+    height: 100%;
+    left: 0;
+    overflow: auto;
+    padding-top: 100px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;    
+}
+  
+.dialog__content {
+    background-color: #fefefe;
+    border: 1px solid #888;
+    margin: auto;
+    padding: 20px;
+    width: 80%;
+}
+
+.dialog--close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+  
+.dialog--close:hover,
+.dialog--close:focus {
+    color: #1D2121;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.dialog__message--size {
+    font-size: 16px;
+    font-weight: 300;
+    text-align: center;
+}

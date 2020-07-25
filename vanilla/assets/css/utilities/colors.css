@@ -1,0 +1,50 @@
+/***********************************
+    BACKGROUNDS
+************************************/
+.background--steel {
+    background-color: #f1f4f9;
+}
+
+.background--light {
+    background-color: #DFEFFD;
+}
+
+.background--purple {
+    background-color: #9100AD;
+}
+
+.background--white {
+    background-color: #ffffff;
+}
+
+.background--dark {
+    background-color: #282E2E;
+}
+
+.background--primary {
+    background-color: #0073E9;
+}
+
+/***********************************
+    COLORS STYLES
+************************************/
+
+.color--gray {
+    color: #4B5353;
+}
+
+.color--light {
+    color: #D8D8D8;
+}
+
+.color--white {
+    color: #ffffff;
+}
+
+.color--dark {
+    color: #1D2121;
+}
+
+.text--title {
+    font-size: 30px;
+}
