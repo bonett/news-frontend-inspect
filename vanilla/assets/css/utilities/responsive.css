@@ -1,3 +1,6 @@
+/***********************************
+    RESPONSIVE DEVICES
+************************************/
 
 @media (min-width: 316px) {
 
@@ -11,12 +14,21 @@
                              "contact-form contact-form contact-form contact-form contact-form contact-form contact-form contact-form contact-form contact-form contact-form contact-form";
     }
 
-    .toogle-menu {
+    article {
+        height: 379px !important;
+    }
+    
+    .toogle__menu {
         display: grid;
     }
     
     .navbar__menu {
         display: none;
+        padding: 0;
+    }
+
+    .mobile__menu .item--size {
+        font-size: 20px;
     }
 
     .form-group-input:nth-child(odd) {
@@ -61,6 +73,18 @@
     }
 }
 
+@media (min-width: 480px) {
+    article {
+        height: 379px !important;
+    }
+}
+
+@media (min-width: 560px) {
+    article {
+        height: 379px !important;
+    }
+}
+
 @media (min-width: 768px) {
 
     .container {
@@ -69,6 +93,10 @@
 
     .form-group-input:nth-child(odd) {
         padding: 20px 42px 20px 28px;
+    }
+
+    .mobile__menu .item--size {
+        font-size: 26px;
     }
     
     .form-group-input:nth-child(even) {
@@ -108,12 +136,17 @@
                              "contact-form contact-form contact-form contact-form contact-form contact-form contact-form contact-form contact-form contact-form contact-form contact-form";
     }
 
-    .toogle-menu {
+    article {
+        height: 379px !important;
+    }
+
+    .toogle__menu {
         display: none;
     }
 
     .navbar__menu {
         display: block;
+        padding: 10px 0 14px 30px;
     }
 
     .newsletter__content {
