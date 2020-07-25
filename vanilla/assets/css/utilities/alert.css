@@ -43,23 +43,10 @@
     border-style: none;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    -moz-transform: rotate(45deg);
-    -webkit-transform: rotate(45deg);
-    -o-transform: rotate(45deg);
+    justify-content: center;
 }
 
 .alert__button--size {
     height: 16px;
     width: 16px;
-}
-
-.alert__button-text--size {
-    font-size: 18px;
-    height: 11px;
-    left: 7px;
-    top: -3px;
-    width: 1px;
 }
