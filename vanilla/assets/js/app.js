@@ -5,6 +5,7 @@ var menuContent     = document.querySelector('.menu__content');
 var dropdownButton  = document.querySelector('.dropdown__button');
 var dropdownSubMenu = document.querySelector(".dropdown__list");
 var wrapper         = document.getElementById('wrapper-content');
+var skeletonLoader  = document.querySelectorAll('.skeleton');
 var isOpen          = false;
 var itemPerPage     = 4;
 var totalPages      = 0;
@@ -23,6 +24,9 @@ var articleImages   = [
     "https://images.unsplash.com/photo-1496551572277-76011ca2a6e9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1651&q=80"
 ];
 
+/**
+ * It allows get screen of devices
+ */
 function resizeScreenDetect() {
     return window.innerWidth
         || document.documentElement.clientWidth
@@ -100,6 +104,10 @@ function resizeMenu() {
     dropdownSubMenu.classList.remove("show__menu--mobile");
 }
 
+
+/**
+ * It allows load more data
+ */
 function loadMoreData() {
     if (totalPages !== 0) {
         setInterval(setHeightContent, 1);
@@ -112,6 +120,9 @@ function loadMoreData() {
     }
 }
 
+/**
+ * It allows calculate new height
+ */
 function setHeightContent() {
 
     setHeight = wrapper.style.height;
@@ -122,18 +133,30 @@ function setHeightContent() {
     }
 }
 
+/**
+ * It allows get image for post ramdomly
+ */
 function displayImage() {
     return articleImages[Math.floor(Math.random() * 7)];
 }
 
+/**
+ * It allows create new element
+ */
 function createNode(element) {
     return document.createElement(element);
 }
 
+/**
+ * It allows add child to parent
+ */
 function append(parent, el) {
   return parent.appendChild(el);
 }
 
+/**
+ * It allows get data from API throught FETCH
+ */
 function onloadData() {
     fetch(path, {
         method: "GET",
@@ -176,12 +199,26 @@ function onloadData() {
             }
             append(article, description);
         });
+
+        hiddenSkeleton();
     })
     .catch(function(error) {
         console.log(error)
     });
 }
 
+/**
+ * It allows hidden skeleton loader after get all data
+ */
+function hiddenSkeleton() {
+    for (let index = 0; index < skeletonLoader.length; index++) {
+        skeletonLoader[index].style.display = "none";
+    }
+}
+
+/**
+ * It allows load effects 
+ */
 function loadMainEvent() {
     var refOffset    = 0;
     var navbarheight = 66;
