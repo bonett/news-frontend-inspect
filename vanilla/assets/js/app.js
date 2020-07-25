@@ -16,12 +16,22 @@ var articleImages   = [
     "https://images.unsplash.com/photo-1498019559366-a1cbd07b5160?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1640&q=80",
     "https://images.unsplash.com/photo-1496551572277-76011ca2a6e9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1651&q=80"
 ];
-
-
-var ww1 = "";
-var ww2 = 0;
+var flagScreen;
+var setHeight;
+var initialHeight = 0;
 var autoHeight;
 
+function screenDevice() {
+    if (window.screen.width >= 992){
+        wrapper.style.height = '912px';
+        autoHeight = 912;
+        flagScreen = 912;
+    } else {
+        wrapper.style.height = '1822px';
+        autoHeight = 1822;
+        flagScreen = 1822;
+    }
+}
 /**
  * resizeMenu allows check screen width of devices
  */
@@ -70,16 +80,20 @@ function resizeMenu() {
 }
 
 function loadMoreData() {
-    autoHeight = setInterval(setHeightContent, 1);
+
+    setInterval(setHeightContent, 1);
+
+    initialHeight += flagScreen;
+    autoHeight    += flagScreen;
 }
 
 function setHeightContent() {
 
-    ww1 = wrapper.style.height;
-    ww2 = ww1.replace("px", ""); 
+    setHeight = wrapper.style.height;
+    initialHeight = setHeight.replace("px", ""); 
 
-    if(parseFloat(ww2) <= 1830){
-        wrapper.style.height = (parseFloat(ww2) + 5) + 'px';
+    if (parseFloat(initialHeight) <= autoHeight){
+        wrapper.style.height = (parseFloat(initialHeight) + 5) + 'px';
     }
 }
 
@@ -121,11 +135,19 @@ function onloadData() {
             append(article, image);
 
             title.setAttribute("class","color--dark");
-            title.innerHTML = post.title;
+            if (post.title.length > 60) {
+                title.innerHTML = post.title.substring(1,60) + "...";
+            } else {
+                title.innerHTML = post.title;
+            }
             append(article, title);
 
             description.setAttribute("class","color--dark");
-            description.innerHTML = post.body;
+            if (post.body.length > 140) {
+                description.innerHTML = post.body.substring(1,140) + "...";
+            } else {
+                description.innerHTML = post.body;
+            }
             append(article, description);
         });
     })
@@ -219,5 +241,6 @@ function loadMainEvent() {
  * onLoad functions
  */
 window.onload = function () {
+    screenDevice();
     loadMainEvent();
 }

@@ -14,6 +14,10 @@
                              "contact-form contact-form contact-form contact-form contact-form contact-form contact-form contact-form contact-form contact-form contact-form contact-form";
     }
 
+    article {
+        height: 379px !important;
+    }
+    
     .toogle__menu {
         display: grid;
     }
@@ -118,6 +122,10 @@
                              "newsletter newsletter newsletter newsletter newsletter newsletter newsletter . . . . ."
                              ". . . contact-title contact-title contact-title contact-title contact-title contact-title . . ."
                              "contact-form contact-form contact-form contact-form contact-form contact-form contact-form contact-form contact-form contact-form contact-form contact-form";
+    }
+
+    article {
+        height: 379px !important;
     }
 
     .toogle__menu {

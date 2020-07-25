@@ -28,7 +28,10 @@ body {
 }
 
 section {
-    
+    height: auto;
+    min-height: 576px;
+    position: relative;
+    z-index: 2;
 }
 
 h1,
@@ -96,6 +99,9 @@ article > h2 {
     line-height: 28px;
     margin: 18px 0 22px 0;
     text-transform: lowercase;
+    
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 article > h2::first-letter {
