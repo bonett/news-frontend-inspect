@@ -1,6 +1,7 @@
 /***********************************
     ALERT STYLES
 ************************************/
+
 .alert {
     grid-area: alert;
     margin: 14px 0;
@@ -40,10 +41,15 @@
 
 .alert__button--content {
     align-items: center;
-    border-style: none;
+    cursor: pointer;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
 }
 
 .alert__button--size {
