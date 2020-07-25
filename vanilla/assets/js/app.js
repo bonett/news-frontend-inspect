@@ -3,7 +3,7 @@ var navbar          = document.querySelector('.navbar');
 var navbarContent   = document.querySelector('.navbar__menu');
 var menuContent     = document.querySelector('.menu__content');
 var dropdownButton  = document.querySelector('.dropdown__button');
-var dropdownSubMenu = document.querySelector(".dropdown__list");
+var dropdownSubMenu = document.querySelector('.dropdown__list');
 var wrapper         = document.getElementById('wrapper-content');
 var skeletonLoader  = document.querySelectorAll('.skeleton');
 var loadMore        = document.getElementById('load-more');
@@ -213,7 +213,7 @@ function onloadData() {
  * It allows hidden skeleton loader after get all data
  */
 function hiddenSkeleton() {
-    for (let index = 0; index < skeletonLoader.length; index++) {
+    for (var index = 0; index < skeletonLoader.length; index++) {
         skeletonLoader[index].style.display = "none";
     }
 }

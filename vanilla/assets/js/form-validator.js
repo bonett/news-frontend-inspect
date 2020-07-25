@@ -1,22 +1,18 @@
 
-var emailRegexp       = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-var phoneNumberRegexp = /^\D?(\d{2})\D?\D?(\d{3})\D?(\d{4})$/;
-
-const validateElements = document.getElementsByClassName("validate");
-
-var firstname     = document.getElementById("fname");
-var lastname      = document.getElementById("lname");
-var email         = document.getElementById("email");
-var phoneNumber   = document.getElementById("pnumber");
-var message       = document.getElementById("message");
-var inputList     = document.querySelectorAll('input');
-var acceptTerms   = document.getElementById("accept-terms");
-var dialog        = document.getElementById("myDialog");
-var dialogContent = document.getElementById('response')
-var dialogClose   = document.getElementsByClassName("dialog--close")[0];
-
+var emailRegexp        = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+var phoneNumberRegexp  = /^\D?(\d{2})\D?\D?(\d{3})\D?(\d{4})$/;
+var firstname          = document.getElementById("fname");
+var lastname           = document.getElementById("lname");
+var email              = document.getElementById("email");
+var phoneNumber        = document.getElementById("pnumber");
+var message            = document.getElementById("message");
+var inputList          = document.querySelectorAll('input');
+var acceptTerms        = document.getElementById("accept-terms");
+var dialog             = document.getElementById("myDialog");
+var dialogContent      = document.getElementById('response')
+var dialogClose        = document.getElementsByClassName("dialog--close")[0];
 var emailVerified      = false;
-var phonNumberVerified = false
+var phonNumberVerified = false;
 
 /**
  * Shold be close dialog and clear form
@@ -85,7 +81,7 @@ function formValidations() {
 
         dialogContent.innerHTML = "<pre> Firstname: " + form.firstname + "\n Lastname: " + form.lastname + "\n Email: " + form.email + "\n Phone number: " + form.phoneNumber + "\n Message: " + form.message + "\n send newsletter: " + form.acceptTerms + "</pre>"
         dialog.style.display    = "block";
-        return false
+        return false;
     }
 
     /**
@@ -112,5 +108,5 @@ function clearForm() {
     email.value         = "";
     phoneNumber.value   = "";
     message.value       = "";
-    acceptTerms.checked = false
+    acceptTerms.checked = false;
 }
