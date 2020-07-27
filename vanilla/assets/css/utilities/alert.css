@@ -53,6 +53,13 @@
 }
 
 .alert__button--size {
-    height: 16px;
-    width: 16px;
+    border: none;
+    height: 17px;
+    opacity: 0.8;
+    width: 17px;
+}
+
+.alert__button--size > span {
+    font-size: 18px;
+    height: 20px;
 }

@@ -28,8 +28,8 @@
         <!-- Navigation -->
         <nav class="navbar background--white">
             <div class="container">
-                <div class="navbar__content display--flex flex--row grid render--column">
-                    <div class=" display--flex flex--row navbar__logo">
+                <div class="navbar__content">
+                    <div class=" navbar__logo">
                         <a href="#">
                             <img src="./assets/img/logo.svg" alt="News" class="logo__image--size">
                         </a>
@@ -39,7 +39,7 @@
                         <span class="bar background--dark"></span>
                         <span class="bar background--dark"></span>
                     </div>
-                    <div class="display--flex flex--row navbar__menu">
+                    <div class="navbar__menu">
                         <ul>
                             <li class="dropdown__button menu__item">
                                 <button class="item--size item--dropdown color--dark">Sections <span
@@ -104,9 +104,10 @@
                                         news.</p>
                                 </div>
                                 <div class="alert__button">
-                                    <a id="close__button"
-                                        class="alert__button--content alert__button--size color--white item--rounded background--dark">+
-                                    </a>
+                                    <button id="close__button"
+                                        class="alert__button--content alert__button--size item--rounded background--dark"><span
+                                            class="color--light">+</span>
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -146,16 +147,14 @@
         <!-- Newsletter Section -->
         <section id="newsletter" class="newsletter">
             <div class="container">
-                <div class="grid render--column">
-                    <div class="newsletter__content">
-                        <h2 class="text--title color--white">Subscribe to our newsletter.</h2>
-                        <p class="newsletter__paragraph--size color--white">Subscribe to our newsletter to receive
-                            weekly digests of the best and most
-                            ground-breaking news.
-                            Also receive a discount on your monthly subscription.</p>
-                        <button type="button" id="load-more"
-                            class="newsletter__button--unlog button button--outline color--white">subscribe</button>
-                    </div>
+                <div class="newsletter__content">
+                    <h2 class="newsletter__title--size color--white">Subscribe to our newsletter.</h2>
+                    <p class="newsletter__paragraph--size color--white">Subscribe to our newsletter to receive
+                        weekly digests of the best and most
+                        ground-breaking news.
+                        Also receive a discount on your monthly subscription.</p>
+                    <button type="button" id="load-more"
+                        class="newsletter__button--unlog button button--outline color--white">subscribe</button>
                 </div>
             </div>
         </section>
@@ -229,8 +228,8 @@
     <!-- End Dialog -->
 
     <!-- Scripts -->
-    <script src="./assets/js/form-validator.js"></script>
-    <script src="./assets/js/app.js"></script>
+    <!-- <script src="./assets/js/form-validator.js"></script>
+    <script src="./assets/js/app.js"></script> -->
     <!-- End Scripts -->
 </body>
 

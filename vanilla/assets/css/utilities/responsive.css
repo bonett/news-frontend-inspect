@@ -8,19 +8,18 @@
         grid-template-columns: repeat(12, 1fr);
         grid-template-areas: "alert alert alert alert alert alert alert alert alert alert alert alert"
                              "wrapper wrapper wrapper wrapper wrapper wrapper wrapper wrapper wrapper wrapper wrapper wrapper"
-                             "newsletter newsletter newsletter newsletter newsletter newsletter newsletter newsletter newsletter newsletter newsletter newsletter"
                              ". . . contact-title contact-title contact-title contact-title contact-title contact-title . . ."
                              "contact-form contact-form contact-form contact-form contact-form contact-form contact-form contact-form contact-form contact-form contact-form contact-form";
     }
-
-    article {
-        height: 379px !important;
-    }
     
     .toogle__menu {
-        display: grid;
+       display: grid;
     }
-    
+  
+    .navbar__content {
+        justify-content: space-between;
+    }
+
     .navbar__menu {
         display: none;
         padding: 0;
@@ -54,10 +53,6 @@
 
     .newsletter__content {
         align-items: center;
-        flex-direction: column;
-        justify-content: center;
-        height: calc(72vh + 10px);
-        padding: 10px 22px 10px 26px;
         text-align: center;
     }
 
@@ -77,15 +72,11 @@
 }
 
 @media (min-width: 480px) {
-    article {
-        height: 379px !important;
-    }
+   
 }
 
 @media (min-width: 560px) {
-    article {
-        height: 379px !important;
-    }
+   
 }
 
 @media (min-width: 768px) {
@@ -133,13 +124,12 @@
         grid-template-columns: repeat(12, 1fr);
         grid-template-areas: "alert alert alert alert alert alert alert alert alert alert alert alert"
                              "wrapper wrapper wrapper wrapper wrapper wrapper wrapper wrapper wrapper wrapper wrapper wrapper"
-                             "newsletter newsletter newsletter newsletter newsletter newsletter newsletter . . . . ."
                              ". . . contact-title contact-title contact-title contact-title contact-title contact-title . . ."
                              "contact-form contact-form contact-form contact-form contact-form contact-form contact-form contact-form contact-form contact-form contact-form contact-form";
     }
 
-    article {
-        height: 379px !important;
+    .navbar__content {
+        justify-content: flex-start;
     }
 
     .toogle__menu {
@@ -147,8 +137,7 @@
     }
 
     .navbar__menu {
-        display: block;
-        padding: 10px 0 14px 30px;
+        display: flex;
     }
 
     .wrapper__content {
@@ -157,11 +146,9 @@
 
     .newsletter__content {
         align-items: flex-start;
-        flex-direction: column;
-        justify-content: center;
-        height: calc(72vh + 10px);
-        padding: 10px 22px 10px 26px;
         text-align: left;
+        padding: 0;
+        width: 53%;
     }
 }
 
@@ -186,7 +173,7 @@
     }
 
     .newsletter__content {
-        padding: 10px 50px 10px 26px;
+        width: 42%;
     }
     
 }
