@@ -23,13 +23,13 @@
 <body onresize="resizeMenu()" class="background--steel">
 
     <!-- Header -->
-    <header class="header">
+    <header>
 
         <!-- Navigation -->
         <nav class="navbar background--white">
             <div class="container">
-                <div class="navbar__content grid render--column">
-                    <div class="navbar__logo">
+                <div class="navbar__content display--flex flex--row grid render--column">
+                    <div class=" display--flex flex--row navbar__logo">
                         <a href="#">
                             <img src="./assets/img/logo.svg" alt="News" class="logo__image--size">
                         </a>
@@ -39,46 +39,44 @@
                         <span class="bar background--dark"></span>
                         <span class="bar background--dark"></span>
                     </div>
-                    <div class="navbar__menu">
-                        <div class="menu__content">
-                            <ul>
-                                <li class="dropdown__button menu__item">
-                                    <a class="item--size color--dark">Sections <span class="chevron bottom"></span></a>
-                                    <ul class="dropdown__list">
-                                        <li class="sub__item">
-                                            <a href="#" class="sub__item--size color--dark"><i
-                                                    class="fa fa-motorcycle"></i>
-                                                Sports</a>
-                                        </li>
-                                        <li class="sub__item">
-                                            <a href="#" class="sub__item--size color--dark"><i class="fa fa-home"></i>
-                                                Entertainment</a>
-                                        </li>
-                                        <li class="sub__item">
-                                            <a href="#" class="sub__item--size color--dark"><i class="fa fa-btc"></i>
-                                                Economics</a>
-                                        </li>
-                                        <li class="sub__item">
-                                            <a href="#" class="sub__item--size color--dark"><i class="fa fa-laptop"></i>
-                                                Technology</a>
-                                        </li>
-                                        <li class="sub__item">
-                                            <a href="#" class="sub__item--size color--dark"><i class="fa fa-money"></i>
-                                                Financial</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="menu__item">
-                                    <a href="#" class="item--size color--dark">Editorial</a>
-                                </li>
-                                <li class="menu__item">
-                                    <a href="#" class="item--size color--dark">Contact Us</a>
-                                </li>
-                            </ul>
-                            <div class="navbar__account">
-                                <a href="#"
-                                    class="account__content--size item--rounded color--white background--purple">JS</a>
-                            </div>
+                    <div class="display--flex flex--row navbar__menu">
+                        <ul>
+                            <li class="dropdown__button menu__item">
+                                <button class="item--size item--dropdown color--dark">Sections <span
+                                        class="chevron bottom"></span></button>
+                                <ul class="dropdown__list">
+                                    <li class="sub__item">
+                                        <a href="#" class="sub__item--size color--dark"><i class="fa fa-motorcycle"></i>
+                                            Sports</a>
+                                    </li>
+                                    <li class="sub__item">
+                                        <a href="#" class="sub__item--size color--dark"><i class="fa fa-home"></i>
+                                            Entertainment</a>
+                                    </li>
+                                    <li class="sub__item">
+                                        <a href="#" class="sub__item--size color--dark"><i class="fa fa-btc"></i>
+                                            Economics</a>
+                                    </li>
+                                    <li class="sub__item">
+                                        <a href="#" class="sub__item--size color--dark"><i class="fa fa-laptop"></i>
+                                            Technology</a>
+                                    </li>
+                                    <li class="sub__item">
+                                        <a href="#" class="sub__item--size color--dark"><i class="fa fa-money"></i>
+                                            Financial</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="menu__item">
+                                <a href="#" class="item--size color--dark">Editorial</a>
+                            </li>
+                            <li class="menu__item">
+                                <a href="#" class="item--size color--dark">Contact Us</a>
+                            </li>
+                        </ul>
+                        <div class="navbar__account">
+                            <a href="#"
+                                class="account__content--size item--rounded color--white background--purple">JS</a>
                         </div>
                     </div>
                 </div>
@@ -136,7 +134,8 @@
                             </article>
                         </div>
                         <div class="wrapper__button">
-                            <button id="load-more" type="button" onclick="loadMoreData()" class="button color--white button--primary">View more stories</button>
+                            <button id="load-more" type="button" onclick="loadMoreData()"
+                                class="button color--white button--primary">View more stories</button>
                         </div>
                     </div>
                 </div>

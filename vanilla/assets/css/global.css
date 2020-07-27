@@ -66,6 +66,7 @@ ul, li {
 
 button {
     cursor: pointer;
+    font-size: 14px;
 }
 
 button[disabled] {
@@ -83,14 +84,25 @@ button[disabled] {
     display: grid;
 }
 
+.display--flex {
+    display: flex;
+}
+
+.flex--row {
+    flex-direction: row;
+}
+
+.flex--col {
+    flex-direction: column;
+}
+
 i {
     margin-right: 4px;
 }
 
 article > img {
-    height: 212px;
-    max-height: 212px;
-    min-height: 212px;
+    height: 154px;
+    min-height: 154px;
 }
 
 article > h2 {

@@ -2,12 +2,14 @@
     HEADER & NAVIGATION SECTION
 ************************************/
 
-.header {
+header {
     margin-bottom: 66px;
 }
 
 .navbar {
-    box-shadow: 0.2px 0 2px rgb(0,0,0,0.18);
+    align-items: center;
+    box-shadow: 0 2px 2px rgb(0,0,0,0.18);
+    justify-content: center;
     height: 66px;
     position: fixed;
     transition: all 300ms ease;
@@ -17,7 +19,8 @@
 }
 
 .navbar__logo {
-    grid-area: logo;
+    align-items: center;
+    justify-content: flex-start;
     padding: 10px 0;
     position: relative;
     z-index: 3;
@@ -29,14 +32,9 @@
 }
 
 .navbar__menu {
-    grid-area: menu;
-}
-
-.menu__content {
     align-items: center;
-    display: flex;
-    flex-direction: row;
     justify-content: space-between;
+    width: 100%;
 }
 
 .menu__item {
@@ -45,9 +43,14 @@
 }
 
 .item--size {
-    font-size: 16px;
-    letter-spacing: -0.09px;
-    line-height: 22px;
+    font-size: 16px !important;
+    letter-spacing: -0.09px !important;
+    line-height: 22px !important;
+}
+
+.item--dropdown {
+    background: none;
+    border: none;
 }
 
 .dropdown__button {
@@ -83,14 +86,6 @@
 
 .sub__item:hover {
     background-color: #f0f0f0;
-}
-
-.navbar__account {
-    align-items: center;
-    display: flex;
-    grid-area: account;
-    flex-direction: row;
-    justify-content: flex-end;
 }
 
 .account__content--size {

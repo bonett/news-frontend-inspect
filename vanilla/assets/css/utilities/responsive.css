@@ -6,8 +6,7 @@
 
     .render--column {
         grid-template-columns: repeat(12, 1fr);
-        grid-template-areas: "logo . . . . . . . . . . mobile"
-                             "alert alert alert alert alert alert alert alert alert alert alert alert"
+        grid-template-areas: "alert alert alert alert alert alert alert alert alert alert alert alert"
                              "wrapper wrapper wrapper wrapper wrapper wrapper wrapper wrapper wrapper wrapper wrapper wrapper"
                              "newsletter newsletter newsletter newsletter newsletter newsletter newsletter newsletter newsletter newsletter newsletter newsletter"
                              ". . . contact-title contact-title contact-title contact-title contact-title contact-title . . ."
@@ -132,8 +131,7 @@
 
     .render--column {
         grid-template-columns: repeat(12, 1fr);
-        grid-template-areas: "logo menu menu menu menu menu menu menu menu menu menu menu"
-                             "alert alert alert alert alert alert alert alert alert alert alert alert"
+        grid-template-areas: "alert alert alert alert alert alert alert alert alert alert alert alert"
                              "wrapper wrapper wrapper wrapper wrapper wrapper wrapper wrapper wrapper wrapper wrapper wrapper"
                              "newsletter newsletter newsletter newsletter newsletter newsletter newsletter . . . . ."
                              ". . . contact-title contact-title contact-title contact-title contact-title contact-title . . ."
