@@ -2,7 +2,7 @@
     FORM & INPUT STYLES
 ************************************/
 
-input[type=checkbox] {
+input[type="checkbox"] {
     border: 2px solid #BEC6C6;
     border-radius: 2px;
     box-sizing: border-box;
@@ -10,9 +10,9 @@ input[type=checkbox] {
     width: 21px;
 }
 
-input[type=text],
-input[type=email],
-input[type=number],
+input[type="text"],
+input[type="email"],
+input[type="number"],
 textarea{
     border: 1px solid #D3DBE7;
     border-radius: 3px;

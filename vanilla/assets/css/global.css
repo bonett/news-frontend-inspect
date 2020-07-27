@@ -89,8 +89,10 @@ i {
 }
 
 article > img {
-    height: 154px;
+    height: 100%;
     min-height: 154px;
+    max-width: 100%;
+    width: auto;
 }
 
 article > h2 {
