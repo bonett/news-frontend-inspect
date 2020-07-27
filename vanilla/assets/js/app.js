@@ -1,25 +1,23 @@
 const baseUrl      = 'http://eventregistry.org/api/v1/article/getArticles';
 
-let initialItems = 0,
-    onloadItems  = 4,
-    isOpen       = false,
-    refOffset    = 0,
-    navbarheight = 66,
-    navbar       = document.querySelector('.navbar');
+let initialItems    = 0,
+    onloadItems     = 4,
+    isOpen          = false,
+    refOffset       = 0,
+    navbarheight    = 66,
+    navbar          = document.querySelector('.navbar'),
+    navbarContent   = document.querySelector('.navbar__menu'),
+    menuContent     = document.querySelector('.menu__content'),
+    dropdownSubMenu = document.querySelector('.dropdown__list'),
+    skeletonLoader  = document.querySelectorAll('.skeleton'),
+    wrapper         = document.getElementById('wrapper-content'),
+    loadMore        = document.getElementById('load-more'),
+    menuIcon        = document.querySelector('.toogle__menu'),
+    closeDialog     = document.getElementById('close__button'),
+    dropdownButton  = document.querySelector('.dropdown__button')
+    newOffset       = window.scrollY || window.pageYOffset,
+    screen          = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
 
-/**
- * It allows create new element by ClassName
- */
-const getElementByClassName = (el) => {
-    return document.getElementsByClassName(el);
-}
-
-/**
- * It allows create new element by ID
- */
-const getElementById = (el) => {
-    return document.getElementById(el);
-}
 
 /**
  * It allows create new element
@@ -36,32 +34,10 @@ const append = (parent, el) => {
 }
 
 /**
- * It allows get elements by reference
- */
-const getElementsByQueryName = (el) => {
-    return document.querySelector(el)
-}
-
-/**
- * It allows get screen of devices
- */
-function resizeScreenDetect() {
-    return window.innerWidth
-        || document.documentElement.clientWidth
-        || document.body.clientWidth;
-}
-
-/**
  * resizeMenu allows check screen width of devices if width resized
  */
 function resizeMenu() {
-
-    const width           = resizeScreenDetect(),
-          navbarContent   = getElementsByQueryName('.navbar__menu'),
-          menuContent     = getElementsByQueryName('.menu__content'),
-          dropdownSubMenu = getElementsByQueryName('.dropdown__list');
-
-    if (width >= 992 && isOpen) {
+    if (screen >= 992 && isOpen) {
         navbarContent.classList.remove('mobile__menu');
         document.body.style.overflowY = "scroll";
         navbar.style.height           = "initial";
@@ -70,15 +46,16 @@ function resizeMenu() {
         menuContent.classList.remove('mobile__content');
     }
 
-    if (width <= 991 && isOpen) {
+    if (screen <= 991 && isOpen) {
         navbarContent.classList.add('mobile__menu');
         document.body.style.overflowY = "none";
+        navbarContent.style.height    = "100%";
         navbarContent.style.height    = "100%";
         navbarContent.style.display   = "block";
         menuContent.classList.add('mobile__content');
     }
 
-    if (width >= 992 && !isOpen) {
+    if (screen >= 992 && !isOpen) {
         navbarContent.classList.remove('mobile__menu');
         document.body.style.overflowY = "scroll";
         navbarContent.style.height    = "0%";
@@ -86,7 +63,7 @@ function resizeMenu() {
         menuContent.classList.remove('mobile__content');
     }
 
-    if (width <= 991 && !isOpen) {
+    if (screen <= 991 && !isOpen) {
         navbarContent.classList.remove('mobile__menu');
         document.body.style.overflowY = "scroll";
         navbarContent.style.height    = "0%";
@@ -103,19 +80,12 @@ function resizeMenu() {
  * It allows hidden skeleton loader after get all data
  */
 const hiddenSkeleton = () => {
-
-    const skeletonLoader  = document.querySelectorAll('.skeleton');
-
     for (var index = 0; index < skeletonLoader.length; index++) {
         skeletonLoader[index].style.display = "none";
     }
 }
 
 const handleDropdown = () => {
-
-    const screen          = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth,
-          dropdownSubMenu = getElementsByQueryName('.dropdown__list')
-
     if (screen <= 991) {
         dropdownSubMenu.classList.toggle("show__menu--mobile");
     } else {
@@ -128,9 +98,7 @@ const handleDropdown = () => {
  */
 const toggleMenuIcon = () => {
 
-    const navbarContent = getElementsByQueryName('.navbar__menu'),
-          menuContent   = getElementsByQueryName('.menu__content');
-          isOpen        = menuIcon.classList.toggle('active');
+    isOpen = menuIcon.classList.toggle('active');
 
     if (isOpen) {
         navbarContent.classList.add('mobile__menu');
@@ -152,20 +120,16 @@ const toggleMenuIcon = () => {
  * dialog should be close
  */
 const closeDialogMessage = () => {
-
-    const dialog = getElementById('dialog');
     
-    dialog.style.display = "none";
+    let alert = document.getElementById('dialog');
+
+    alert.style.display = "none";
 }
 
 /**
  * stickyNavigationControl allows set animation with scroll on devices
  */
 const stickyNavigationControl = () => {
-
-    const newOffset       = window.scrollY || window.pageYOffset,
-          dropdownSubMenu = getElementsByQueryName('.dropdown__list');
-
     if (newOffset > navbarheight) {
         if (newOffset > refOffset) {
             navbar.classList.remove('animateIn');
@@ -174,7 +138,6 @@ const stickyNavigationControl = () => {
             navbar.classList.remove('animateOut');
             navbar.classList.add('animateIn');
         }
-
         refOffset = newOffset;
         dropdownSubMenu.classList.remove("show__menu");
     }
@@ -222,17 +185,16 @@ const getArticlesFromAPI = async () => {
 const loadArticleByIndex = (data) => {
 
     const list     = data && data.articles,
-          articles = list && list.results,
-          wrapper  = getElementById('wrapper-content');
+          articles = list && list.results;
 
     if (onloadItems <= articles.length) {
         for (let index = initialItems; index < articles.length && index < onloadItems; index++) {
-            const article     = createNode('article'),
-                  picture     = createNode('picture'),
-                  image       = createNode('img'),
-                  description = createNode('div'),
-                  title       = createNode('h2'),
-                  paragraph   = createNode('p');
+            let article     = createNode('article'),
+                picture     = createNode('picture'),
+                image       = createNode('img'),
+                description = createNode('div'),
+                title       = createNode('h2'),
+                paragraph   = createNode('p');
     
             append(wrapper, article);
             article.setAttribute("class", "wrapper__item");
@@ -270,9 +232,6 @@ const loadArticleByIndex = (data) => {
 }
 
 const disabledOnLoadMoreButton = () => {
-
-    const loadMore = getElementById('load-more');
-
     loadMore.style.pointerEvents = "none";
     loadMore.style.opacity       = "0.4";
 }
@@ -287,29 +246,20 @@ const loadMoreData = () => {
     getArticlesFromAPI();
 }
 
-const setEvents = () => {
-    const loadMore       = getElementById('load-more'),
-          closeDialog    = getElementById('close__button'),
-          menuIcon       = getElementsByQueryName('.toogle__menu'),
-          dropdownButton = getElementsByQueryName('.dropdown__button'),
-          dialog         = getElementById('dialog');
+/**
+ * onLoad functions
+ */
+const main = async () => {
+    getArticlesFromAPI();
+}
+
+window.onload = () => {
 
     loadMore.addEventListener('click', loadMoreData);
     closeDialog.addEventListener('click', closeDialogMessage);
     menuIcon.addEventListener('click', toggleMenuIcon);
     dropdownButton.addEventListener('click', handleDropdown);
-
     window.addEventListener('scroll', stickyNavigationControl, false);
-}
 
-/**
- * onLoad functions
- */
-const main = async () => {
-    setEvents();
-    getArticlesFromAPI();
-}
-
-window.onload = () => {
     main();
 };
