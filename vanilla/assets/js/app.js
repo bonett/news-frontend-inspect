@@ -1,30 +1,46 @@
 const baseUrl      = 'http://eventregistry.org/api/v1/article/getArticles';
 
 let initialItems = 0,
-    onloadItems  = 4;
+    onloadItems  = 4,
+    isOpen       = false,
+    refOffset    = 0,
+    navbarheight = 66,
+    navbar       = document.querySelector('.navbar');
 
+/**
+ * It allows create new element by ClassName
+ */
+const getElementByClassName = (el) => {
+    return document.getElementsByClassName(el);
+}
 
+/**
+ * It allows create new element by ID
+ */
+const getElementById = (el) => {
+    return document.getElementById(el);
+}
 
-var refOffset       = 0;
-var navbarheight    = 66;
-var navbar          = document.querySelector('.navbar');
-var navbarContent   = document.querySelector('.navbar__menu');
-var menuContent     = document.querySelector('.menu__content');
-var dropdownButton  = document.querySelector('.dropdown__button');
-var dropdownSubMenu = document.querySelector('.dropdown__list');
-var wrapper         = document.getElementById('wrapper-content');
-var skeletonLoader  = document.querySelectorAll('.skeleton');
-var dialog          = document.getElementById('dialog');
-var closeDialog     = document.getElementById('close__button');
-var menuIcon        = document.querySelector('.toogle__menu');
-var isOpen          = false;
-var itemPerPage     = 4;
-var totalPages      = 0;
-var flagScreen;
-var setHeight;
-var initialHeight = 0;
-var autoHeight;
+/**
+ * It allows create new element
+ */
+const createNode = (el) => {
+    return document.createElement(el);
+}
 
+/**
+ * It allows add child to parent
+ */
+const append = (parent, el) => {
+    return parent.appendChild(el);
+}
+
+/**
+ * It allows get elements by reference
+ */
+const getElementsByQueryName = (el) => {
+    return document.querySelector(el)
+}
 
 /**
  * It allows get screen of devices
@@ -40,7 +56,10 @@ function resizeScreenDetect() {
  */
 function resizeMenu() {
 
-    var width = resizeScreenDetect();
+    const width           = resizeScreenDetect(),
+          navbarContent   = getElementsByQueryName('.navbar__menu'),
+          menuContent     = getElementsByQueryName('.menu__content'),
+          dropdownSubMenu = getElementsByQueryName('.dropdown__list');
 
     if (width >= 992 && isOpen) {
         navbarContent.classList.remove('mobile__menu');
@@ -76,59 +95,17 @@ function resizeMenu() {
         dropdownSubMenu.classList.remove("show__menu");
     }
 
-    if (width >= 992) {
-        wrapper.style.height = '912px';
-        autoHeight           = 912;
-        flagScreen           = 912;
-    } else {
-        wrapper.style.height = '1822px';
-        autoHeight           = 1822;
-        flagScreen           = 1822;
-    }
-
     dropdownSubMenu.classList.remove("show__menu");
     dropdownSubMenu.classList.remove("show__menu--mobile");
-}
-
-/**
- * It allows calculate new height
- */
-function setHeightContent() {
-
-    setHeight     = wrapper.style.height;
-    initialHeight = setHeight.replace("px", "");
-
-    if (parseFloat(initialHeight) <= autoHeight) {
-        wrapper.style.height = (parseFloat(initialHeight) + 5) + 'px';
-    }
-}
-
-const getElementByClassName = (element) => {
-    return document.getElementsByClassName(element);
-}
-
-const getElementById = (element) => {
-    return document.getElementById(element);
-}
-
-/**
- * It allows create new element
- */
-const createNode = (element) => {
-    return document.createElement(element);
-}
-
-/**
- * It allows add child to parent
- */
-const append = (parent, el) => {
-    return parent.appendChild(el);
 }
 
 /**
  * It allows hidden skeleton loader after get all data
  */
 const hiddenSkeleton = () => {
+
+    const skeletonLoader  = document.querySelectorAll('.skeleton');
+
     for (var index = 0; index < skeletonLoader.length; index++) {
         skeletonLoader[index].style.display = "none";
     }
@@ -136,9 +113,8 @@ const hiddenSkeleton = () => {
 
 const handleDropdown = () => {
 
-    var screen = window.innerWidth
-        || document.documentElement.clientWidth
-        || document.body.clientWidth;
+    const screen          = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth,
+          dropdownSubMenu = getElementsByQueryName('.dropdown__list')
 
     if (screen <= 991) {
         dropdownSubMenu.classList.toggle("show__menu--mobile");
@@ -152,7 +128,9 @@ const handleDropdown = () => {
  */
 const toggleMenuIcon = () => {
 
-    isOpen = menuIcon.classList.toggle('active');
+    const navbarContent = getElementsByQueryName('.navbar__menu'),
+          menuContent   = getElementsByQueryName('.menu__content');
+          isOpen        = menuIcon.classList.toggle('active');
 
     if (isOpen) {
         navbarContent.classList.add('mobile__menu');
@@ -174,6 +152,9 @@ const toggleMenuIcon = () => {
  * dialog should be close
  */
 const closeDialogMessage = () => {
+
+    const dialog = getElementById('dialog');
+    
     dialog.style.display = "none";
 }
 
@@ -182,7 +163,8 @@ const closeDialogMessage = () => {
  */
 const stickyNavigationControl = () => {
 
-    var newOffset = window.scrollY || window.pageYOffset;
+    const newOffset       = window.scrollY || window.pageYOffset,
+          dropdownSubMenu = getElementsByQueryName('.dropdown__list');
 
     if (newOffset > navbarheight) {
         if (newOffset > refOffset) {
@@ -240,12 +222,13 @@ const getArticlesFromAPI = async () => {
 const loadArticleByIndex = (data) => {
 
     const list     = data && data.articles,
-          articles = list && list.results;
+          articles = list && list.results,
+          wrapper  = getElementById('wrapper-content');
 
     if (onloadItems <= articles.length) {
         for (let index = initialItems; index < articles.length && index < onloadItems; index++) {
             const article     = createNode('article'),
-                  media       = createNode('div'),
+                  picture     = createNode('picture'),
                   image       = createNode('img'),
                   description = createNode('div'),
                   title       = createNode('h2'),
@@ -254,12 +237,14 @@ const loadArticleByIndex = (data) => {
             append(wrapper, article);
             article.setAttribute("class", "wrapper__item");
     
-            append(article, media);
+            description.setAttribute("class", "caption background--white");
+            
+            append(article, picture);
             append(article, description);
     
             image.setAttribute("src", articles[index].image);
             image.setAttribute("alt", articles[index].title);
-            append(media, image);
+            append(picture, image);
     
             title.setAttribute("class", "color--dark");
             if (articles[index].title.length > 60) {
@@ -291,6 +276,7 @@ const disabledOnLoadMoreButton = () => {
     loadMore.style.pointerEvents = "none";
     loadMore.style.opacity       = "0.4";
 }
+
 /**
  * It allows load more data
  */
@@ -302,13 +288,17 @@ const loadMoreData = () => {
 }
 
 const setEvents = () => {
-    const loadMore = getElementById('load-more');
+    const loadMore       = getElementById('load-more'),
+          closeDialog    = getElementById('close__button'),
+          menuIcon       = getElementsByQueryName('.toogle__menu'),
+          dropdownButton = getElementsByQueryName('.dropdown__button'),
+          dialog         = getElementById('dialog');
 
     loadMore.addEventListener('click', loadMoreData);
-
     closeDialog.addEventListener('click', closeDialogMessage);
     menuIcon.addEventListener('click', toggleMenuIcon);
     dropdownButton.addEventListener('click', handleDropdown);
+
     window.addEventListener('scroll', stickyNavigationControl, false);
 }
 
