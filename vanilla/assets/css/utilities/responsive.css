@@ -65,10 +65,6 @@
                              "form-group-checkbox form-group-checkbox form-group-checkbox form-group-checkbox form-group-checkbox form-group-checkbox form-group-checkbox form-group-checkbox form-group-checkbox form-group-checkbox form-group-checkbox form-group-checkbox"
                              "form-button form-button form-button form-button form-button form-button form-button form-button form-button form-button form-button form-button";
     }
-
-    .label--size {
-        font-size: 13px;
-    }
 }
 
 @media (min-width: 480px) {
@@ -107,10 +103,6 @@
                              "form-group-area form-group-area form-group-area form-group-area form-group-area form-group-area form-group-area form-group-area form-group-area form-group-area form-group-area form-group-area"
                              "form-group-checkbox form-group-checkbox form-group-checkbox form-group-checkbox form-group-checkbox form-group-checkbox form-group-checkbox form-group-checkbox form-group-checkbox form-group-checkbox form-group-checkbox form-group-checkbox"
                              "form-button form-button form-button form-button form-button form-button form-button form-button form-button form-button form-button form-button";
-    }
-
-    .label--size {
-        font-size: 16px;
     }
 }
 
