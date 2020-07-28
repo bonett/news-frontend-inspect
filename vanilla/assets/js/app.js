@@ -236,7 +236,12 @@ const loadArticleByIndex = (data) => {
             div.setAttribute("class", "picture");
             append(ancor, description);
 
-            image.setAttribute("src", articles[index].image);
+            if(articles[index].image == null){
+                image.setAttribute("src", "http://www.ceramicmarketing.com/wp-content/themes/ceramic/img/no-banner.jpg");
+            } else {
+                image.setAttribute("src", articles[index].image);
+            }
+            
             image.setAttribute("alt", articles[index].title);
             append(div, image);
 
