@@ -1,4 +1,4 @@
-const baseUrl      = 'http://eventregistry.org/api/v1/article/getArticles';
+const baseUrl = 'http://eventregistry.org/api/v1/article/getArticles';
 
 let initialItems    = 0,
     onloadItems     = 4,
@@ -70,7 +70,7 @@ const resizeMenu = () => {
     } else {
         navbarContent.classList.add('mobile__menu');
         dropdownSubMenu.classList.add("show__menu--mobile");
-        navbar.style.display = "none";
+        navbar.style.display          = "none";
         document.body.style.overflowY = "none";
     }
 
@@ -171,18 +171,28 @@ const loadArticleByIndex = (data) => {
 
     if (onloadItems <= articles.length) {
         for (let index = initialItems; index < articles.length && index < onloadItems; index++) {
-            let article     = createNode('article'),
-                ancor       = createNode('a');
+            let container   = createNode('div'),
+                article     = createNode('article'),
+                ancor       = createNode('a'),
                 div         = createNode('div'),
                 image       = createNode('img'),
                 description = createNode('div'),
                 title       = createNode('h2'),
                 paragraph   = createNode('p');
     
-            append(wrapper, article);
-            article.setAttribute("class", "wrapper__item");
-    
-            description.setAttribute("class", "caption background--white");
+            if (index % 2 === 0) {
+                append(wrapper, container);
+                container.setAttribute("class", "wrapper__container");
+                const parent = document.querySelectorAll(".wrapper__container");
+                append(parent[parent.length -1 ], article);
+
+                article.setAttribute("class", "wrapper__item");
+
+            } else {
+                const parent = document.querySelectorAll(".wrapper__container");
+                append(parent[parent.length -1 ], article);
+                article.setAttribute("class", "wrapper__item");
+            }
 
             ancor.setAttribute("href", articles[index].url);
             ancor.setAttribute("target", "_blank");
@@ -198,16 +208,18 @@ const loadArticleByIndex = (data) => {
             append(div, image);
     
             title.setAttribute("class", "color--dark");
-            if (articles[index].title.length > 140) {
-                title.innerHTML = articles[index].title.substring(1, 140) + "...";
+            if (articles[index].title.length > 60) {
+                title.innerHTML = articles[index].title.substring(1, 60) + "...";
             } else {
                 title.innerHTML = articles[index].title;
             }
+
+            description.setAttribute("class", "caption background--white");
             append(description, title);
     
             paragraph.setAttribute("class", "color--dark");
-            if (articles[index].body.length > 216) {
-                paragraph.innerHTML = articles[index].body.substring(1, 216) + "...";
+            if (articles[index].body.length > 200) {
+                paragraph.innerHTML = articles[index].body.substring(1, 200) + "...";
             } else {
                 paragraph.innerHTML = articles[index].body;
             }
