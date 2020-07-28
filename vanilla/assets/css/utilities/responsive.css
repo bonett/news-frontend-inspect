@@ -143,7 +143,9 @@
         grid-template-columns: auto auto !important;
     }
 
-    .wrapper__item{
+    .wrapper__item {
+        height: 338px;
+        min-height: 338px;
         width: 403px;
     }
 
