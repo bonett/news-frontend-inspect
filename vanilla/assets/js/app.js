@@ -7,7 +7,6 @@ let initialItems    = 0,
     navbarheight    = 66,
     navbar          = document.querySelector('.navbar'),
     navbarContent   = document.querySelector('.navbar__menu'),
-    menuContent     = document.querySelector('.menu__content');
     dropdownSubMenu = document.querySelector('.dropdown__list'),
     skeletonLoader  = document.querySelectorAll('.skeleton'),
     wrapper         = document.getElementById('wrapper-content'),
@@ -45,11 +44,8 @@ const toggleMenuIcon = () => {
         document.body.style.overflowY = "hidden";
         navbar.classList.add("full--size");
         navbarContent.style.height = "100%";
-        menuContent.classList.add("mobile__content");
-        dropdownSubMenu.classList.add("show__menu--mobile");
     } else {
         navbarContent.classList.remove('mobile__menu');
-        dropdownSubMenu.classList.remove("show__menu--mobile");
         navbar.classList.remove("full--size");
         document.body.style.overflowY = "scroll";
         navbarContent.style.height    = "0%";
@@ -60,22 +56,39 @@ const toggleMenuIcon = () => {
  * resizeMenu allows check screen width of devices if width resized
  */
 const resizeMenu = () => {
-    if (screen >= 992 || isOpen) {
-        navbarContent.classList.remove('mobile__menu');
-        document.body.style.overflowY = "scroll";
-        navbar.classList.remove("full--size");
-        navbarContent.style.height = "0%";
-        dropdownSubMenu.classList.remove("show__menu--mobile");
-        menuIcon.classList.remove("active");
-    } else {
-        navbarContent.classList.add('mobile__menu');
-        dropdownSubMenu.classList.add("show__menu--mobile");
-        navbar.style.display          = "none";
-        document.body.style.overflowY = "none";
-    }
+    screen = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
 
-    /* dropdownSubMenu.classList.remove("show__menu");
-    dropdownSubMenu.classList.remove("show__menu--mobile"); */
+    if (screen >= 992 && isOpen) {
+        
+        navbar.classList.remove("full--size");
+        document.body.style.overflowY = "scroll";
+        navbarContent.style.height    = "0%";
+        navbarContent.classList.remove('mobile__menu');
+
+    } else if (screen >= 992 && !isOpen)  {
+
+        navbarContent.classList.remove('mobile__menu');
+        dropdownSubMenu.classList.remove("show__menu--mobile");
+        navbar.classList.remove("full--size");
+        document.body.style.overflowY = "scroll";
+
+    } else if (screen < 992 && isOpen)  {
+        
+        navbarContent.classList.add('mobile__menu');
+        document.body.style.overflowY = "hidden";
+        navbar.classList.add("full--size");
+        navbarContent.style.height = "100%";
+        dropdownSubMenu.classList.remove("show__menu--mobile");
+
+    } else if (screen < 992 && !isOpen)  {
+        
+        navbarContent.classList.remove('mobile__menu');
+        dropdownSubMenu.classList.remove("show__menu--mobile");
+        navbar.classList.remove("full--size");
+        document.body.style.overflowY = "scroll";
+        navbarContent.style.height    = "0%";
+        
+    }
 }
 
 /**
