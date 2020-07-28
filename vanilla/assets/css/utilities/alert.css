@@ -41,18 +41,37 @@
 
 .alert__button--content {
     align-items: center;
+    border: none;
+    -moz-border: none;
     cursor: pointer;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    -webkit-transform: rotate(45deg);
-    -moz-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    -o-transform: rotate(45deg);
-    transform: rotate(45deg);
+    opacity: 0.8;
 }
 
 .alert__button--size {
-    height: 16px;
-    width: 16px;
+    height: 17px;
+    width: 17px;
+}
+
+.bar-close {
+    background-color: #D8D8D8;
+    display: block;
+    height: 1.4px;
+}
+
+.bar-close:nth-child(1) {
+    transform-origin: center center;
+    transform: rotate(-45deg) translate(-0.35px, 1px);
+    width: 11px;
+}
+
+.bar-close:nth-child(2) {
+    transform-origin: center center;
+    transform: rotate(45deg) translate(-0.5px, -0.5px);
+    width: 11px;
 }
