@@ -1,6 +1,7 @@
 
 const emailRegexp       = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-      phoneNumberRegexp = /^\D?(\d{2})\D?\D?(\d{3})\D?(\d{4})$/;
+      phoneNumberRegexp = /^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$/,
+      textRegexp       = /^[a-zA-Z._-]{3,}$/;
 
 let firstname          = document.getElementById("fname"),
     lastname           = document.getElementById("lname"),
@@ -46,33 +47,41 @@ const formValidations = () => {
      * It allows valiate firstname field
      */
     if (firstname.value == "") {
-        showErrorMessage(errorMessage[0], inputList[0], !firstnameVerified);
-    } else {
         showErrorMessage(errorMessage[0], inputList[0], firstnameVerified);
-        firstnameVerified = !firstnameVerified;
+    } else {
+        if (textRegexp.test(firstname.value) === false && firstnameVerified === false) {
+            showErrorMessage(errorMessage[0], inputList[0], firstnameVerified);
+        } else {
+            firstnameVerified = true;
+            showErrorMessage(errorMessage[0], inputList[0], firstnameVerified);
+        }
     }
 
      /**
      * It allows valiate lastname field
      */
     if (lastname.value == "") {
-        showErrorMessage(errorMessage[1], inputList[1], !lastnameVerified);
-    } else {
         showErrorMessage(errorMessage[1], inputList[1], lastnameVerified);
-        lastnameVerified = !lastnameVerified;
+    } else {
+        if (textRegexp.test(lastname.value) === false && lastnameVerified === false) {
+            showErrorMessage(errorMessage[1], inputList[1], lastnameVerified);
+        } else {
+            lastnameVerified = true;
+            showErrorMessage(errorMessage[1], inputList[1], lastnameVerified);
+        }
     }
 
     /**
      * It allows valiate email field
      */
     if (email.value == "") {
-        showErrorMessage(errorMessage[2], inputList[2], !emailVerified);
+        showErrorMessage(errorMessage[2], inputList[2], emailVerified);
     } else {
-        if (emailRegexp.test(email) === false) {
+        if (emailRegexp.test(email.value) === false && emailVerified === false) {
             showErrorMessage(errorMessage[2], inputList[2], emailVerified);
-            emailVerified = !emailVerified;
         } else {
-            showErrorMessage(errorMessage[2], inputList[2], !emailVerified);
+            emailVerified = true;
+            showErrorMessage(errorMessage[2], inputList[2], emailVerified);
         }
     }
 
@@ -80,13 +89,13 @@ const formValidations = () => {
      * It allows valiate phone number field
      */
     if (phoneNumber.value == "") {
-        showErrorMessage(errorMessage[3], inputList[3], !phonNumberVerified);
+        showErrorMessage(errorMessage[3], inputList[3], phonNumberVerified);
     } else {
-        if (phoneNumberRegexp.test(email) === false) {
+        if (phoneNumberRegexp.test(phoneNumber.value) === false && phonNumberVerified === false) {
             showErrorMessage(errorMessage[3], inputList[3], phonNumberVerified);
-            phonNumberVerified = !phonNumberVerified;
         } else {
-            showErrorMessage(errorMessage[3], inputList[3], !phonNumberVerified);
+            phonNumberVerified = true;
+            showErrorMessage(errorMessage[3], inputList[3], phonNumberVerified);
         }
     }
 
@@ -94,10 +103,14 @@ const formValidations = () => {
      * It allows valiate message field
      */
     if (message.value == "") {
-        showErrorMessage(errorMessage[4], textarea[0], !messageVerified);
-    } else {
         showErrorMessage(errorMessage[4], textarea[0], messageVerified);
-        messageVerified = !messageVerified;
+    } else {
+        if (textRegexp.test(message.value) === false) {
+            showErrorMessage(errorMessage[4], textarea[0], messageVerified);
+        } else {
+            messageVerified = true;
+            showErrorMessage(errorMessage[4], textarea[0], messageVerified);
+        }
     }
 
      /**
@@ -134,7 +147,7 @@ const formValidations = () => {
  * It allows show error message on the inputs
  */
 const showErrorMessage = (error, element, validate) => {
-    if (validate) {
+    if (!validate) {
         element.classList.add('input--error');
         error.classList.add('error__message--show');
     } else {
