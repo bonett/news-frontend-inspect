@@ -41,25 +41,30 @@
 
 .alert__button--content {
     align-items: center;
+    background: none;
+    border: none;
     cursor: pointer;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    -webkit-transform: rotate(45deg);
-    -moz-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    -o-transform: rotate(45deg);
-    transform: rotate(45deg);
+    padding-right: 0;
+    opacity: 0.8;
 }
 
 .alert__button--size {
     border: none;
-    height: 17px;
-    opacity: 0.8;
-    width: 17px;
+    -moz-border: none;;
 }
 
-.alert__button--size > span {
-    font-size: 18px;
-    height: 20px;
+.alert__button--content > span {
+   height: 15px;
+   -webkit-transform: rotate(45deg);
+   -moz-transform: rotate(45deg);
+   -ms-transform: rotate(45deg);
+   -o-transform: rotate(45deg);
+   transform: rotate(45deg);
+   width: 15px;
 }
