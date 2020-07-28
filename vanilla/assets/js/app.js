@@ -59,35 +59,35 @@ const resizeMenu = () => {
     screen = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
 
     if (screen >= 992 && isOpen) {
-        
+
         navbar.classList.remove("full--size");
         document.body.style.overflowY = "scroll";
         navbarContent.style.height    = "0%";
         navbarContent.classList.remove('mobile__menu');
 
-    } else if (screen >= 992 && !isOpen)  {
+    } else if (screen >= 992 && !isOpen) {
 
         navbarContent.classList.remove('mobile__menu');
         dropdownSubMenu.classList.remove("show__menu--mobile");
         navbar.classList.remove("full--size");
         document.body.style.overflowY = "scroll";
 
-    } else if (screen < 992 && isOpen)  {
-        
+    } else if (screen < 992 && isOpen) {
+
         navbarContent.classList.add('mobile__menu');
         document.body.style.overflowY = "hidden";
         navbar.classList.add("full--size");
         navbarContent.style.height = "100%";
         dropdownSubMenu.classList.remove("show__menu--mobile");
 
-    } else if (screen < 992 && !isOpen)  {
-        
+    } else if (screen < 992 && !isOpen) {
+
         navbarContent.classList.remove('mobile__menu');
         dropdownSubMenu.classList.remove("show__menu--mobile");
         navbar.classList.remove("full--size");
         document.body.style.overflowY = "scroll";
         navbarContent.style.height    = "0%";
-        
+
     }
 }
 
@@ -101,18 +101,38 @@ const hiddenSkeleton = () => {
 }
 
 const handleDropdown = () => {
+    
     if (screen <= 991) {
         dropdownSubMenu.classList.toggle("show__menu--mobile");
-    } else {
-        dropdownSubMenu.classList.toggle("show__menu");
+    } 
+    
+    if (screen > 991) {
+        dropdownSubMenu.classList.toggle("show__menu");            
+    }
+
+    addDisableDropdownMenu();
+}
+
+const addDisableDropdownMenu = () => {
+    document.querySelector("main").addEventListener("click", removeDropdownMenu);
+}
+
+const removeDropdownMenu = () => {
+    if (screen <= 991) {
+        dropdownSubMenu.classList.remove("show__menu--mobile");
+    }
+
+    if (screen >= 992) {
+        dropdownSubMenu.classList.remove("show__menu");        
     }
 }
+
 
 /**
  * dialog should be close
  */
 const closeDialogMessage = () => {
-    
+
     let alert = document.getElementById('dialog');
 
     alert.style.display = "none";
@@ -192,18 +212,18 @@ const loadArticleByIndex = (data) => {
                 description = createNode('div'),
                 title       = createNode('h2'),
                 paragraph   = createNode('p');
-    
+
             if (index % 2 === 0) {
                 append(wrapper, container);
                 container.setAttribute("class", "wrapper__container");
                 const parent = document.querySelectorAll(".wrapper__container");
-                append(parent[parent.length -1 ], article);
+                append(parent[parent.length - 1], article);
 
                 article.setAttribute("class", "wrapper__item");
 
             } else {
                 const parent = document.querySelectorAll(".wrapper__container");
-                append(parent[parent.length -1 ], article);
+                append(parent[parent.length - 1], article);
                 article.setAttribute("class", "wrapper__item");
             }
 
@@ -215,11 +235,11 @@ const loadArticleByIndex = (data) => {
 
             div.setAttribute("class", "picture");
             append(ancor, description);
-    
+
             image.setAttribute("src", articles[index].image);
             image.setAttribute("alt", articles[index].title);
             append(div, image);
-    
+
             title.setAttribute("class", "color--dark");
             if (articles[index].title.length > 60) {
                 title.innerHTML = articles[index].title.substring(1, 60) + "...";
@@ -229,7 +249,7 @@ const loadArticleByIndex = (data) => {
 
             description.setAttribute("class", "caption background--white");
             append(description, title);
-    
+
             paragraph.setAttribute("class", "color--dark");
             if (articles[index].body.length > 200) {
                 paragraph.innerHTML = articles[index].body.substring(1, 200) + "...";
@@ -238,11 +258,12 @@ const loadArticleByIndex = (data) => {
             }
             append(description, paragraph);
         }
-    
+
         if (initialItems >= 4) showLoader.style.display = "none";
 
         hiddenSkeleton();
     } else {
+        showLoader.style.display = "none";
         disabledOnLoadMoreButton();
     }
 }
