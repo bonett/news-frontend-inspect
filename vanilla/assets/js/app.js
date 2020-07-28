@@ -7,7 +7,7 @@ let initialItems    = 0,
     navbarheight    = 66,
     navbar          = document.querySelector('.navbar'),
     navbarContent   = document.querySelector('.navbar__menu'),
-    menuContent     = document.querySelector('.menu__content'),
+    menuContent     = document.querySelector('.menu__content');
     dropdownSubMenu = document.querySelector('.dropdown__list'),
     skeletonLoader  = document.querySelectorAll('.skeleton'),
     wrapper         = document.getElementById('wrapper-content'),
@@ -15,7 +15,6 @@ let initialItems    = 0,
     menuIcon        = document.querySelector('.toogle__menu'),
     closeDialog     = document.getElementById('close__button'),
     dropdownButton  = document.querySelector('.dropdown__button')
-    newOffset       = window.scrollY || window.pageYOffset,
     screen          = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
 
 
@@ -34,46 +33,48 @@ const append = (parent, el) => {
 }
 
 /**
+ * toogleMenu for mobile devices
+ */
+const toggleMenuIcon = () => {
+
+    isOpen = menuIcon.classList.toggle('active');
+
+    if (isOpen) {
+        navbarContent.classList.add('mobile__menu');
+        document.body.style.overflowY = "hidden";
+        navbar.classList.add("full--size");
+        navbarContent.style.height = "100%";
+        menuContent.classList.add("mobile__content");
+        dropdownSubMenu.classList.add("show__menu--mobile");
+    } else {
+        navbarContent.classList.remove('mobile__menu');
+        dropdownSubMenu.classList.remove("show__menu--mobile");
+        navbar.classList.remove("full--size");
+        document.body.style.overflowY = "scroll";
+        navbarContent.style.height    = "0%";
+    }
+}
+
+/**
  * resizeMenu allows check screen width of devices if width resized
  */
-function resizeMenu() {
-    if (screen >= 992 && isOpen) {
+const resizeMenu = () => {
+    if (screen >= 992 || isOpen) {
         navbarContent.classList.remove('mobile__menu');
         document.body.style.overflowY = "scroll";
-        navbar.style.height           = "initial";
-        navbarContent.style.height    = "0%";
-        navbarContent.style.display   = "block";
-        menuContent.classList.remove('mobile__content');
-    }
-
-    if (screen <= 991 && isOpen) {
+        navbar.classList.remove("full--size");
+        navbarContent.style.height = "0%";
+        dropdownSubMenu.classList.remove("show__menu--mobile");
+        menuIcon.classList.remove("active");
+    } else {
         navbarContent.classList.add('mobile__menu');
+        dropdownSubMenu.classList.add("show__menu--mobile");
+        navbar.style.display = "none";
         document.body.style.overflowY = "none";
-        navbarContent.style.height    = "100%";
-        navbarContent.style.height    = "100%";
-        navbarContent.style.display   = "block";
-        menuContent.classList.add('mobile__content');
     }
 
-    if (screen >= 992 && !isOpen) {
-        navbarContent.classList.remove('mobile__menu');
-        document.body.style.overflowY = "scroll";
-        navbarContent.style.height    = "0%";
-        navbarContent.style.display   = "block";
-        menuContent.classList.remove('mobile__content');
-    }
-
-    if (screen <= 991 && !isOpen) {
-        navbarContent.classList.remove('mobile__menu');
-        document.body.style.overflowY = "scroll";
-        navbarContent.style.height    = "0%";
-        navbarContent.style.display   = "none";
-        menuContent.classList.add('mobile__content');
-        dropdownSubMenu.classList.remove("show__menu");
-    }
-
-    dropdownSubMenu.classList.remove("show__menu");
-    dropdownSubMenu.classList.remove("show__menu--mobile");
+    /* dropdownSubMenu.classList.remove("show__menu");
+    dropdownSubMenu.classList.remove("show__menu--mobile"); */
 }
 
 /**
@@ -94,29 +95,6 @@ const handleDropdown = () => {
 }
 
 /**
- * toogleMenu for mobile devices
- */
-const toggleMenuIcon = () => {
-
-    isOpen = menuIcon.classList.toggle('active');
-
-    if (isOpen) {
-        navbarContent.classList.add('mobile__menu');
-        document.body.style.overflowY = "hidden";
-        navbar.style.height           = "100%";
-        navbarContent.style.display   = "block";
-        navbarContent.style.height    = "100%";
-        menuContent.classList.add('mobile__content');
-    } else {
-        navbarContent.classList.remove('mobile__menu');
-        document.body.style.overflowY = "scroll";
-        navbar.style.height           = "initial"
-        navbarContent.style.height    = "0%";
-        navbarContent.style.display   = "none";
-    }
-}
-
-/**
  * dialog should be close
  */
 const closeDialogMessage = () => {
@@ -130,6 +108,9 @@ const closeDialogMessage = () => {
  * stickyNavigationControl allows set animation with scroll on devices
  */
 const stickyNavigationControl = () => {
+
+    let newOffset = window.scrollY || window.pageYOffset;
+
     if (newOffset > navbarheight) {
         if (newOffset > refOffset) {
             navbar.classList.remove('animateIn');
@@ -190,7 +171,8 @@ const loadArticleByIndex = (data) => {
     if (onloadItems <= articles.length) {
         for (let index = initialItems; index < articles.length && index < onloadItems; index++) {
             let article     = createNode('article'),
-                picture     = createNode('picture'),
+                ancor       = createNode('a');
+                div         = createNode('div'),
                 image       = createNode('img'),
                 description = createNode('div'),
                 title       = createNode('h2'),
@@ -200,25 +182,31 @@ const loadArticleByIndex = (data) => {
             article.setAttribute("class", "wrapper__item");
     
             description.setAttribute("class", "caption background--white");
-            
-            append(article, picture);
-            append(article, description);
+
+            ancor.setAttribute("href", articles[index].url);
+            ancor.setAttribute("target", "_blank");
+            append(article, ancor);
+
+            append(ancor, div);
+
+            div.setAttribute("class", "picture");
+            append(ancor, description);
     
             image.setAttribute("src", articles[index].image);
             image.setAttribute("alt", articles[index].title);
-            append(picture, image);
+            append(div, image);
     
             title.setAttribute("class", "color--dark");
-            if (articles[index].title.length > 60) {
-                title.innerHTML = articles[index].title.substring(1, 60) + "...";
+            if (articles[index].title.length > 140) {
+                title.innerHTML = articles[index].title.substring(1, 140) + "...";
             } else {
                 title.innerHTML = articles[index].title;
             }
             append(description, title);
     
             paragraph.setAttribute("class", "color--dark");
-            if (articles[index].body.length > 140) {
-                paragraph.innerHTML = articles[index].body.substring(1, 140) + "...";
+            if (articles[index].body.length > 216) {
+                paragraph.innerHTML = articles[index].body.substring(1, 216) + "...";
             } else {
                 paragraph.innerHTML = articles[index].body;
             }

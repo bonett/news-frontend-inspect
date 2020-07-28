@@ -88,12 +88,14 @@ i {
 }
 
 
-article > picture {
-    max-height: 150px;
+article .picture {
+    height: 152px;
     position: relative;
+    overflow: hidden;
+    text-align: center;
 }
 
-article > picture > img {
+article .picture > img {
     height: auto;
     max-width: 100%;
     width: auto;
