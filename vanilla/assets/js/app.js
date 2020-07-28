@@ -14,7 +14,8 @@ let initialItems    = 0,
     loadMore        = document.getElementById('load-more'),
     menuIcon        = document.querySelector('.toogle__menu'),
     closeDialog     = document.getElementById('close__button'),
-    dropdownButton  = document.querySelector('.dropdown__button')
+    dropdownButton  = document.querySelector('.dropdown__button'),
+    showLoader      = document.getElementById("loader"),
     screen          = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
 
 
@@ -213,6 +214,8 @@ const loadArticleByIndex = (data) => {
             append(description, paragraph);
         }
     
+        if (initialItems >= 4) showLoader.style.display = "none";
+
         hiddenSkeleton();
     } else {
         disabledOnLoadMoreButton();
@@ -230,6 +233,8 @@ const disabledOnLoadMoreButton = () => {
 const loadMoreData = () => {
     initialItems += 4;
     onloadItems  += 4
+
+    if (initialItems >= 4) showLoader.style.display = "block";
 
     getArticlesFromAPI();
 }
