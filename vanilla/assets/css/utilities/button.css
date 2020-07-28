@@ -5,7 +5,11 @@
 .button {
     border-radius: 2px;
     box-sizing: border-box;
+    font-size: 14px;
+    font-weight: 600;
     height: 40px;
+    letter-spacing: -0.08px;
+    line-height: 19px;
     padding: 8px 10px;
     text-transform: lowercase;
     width: 171px;
