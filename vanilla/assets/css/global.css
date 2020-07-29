@@ -189,7 +189,6 @@ label::first-letter {
     height: 0.25em;
     left: 0.25em;
     position: relative;
-    top: 0.45em !important;
     transform: rotate(135deg) !important;
     vertical-align: top;
     width: 0.25em;
