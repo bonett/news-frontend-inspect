@@ -34,7 +34,6 @@ dialogClose.onclick = () => {
 const hiddenDialog = () => {
     dialog.style.display = "none";
     clearForm();
-    document.querySelector("body").removeEventListener("click", hiddenDialog);
 }
 
 /**
@@ -246,4 +245,5 @@ function clearForm() {
     messageVerified     = false;
 
     document.body.style.overflowY = "scroll";
+    document.querySelector("body").removeEventListener("click", hiddenDialog);
 }
