@@ -243,10 +243,6 @@ label::first-letter {
     text-transform: uppercase !important;
 }
 
-.wrapper__content {
-    padding: 0 30px 38px 30px;
-}
-
 .wrapper__button {
     align-items: center;
     display: flex;

@@ -339,6 +339,7 @@ const main = async () => {
  */
 window.onload = () => {
 
+    window.scrollTo(0,0);
     loadMore.addEventListener('click', loadMoreData);
     closeDialog.addEventListener('click', closeDialogMessage);
     menuIcon.addEventListener('click', toggleMenuIcon);

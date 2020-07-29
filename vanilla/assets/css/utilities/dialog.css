@@ -52,9 +52,8 @@
 }
 
 .dialog__message {
-    padding: 20px;
+    padding-bottom: 30px;
     text-align: center;
-    width: 100%;
 }
 
 .dialog__message--size {

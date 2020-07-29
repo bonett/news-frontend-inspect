@@ -202,7 +202,10 @@ const submitForm = () => {
     if ((firstnameVerified && lastnameVerified && emailVerified && phonNumberVerified && messageVerified) === false) {
         return false;
     } else {
-       const form        = {
+
+        document.body.style.overflowY = "hidden";
+
+        const form        = {
                 firstname  : firstname.value,
                 lastname   : lastname.value,
                 email      : email.value,
@@ -240,4 +243,6 @@ function clearForm() {
     emailVerified       = false,
     phonNumberVerified  = false,
     messageVerified     = false;
+
+    document.body.style.overflowY = "scroll";
 }

@@ -26,6 +26,10 @@
         padding: 0;
     }
 
+    .item--size {
+        font-size: 26px;
+    }
+
     .menu__content {
         display: grid;
         text-align: center;
@@ -41,6 +45,10 @@
     
     .form-group-input:nth-child(even) {
         padding: 20px 28px;
+    }
+
+    .wrapper__content {
+        padding: 0 30px;
     }
 
     .wrapper__item{
@@ -134,9 +142,17 @@
         padding: 10px 0 10px 50px;
     }
 
+    .item--size {
+        font-size: 16px;
+    }
+
     .menu__content {
         display: inline;
         text-align: initial;
+    }
+
+    .wrapper__content {
+        padding: 0 30px 38px 30px;
     }
 
     .newsletter__content {
