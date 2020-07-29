@@ -30,6 +30,10 @@
         font-size: 26px;
     }
 
+    .chevron::before {
+        top: 0.25em !important;
+    }
+
     .menu__content {
         display: grid;
         text-align: center;
@@ -140,6 +144,10 @@
         flex-direction: row;
         justify-content: space-between;
         padding: 10px 0 10px 50px;
+    }
+
+    .chevron::before {
+        top: 0.45em !important;
     }
 
     .item--size {
