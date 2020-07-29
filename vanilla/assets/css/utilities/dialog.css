@@ -3,7 +3,6 @@
 ************************************/
 
 .dialog {
-    background-color: rgb(0,0,0);
     background-color: rgba(0,0,0,0.4);
     display: none;
     height: 100%;
@@ -24,18 +23,38 @@
     width: 80%;
 }
 
-.dialog--close {
-    color: #aaaaaa;
+.dialog__close {
+    height: 40px;
+    width: 100%;
+}
+
+.dialog--button {
+    border: none;
     float: right;
     font-size: 28px;
     font-weight: bold;
 }
-  
-.dialog--close:hover,
-.dialog--close:focus {
-    color: #1D2121;
-    cursor: pointer;
-    text-decoration: none;
+
+.large--size {
+    height: 4px;
+}
+
+.large--size:nth-child(1) {
+    transform-origin: center center;
+    transform: rotate(-45deg) translate(-2px, 2px);
+    width: 20px;
+}
+
+.large--size:nth-child(2) {
+    transform-origin: center center;
+    transform: rotate(45deg) translate(-0.5px, -0.5px);
+    width: 20px;
+}
+
+.dialog__message {
+    padding: 20px;
+    text-align: center;
+    width: 100%;
 }
 
 .dialog__message--size {

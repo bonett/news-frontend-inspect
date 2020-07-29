@@ -40,13 +40,17 @@ const toggleMenuIcon = () => {
     isOpen = menuIcon.classList.toggle('active');
 
     if (isOpen) {
-        navbarContent.classList.add('mobile__menu');
-        document.body.style.overflowY = "hidden";
         navbar.classList.add("full--size");
-        navbarContent.style.height = "100%";
+
+        document.body.style.overflowY = "hidden";
+        navbarContent.style.display   = "flex";
+        navbarContent.style.height    = "100vh";
     } else {
-        navbarContent.classList.remove('mobile__menu');
+
+        dropdownSubMenu.classList.remove("show__menu--mobile");
         navbar.classList.remove("full--size");
+
+        navbarContent.style.display   = "none";
         document.body.style.overflowY = "scroll";
         navbarContent.style.height    = "0%";
     }
@@ -56,35 +60,39 @@ const toggleMenuIcon = () => {
  * resizeMenu allows check screen width of devices if width resized
  */
 const resizeMenu = () => {
+
     screen = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
 
     if (screen >= 992 && isOpen) {
-
+        
+        dropdownSubMenu.classList.remove("show__menu--mobile");
         navbar.classList.remove("full--size");
+
+        navbarContent.style.display   = "flex";
         document.body.style.overflowY = "scroll";
         navbarContent.style.height    = "0%";
-        navbarContent.classList.remove('mobile__menu');
 
     } else if (screen >= 992 && !isOpen) {
 
-        navbarContent.classList.remove('mobile__menu');
-        dropdownSubMenu.classList.remove("show__menu--mobile");
         navbar.classList.remove("full--size");
+        navbarContent.style.display   = "flex";
         document.body.style.overflowY = "scroll";
+        navbarContent.style.height    = "0%";
 
     } else if (screen < 992 && isOpen) {
 
-        navbarContent.classList.add('mobile__menu');
-        document.body.style.overflowY = "hidden";
         navbar.classList.add("full--size");
-        navbarContent.style.height = "100%";
-        dropdownSubMenu.classList.remove("show__menu--mobile");
+        navbarContent.style.display   = "flex";
+        document.body.style.overflowY = "hidden";
+        navbarContent.style.height    = "100vh";
 
     } else if (screen < 992 && !isOpen) {
-
-        navbarContent.classList.remove('mobile__menu');
+        
+        dropdownSubMenu.classList.remove("show__menu");
         dropdownSubMenu.classList.remove("show__menu--mobile");
         navbar.classList.remove("full--size");
+
+        navbarContent.style.display   = "none";
         document.body.style.overflowY = "scroll";
         navbarContent.style.height    = "0%";
 
@@ -100,6 +108,9 @@ const hiddenSkeleton = () => {
     }
 }
 
+/**
+ * It allows show menu 
+ */
 const handleDropdown = () => {
     
     if (screen <= 991) {
@@ -113,10 +124,18 @@ const handleDropdown = () => {
     addDisableDropdownMenu();
 }
 
+
+/**
+ * It allows add listener on main when dropdown is open
+ */
 const addDisableDropdownMenu = () => {
     document.querySelector("main").addEventListener("click", removeDropdownMenu);
 }
 
+
+/**
+ * It allows change menu on screen ( mobile or desktop)
+ */
 const removeDropdownMenu = () => {
     if (screen <= 991) {
         dropdownSubMenu.classList.remove("show__menu--mobile");
@@ -158,10 +177,16 @@ const stickyNavigationControl = () => {
     }
 }
 
+/**
+ * It allows get API
+ */
 const getUrlAPI = () => {
     return `${baseUrl}`;
 }
 
+/**
+ * Settings from header
+ */
 const paramsHeader = () => {
     return {
         "query"   : "{\"$query\":{\"categoryUri\":\"dmoz/Health\"}}",
@@ -172,10 +197,14 @@ const paramsHeader = () => {
         "articlesSortBy": "date",
         "articlesCount" : 100,
         "articleBodyLen": -1,
-        "apiKey"        : "65e9cbc8-be98-4b0e-a423-005257373b5f"
+        "apiKey"        : "e2208e9e-ae95-48ad-96db-03e7da0728f7"
     }
 }
 
+
+/**
+ * It allows get all articles from API
+ */
 const getArticlesFromAPI = async () => {
 
     const pathURl = getUrlAPI(),
@@ -197,6 +226,10 @@ const getArticlesFromAPI = async () => {
     loadArticleByIndex(response);
 }
 
+
+/**
+ * It allows draw articles after response
+ */
 const loadArticleByIndex = (data) => {
 
     const list     = data && data.articles,
@@ -206,7 +239,7 @@ const loadArticleByIndex = (data) => {
         for (let index = initialItems; index < articles.length && index < onloadItems; index++) {
             let container   = createNode('div'),
                 article     = createNode('article'),
-                ancor       = createNode('a'),
+                anchor      = createNode('a'),
                 div         = createNode('div'),
                 image       = createNode('img'),
                 description = createNode('div'),
@@ -227,14 +260,14 @@ const loadArticleByIndex = (data) => {
                 article.setAttribute("class", "wrapper__item");
             }
 
-            ancor.setAttribute("href", articles[index].url);
-            ancor.setAttribute("target", "_blank");
-            append(article, ancor);
+            anchor.setAttribute("href", articles[index].url);
+            anchor.setAttribute("target", "_blank");
+            append(article, anchor);
 
-            append(ancor, div);
+            append(anchor, div);
 
             div.setAttribute("class", "picture");
-            append(ancor, description);
+            append(anchor, description);
 
             if(articles[index].image == null){
                 image.setAttribute("src", "http://www.ceramicmarketing.com/wp-content/themes/ceramic/img/no-banner.jpg");
@@ -273,6 +306,9 @@ const loadArticleByIndex = (data) => {
     }
 }
 
+/**
+ * It allows loadmore button
+ */
 const disabledOnLoadMoreButton = () => {
     loadMore.style.pointerEvents = "none";
     loadMore.style.opacity       = "0.4";
@@ -297,6 +333,10 @@ const main = async () => {
     getArticlesFromAPI();
 }
 
+
+/**
+ * Init
+ */
 window.onload = () => {
 
     loadMore.addEventListener('click', loadMoreData);

@@ -38,9 +38,6 @@ header {
 }
 
 .navbar__menu {
-    align-items: center;
-    flex-direction: row;
-    justify-content: space-between;
     width: 100%;
 }
 
