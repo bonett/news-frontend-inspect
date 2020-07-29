@@ -2,27 +2,26 @@
     ALERT STYLES
 ************************************/
 
-.alert {
-    grid-area: alert;
+.alert {    
     margin: 14px 0;
     padding: 11px 22px;
 }
 
 .alert__content {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-template-areas: "description description description description description description description description description description description button-close";
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .alert__description {
-    grid-area: description;
     font-size: 14px !important;
     letter-spacing: -0.08px !important;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
-    padding: 3px 0;
+    padding: 3px 10px 3px 0;
 }
 
 .alert__message--paragraph {
@@ -59,7 +58,6 @@
 }
 
 .bar-close {
-    background-color: #D8D8D8;
     display: block;
     height: 1.4px;
 }
