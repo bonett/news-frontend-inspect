@@ -5,7 +5,7 @@
     <!-- Meta Tags - Information -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> 
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <meta name="author" content="Wilfrido Bonett Paez">
     <meta name="description" content="News is a SPA based on html, css and vanilla">
     <meta name="keywords" content="html5, css, news, frontend, training, landing page">
@@ -93,58 +93,56 @@
         <!-- Story Section -->
         <section id="stories">
             <div class="container">
-                <div class="grid render--column">
-                    <div class="stories__wrapper">
-                        <div id="dialog" class="alert background--light">
-                            <div class="alert__content">
-                                <div class="alert__description">
-                                    <p class="alert__message--paragraph">Welcome to the new look of News.com. Keep
-                                        scrolling to discover
-                                        interesting new features
-                                        and
-                                        news.</p>
-                                </div>
-                                <div class="alert__button">
-                                    <button id="close__button"
-                                        class="alert__button--content alert__button--size item--rounded background--dark">
-                                        <span class="bar-close"></span>
-                                        <span class="bar-close"></span>
-                                    </button>
-                                </div>
+                <div class="stories__wrapper">
+                    <div id="dialog" class="alert background--light">
+                        <div class="alert__content">
+                            <div class="alert__description">
+                                <p class="alert__message--paragraph">Welcome to the new look of News.com. Keep
+                                    scrolling to discover
+                                    interesting new features
+                                    and
+                                    news.</p>
+                            </div>
+                            <div class="alert__button">
+                                <button id="close__button"
+                                    class="alert__button--content alert__button--size item--rounded background--dark">
+                                    <span class="bar-close background--gray"></span>
+                                    <span class="bar-close background--gray"></span>
+                                </button>
                             </div>
                         </div>
-                        <h1 class="wrapper__heading--size">top news</h1>
-                        <div id="wrapper-content" class="wrapper__content card--border background--white">
-                            <div class="wrapper__container skeleton">
-                                <article class="wrapper__item skeleton">
-                                    <span class="skeleton-box" style="width:100%;height:152px;"></span>
-                                    <h2><span class="skeleton-box" style="width:100%;height:48px;"></span></h2>
-                                    <p><span class="skeleton-box" style="width:100%;height:60px;"></span></p>
-                                </article>
-                                <article class="wrapper__item skeleton">
-                                    <span class="skeleton-box" style="width:100%;height:152px;"></span>
-                                    <h2><span class="skeleton-box" style="width:100%;height:48px;"></span></h2>
-                                    <p><span class="skeleton-box" style="width:100%;height:60px;"></span></p>
-                                </article>
-                            </div>
-                            <div class="wrapper__container skeleton">
-                                <article class="wrapper__item skeleton">
-                                    <span class="skeleton-box" style="width:100%;height:152px;"></span>
-                                    <h2><span class="skeleton-box" style="width:100%;height:48px;"></span></h2>
-                                    <p><span class="skeleton-box" style="width:100%;height:60px;"></span></p>
-                                </article>
-                                <article class="wrapper__item skeleton">
-                                    <span class="skeleton-box" style="width:100%;height:152px;"></span>
-                                    <h2><span class="skeleton-box" style="width:100%;height:48px;"></span></h2>
-                                    <p><span class="skeleton-box" style="width:100%;height:60px;"></span></p>
-                                </article>
-                            </div>
+                    </div>
+                    <h1 class="wrapper__heading--size">top news</h1>
+                    <div id="wrapper-content" class="wrapper__content card--border background--white">
+                        <div class="wrapper__container skeleton">
+                            <article class="wrapper__item skeleton">
+                                <span class="skeleton-box" style="width:100%;height:152px;"></span>
+                                <h2><span class="skeleton-box" style="width:100%;height:48px;"></span></h2>
+                                <p><span class="skeleton-box" style="width:100%;height:60px;"></span></p>
+                            </article>
+                            <article class="wrapper__item skeleton">
+                                <span class="skeleton-box" style="width:100%;height:152px;"></span>
+                                <h2><span class="skeleton-box" style="width:100%;height:48px;"></span></h2>
+                                <p><span class="skeleton-box" style="width:100%;height:60px;"></span></p>
+                            </article>
                         </div>
-                        <div class="wrapper__button">
-                            <div id="loader" class="loader"></div>
-                            <button id="load-more" type="button" onclick="loadMoreData()"
-                                class="button color--white button--primary">View more stories</button>
+                        <div class="wrapper__container skeleton">
+                            <article class="wrapper__item skeleton">
+                                <span class="skeleton-box" style="width:100%;height:152px;"></span>
+                                <h2><span class="skeleton-box" style="width:100%;height:48px;"></span></h2>
+                                <p><span class="skeleton-box" style="width:100%;height:60px;"></span></p>
+                            </article>
+                            <article class="wrapper__item skeleton">
+                                <span class="skeleton-box" style="width:100%;height:152px;"></span>
+                                <h2><span class="skeleton-box" style="width:100%;height:48px;"></span></h2>
+                                <p><span class="skeleton-box" style="width:100%;height:60px;"></span></p>
+                            </article>
                         </div>
+                    </div>
+                    <div class="wrapper__button">
+                        <div id="loader" class="loader"></div>
+                        <button id="load-more" type="button" onclick="loadMoreData()"
+                            class="button color--white button--primary">View more stories</button>
                     </div>
                 </div>
             </div>
@@ -160,7 +158,8 @@
                         weekly digests of the best and most
                         ground-breaking news.
                         Also receive a discount on your monthly subscription.</p>
-                    <button type="button" class="newsletter__button--unlog button button--outline color--white">subscribe</button>
+                    <button type="button"
+                        class="newsletter__button--unlog button button--outline color--white">subscribe</button>
                 </div>
             </div>
         </section>
@@ -209,7 +208,8 @@
 
                         <div class="form-group-area">
                             <label for="message" class="input--label color--gray">Message</label>
-                            <textarea name="message" id="message" cols="30" rows="10" data-validation="required"></textarea>
+                            <textarea name="message" id="message" cols="30" rows="10"
+                                data-validation="required"></textarea>
                             <div class="error__message">
                                 <label for="error" class="error__message--text">Enter a valid message</label>
                             </div>
