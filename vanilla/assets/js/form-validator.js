@@ -196,10 +196,22 @@ const showErrorMessage = (error, input) => {
 }
 
 /**
+ * It allows validate blank fields
+ */
+const inputFormValidation = () => {
+   if(!firstnameVerified) showErrorMessage(errorMessage[0], inputList[0]);
+   if(!lastnameVerified) showErrorMessage(errorMessage[1], inputList[1]);
+   if(!emailVerified) showErrorMessage(errorMessage[2], inputList[2]);
+   if(!phonNumberVerified) showErrorMessage(errorMessage[3], inputList[3]);
+   if(!messageVerified) showErrorMessage(errorMessage[4], textarea[0]);
+}
+
+/**
  * It allows to show dialog content if the form has been filled
  */
 const submitForm = () => {
     if ((firstnameVerified && lastnameVerified && emailVerified && phonNumberVerified && messageVerified) === false) {
+        inputFormValidation();
         return false;
     } else {
 
