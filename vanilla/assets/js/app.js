@@ -197,7 +197,7 @@ const paramsHeader = () => {
         "articlesSortBy": "date",
         "articlesCount" : 100,
         "articleBodyLen": -1,
-        "apiKey"        : "65e9cbc8-be98-4b0e-a423-005257373b5f"
+        "apiKey"        : "e2208e9e-ae95-48ad-96db-03e7da0728f7"
     }
 }
 
