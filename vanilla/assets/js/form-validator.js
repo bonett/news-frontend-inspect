@@ -34,6 +34,7 @@ dialogClose.onclick = () => {
 const hiddenDialog = () => {
     dialog.style.display = "none";
     clearForm();
+    document.querySelector("body").removeEventListener("click", hiddenDialog);
 }
 
 /**
