@@ -100,6 +100,9 @@ const hiddenSkeleton = () => {
     }
 }
 
+/**
+ * It allows show menu 
+ */
 const handleDropdown = () => {
     
     if (screen <= 991) {
@@ -113,10 +116,18 @@ const handleDropdown = () => {
     addDisableDropdownMenu();
 }
 
+
+/**
+ * It allows add listener on main when dropdown is open
+ */
 const addDisableDropdownMenu = () => {
     document.querySelector("main").addEventListener("click", removeDropdownMenu);
 }
 
+
+/**
+ * It allows change menu on screen ( mobile or desktop)
+ */
 const removeDropdownMenu = () => {
     if (screen <= 991) {
         dropdownSubMenu.classList.remove("show__menu--mobile");
@@ -158,10 +169,16 @@ const stickyNavigationControl = () => {
     }
 }
 
+/**
+ * It allows get API
+ */
 const getUrlAPI = () => {
     return `${baseUrl}`;
 }
 
+/**
+ * Settings from header
+ */
 const paramsHeader = () => {
     return {
         "query"   : "{\"$query\":{\"categoryUri\":\"dmoz/Health\"}}",
@@ -176,6 +193,10 @@ const paramsHeader = () => {
     }
 }
 
+
+/**
+ * It allows get all articles from API
+ */
 const getArticlesFromAPI = async () => {
 
     const pathURl = getUrlAPI(),
@@ -197,6 +218,10 @@ const getArticlesFromAPI = async () => {
     loadArticleByIndex(response);
 }
 
+
+/**
+ * It allows draw articles after response
+ */
 const loadArticleByIndex = (data) => {
 
     const list     = data && data.articles,
@@ -273,6 +298,9 @@ const loadArticleByIndex = (data) => {
     }
 }
 
+/**
+ * It allows loadmore button
+ */
 const disabledOnLoadMoreButton = () => {
     loadMore.style.pointerEvents = "none";
     loadMore.style.opacity       = "0.4";
@@ -297,6 +325,10 @@ const main = async () => {
     getArticlesFromAPI();
 }
 
+
+/**
+ * Init
+ */
 window.onload = () => {
 
     loadMore.addEventListener('click', loadMoreData);

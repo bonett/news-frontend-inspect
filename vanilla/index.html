@@ -192,10 +192,10 @@
                     <div class="contact-us__heading">
                         <h2 class="heading--size">Contact Us</h2>
                     </div>
-                    <form class="contact-us__form card--border background--white" onsubmit="return formValidations()">
+                    <form class="contact-us__form card--border background--white" onsubmit="return submitForm()">
                         <div class="form-group-input">
                             <label for="fname" class="input--label color--gray">First name</label>
-                            <input type="text" id="fname" name="fname" data-validation="required">
+                            <input type="text" id="fname" name="fname" data-validation="required" onkeyup="formValidations(event)">
                             <div class="error__message">
                                 <label for="error" class="error__message--text">Enter a valid firstname</label>
                             </div>
@@ -203,7 +203,7 @@
 
                         <div class="form-group-input">
                             <label for="lname" class="input--label color--gray">Last name</label>
-                            <input type="text" id="lname" name="lname" data-validation="required">
+                            <input type="text" id="lname" name="lname" data-validation="required" onkeyup="formValidations(event)">
                             <div class="error__message">
                                 <label for="error" class="error__message--text">Enter a valid lastname</label>
                             </div>
@@ -211,7 +211,7 @@
 
                         <div class="form-group-input">
                             <label for="email" class="input--label color--gray">Email</label>
-                            <input type="email" id="email" name="email" data-validation="required">
+                            <input type="email" id="email" name="email" data-validation="required" onkeyup="formValidations(event)">
                             <div class="error__message">
                                 <label for="error" class="error__message--text">Enter a valid email</label>
                             </div>
@@ -219,7 +219,7 @@
 
                         <div class="form-group-input">
                             <label for="pnumber" class="input--label color--gray">Phone number</label>
-                            <input type="number" id="pnumber" name="pnumber" data-validation="required">
+                            <input type="number" id="pnumber" name="pnumber" data-validation="required" onkeyup="formValidations(event)">
                             <div class="error__message">
                                 <label for="error" class="error__message--text">Enter a valid phone number, 10
                                     digits</label>
@@ -229,7 +229,7 @@
                         <div class="form-group-area">
                             <label for="message" class="input--label color--gray">Message</label>
                             <textarea name="message" id="message" cols="30" rows="10"
-                                data-validation="required"></textarea>
+                                data-validation="required" onkeyup="formValidations(event)"></textarea>
                             <div class="error__message">
                                 <label for="error" class="error__message--text">Enter a valid message</label>
                             </div>
@@ -257,8 +257,15 @@
     <!-- Dialog -->
     <div id="myDialog" class="dialog">
         <div class="dialog__content">
-            <button class="dialog--close">&times;</buttton>
-            <p id="response" class="dialog__message--size color--dark"></p>
+            <div class="dialog__close">
+                <button class="dialog--button background--white">
+                    <span class="bar-close large--size background--dark"></span>
+                    <span class="bar-close large--size background--dark"></span>
+                </buttton>
+            </div>
+            <div class="dialog__message">
+                <p id="response" class="dialog__message--size color--dark"></p>
+            </div>
         </div>
     </div>
     <!-- End Dialog -->
