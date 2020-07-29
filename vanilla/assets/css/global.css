@@ -189,7 +189,6 @@ label::first-letter {
     height: 0.25em;
     left: 0.25em;
     position: relative;
-    top: 0.45em !important;
     transform: rotate(135deg) !important;
     vertical-align: top;
     width: 0.25em;
@@ -229,7 +228,8 @@ label::first-letter {
 ************************************/
 
 .stories__wrapper {
-    grid-area: wrapper;
+    display: flex;
+    flex-direction: column;
     padding: 14px 0 30px 0;
 }
 
@@ -240,23 +240,6 @@ label::first-letter {
 
 .wrapper__heading--size::first-letter {
     text-transform: uppercase !important;
-}
-
-.wrapper__content {
-    display: grid;
-    grid-gap: 0;
-    padding: 0 30px;
-}
-
-.wrapper__container {
-    display: flex;
-    flex-direction: column;
-}
-
-.wrapper__container:nth-child(odd) .wrapper__item,
-.wrapper__container:nth-child(even) .wrapper__item {
-    margin-top: 46px;
-    margin-bottom: 48px;
 }
 
 .wrapper__button {

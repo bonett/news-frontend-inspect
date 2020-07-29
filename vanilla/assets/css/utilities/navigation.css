@@ -38,9 +38,6 @@ header {
 }
 
 .navbar__menu {
-    align-items: center;
-    flex-direction: row;
-    justify-content: space-between;
     width: 100%;
 }
 
@@ -50,7 +47,6 @@ header {
 }
 
 .item--size {
-    font-size: 16px;
     letter-spacing: -0.09px !important;
     line-height: 22px !important;
 }
