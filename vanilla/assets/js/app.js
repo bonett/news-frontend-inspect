@@ -206,7 +206,7 @@ const loadArticleByIndex = (data) => {
         for (let index = initialItems; index < articles.length && index < onloadItems; index++) {
             let container   = createNode('div'),
                 article     = createNode('article'),
-                ancor       = createNode('a'),
+                anchor      = createNode('a'),
                 div         = createNode('div'),
                 image       = createNode('img'),
                 description = createNode('div'),
@@ -227,14 +227,14 @@ const loadArticleByIndex = (data) => {
                 article.setAttribute("class", "wrapper__item");
             }
 
-            ancor.setAttribute("href", articles[index].url);
-            ancor.setAttribute("target", "_blank");
-            append(article, ancor);
+            anchor.setAttribute("href", articles[index].url);
+            anchor.setAttribute("target", "_blank");
+            append(article, anchor);
 
-            append(ancor, div);
+            append(anchor, div);
 
             div.setAttribute("class", "picture");
-            append(ancor, description);
+            append(anchor, description);
 
             if(articles[index].image == null){
                 image.setAttribute("src", "http://www.ceramicmarketing.com/wp-content/themes/ceramic/img/no-banner.jpg");
