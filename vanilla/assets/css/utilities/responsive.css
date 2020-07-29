@@ -19,8 +19,16 @@
     }
 
     .navbar__menu {
+        align-items: center;
         display: none;
+        flex-direction: column;
+        justify-content: center;
         padding: 0;
+    }
+
+    .menu__content {
+        display: grid;
+        text-align: center;
     }
 
     .mobile__menu .item--size {
@@ -119,8 +127,16 @@
     }
 
     .navbar__menu {
+        align-items: center;
         display: flex;
+        flex-direction: row;
+        justify-content: space-between;
         padding: 10px 0 10px 50px;
+    }
+
+    .menu__content {
+        display: inline;
+        text-align: initial;
     }
 
     .newsletter__content {
