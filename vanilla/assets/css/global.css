@@ -244,7 +244,7 @@ label::first-letter {
 }
 
 .wrapper__content {
-    padding: 0 30px;
+    padding: 0 30px 38px 30px;
 }
 
 .wrapper__button {
