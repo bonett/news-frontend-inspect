@@ -10,7 +10,7 @@ const ArticleComponent = (props) => {
     const { article } = props;
 
     return (
-        <Col xs={12} sm={12} md={6} lg={6}>
+        <Col xs={12} sm={6} md={6} lg={6}>
             <article>
                 <a href={article.url} target="_blank">
                     <div className="media">

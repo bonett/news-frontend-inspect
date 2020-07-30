@@ -1,0 +1,43 @@
+@import '../../../themes/partials/variables.scss';
+
+.contact-us {
+    padding: 36px 0;
+
+    &__heading {
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin: 20px 0 16px 0 !important;
+    }
+
+    &__content {
+        padding: 0 !important;
+
+        .eui-panel-body {
+            padding: 44px 29px 0 29px !important;
+        }
+
+        .submit {
+            &__form {
+                &__group {
+                    margin-bottom: 44px;
+
+                    &:nth-child(3) {
+                        margin-bottom: 30px !important;
+                    }
+
+                    &:nth-child(4) {
+                        margin-bottom: 34px !important;
+                    }
+
+                    .textarea {
+                        input {
+                            height: 88px !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -16,9 +16,9 @@ import data from '../../../data/static';
 
 const ArticlesComponent = () => {
 
-    const article = data && data.article,
-        alert = data && data.alert,
-        articles = [
+    const article  = data && data.article,
+          alert    = data && data.alert,
+          articles = [
             {
                 id: 0,
                 title: "Atlantci investigate crime syndicate involvement after teens c...",
