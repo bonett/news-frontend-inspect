@@ -1,0 +1,13 @@
+@import './../../themes/variables/colors.scss';
+
+.eui-navbar {
+    align-items: center;
+    background-color: $white;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.18);
+    justify-content: center;
+    height: 66px !important;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 4;
+}

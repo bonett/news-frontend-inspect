@@ -5,7 +5,7 @@ import './style.scss';
 
 const Alert = () => {
   return (
-    <h3>Alert</h3>
+     <h3>Alert</h3>
   );
 }
 
