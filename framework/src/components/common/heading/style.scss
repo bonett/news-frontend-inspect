@@ -1,1 +1,26 @@
 @import '../../../themes/partials/variables.scss';
+
+.size {
+
+    font-size: 8px;
+
+    &--extra-large {
+        font-size: 30px !important;
+    }
+
+    &--large {
+        font-size: 22px !important;
+    }
+
+    &--medium {
+        font-size: 16px !important;
+    }
+
+    &--small {
+        font-size: 12px !important;
+    }
+
+    &--extra-small {
+        font-size: 10px !important;
+    }
+}

@@ -30,4 +30,12 @@
             }
         }
     }
+
+    &-inverse {
+        background: none !important;
+        border: 1px solid $white !important;
+        color: $white !important;
+        height: 39px;
+        width: 146px;
+    }
 }

@@ -12,39 +12,40 @@ import data from '../../../data/static';
 const ArticleComponent = () => {
 
     const article = data && data.article,
-          alert   = data && data.alert;
+        alert = data && data.alert;
 
     return (
         <section id="article" className="article">
-                <div className="container">
-                    <div className="article__wrapper">
-                        <div className="article__wrapper__alert">
-                            <AlertComponent
-                                color="info"
-                                closable={true}
-                                message={alert.message} />
+            <div className="container">
+                <div className="article__wrapper">
+                    <div className="article__wrapper__alert">
+                        <AlertComponent
+                            color="info"
+                            closable={true}
+                            message={alert.message} />
+                    </div>
+                    <div className="article__wrapper__content">
+                        <div className="heading">
+                            <HeadingComponent
+                                color="dark"
+                                title={article.heading}
+                                size="extra-large" />
                         </div>
-                        <div className="article__wrapper__content">
-                            <div className="heading">
-                                <HeadingComponent
-                                    title={article.heading}
-                                    size="extra-large" />
-                            </div>
-                            <div className="article">
-                                <article className="article__item">
-                                    Article
+                        <div className="article">
+                            <article className="article__item">
+                                Article
                                 </article>
-                            </div>
-                        </div>
-                        <div className="article__wrapper__action">
-                            <ButtonComponent
-                                color="primary"
-                                title={article.btnLoadMore}
-                                closable={false} />
                         </div>
                     </div>
+                    <div className="article__wrapper__action">
+                        <ButtonComponent
+                            color="primary"
+                            title={article.btnLoadMore}
+                            closable={false} />
+                    </div>
                 </div>
-            </section>
+            </div>
+        </section>
     );
 }
 

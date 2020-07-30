@@ -1,0 +1,14 @@
+@import '../../../themes/partials/variables.scss';
+
+.newsletter {
+    background-image: url('../../../assets/img/newsletter.jpg');
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 576px;
+}
+
+.newsletter__content {
+    display: flex;
+    min-height: 576px;
+}

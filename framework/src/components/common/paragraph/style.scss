@@ -1,9 +1,6 @@
 @import '../../../themes/partials/variables.scss';
 
 .paragraph {
-    letter-spacing: -0.09px;
-    line-height: 22px;
-
     &.dark {
         color: $gray-jet;
     }

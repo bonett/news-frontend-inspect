@@ -14,22 +14,25 @@ const NewsletterComponent = () => {
     const newsletter = data && data.newsletter;
 
     return (
-        <section id="newsletter" className="newsletter">
+        <section id="newsletter" className="wrapper newsletter">
             <div className="container">
-                <div className="newsletter__content">
-                    <div className="heading">
+                <div className="wrapper__content newsletter__content">
+                    <div className="wrapper__content__heading">
                         <HeadingComponent
+                            color="light"
                             title={newsletter.heading}
-                            size="large" />
+                            size="extra-large" />
                     </div>
-                    <div className="description">
-                        <ParagraphComponent color="light" text={newsletter.message} />
+                    <div className="wrapper__content__body">
+                        <ParagraphComponent
+                            color="light"
+                            text={newsletter.message} />
                     </div>
-                    <div className="button">
+                    <div className="wrapper__content__footer">
                         <ButtonComponent
-                            color="primary"
-                            title={newsletter.btnSubscribe}
-                            closable={false} />
+                            className="btn-inverse"
+                            closable={false}
+                            title={newsletter.btnSubscribe} />
                     </div>
                 </div>
             </div>

@@ -5,35 +5,33 @@ import './style.scss';
 
 const HeadingComponent = (props) => {
 
-    const { title, size } = props;
+    const { title, size, color } = props;
 
     const headingType = (size) => {
         switch (size) {
             case "extra-large":
-                return <h1>{title}</h1>
+                return <h1 className={`size--${size} color--${color} `}>{title}</h1>
 
             case "large":
-                return <h2>{title}</h2>
+                return <h2 className={`size--${size} color--${color} `}>{title}</h2>
 
             case "medium":
-                return <h3>{title}</h3>
+                return <h3 className={`size--${size} color--${color} `}>{title}</h3>
 
             case "small":
-                return <h4>{title}</h4>
+                return <h4 className={`size--${size} color--${color} `}>{title}</h4>
 
             case "extra-small":
-                return <h5>{title}</h5>
+                return <h5 className={`size--${size} color--${color} `}>{title}</h5>
 
             default:
-                return <h6>{title}</h6>
+                return <h6 className={`size--${size} color--${color} `}>{title}</h6>
         }
     }
 
     return (
         <>
-            {
-                headingType(size)
-            }
+            { headingType(size) }
         </>
     );
 }
@@ -41,6 +39,7 @@ const HeadingComponent = (props) => {
 HeadingComponent.propTypes = {
     title: PropTypes.string.isRequired,
     size: PropTypes.string.isRequired,
+    color: PropTypes.string.isRequired,
 }
 
 export default HeadingComponent;
