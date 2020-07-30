@@ -1,13 +1,13 @@
 import React from 'react';
 
-import ArticleComponent from '../../components/particular/article';
+import ArticlesComponent from '../../components/particular/article';
 import NewsletterComponent from '../../components/particular/newsletter';
 import ContactUsComponent from '../../components/particular/contact-us';
 
 const HomeContainer = () => {
     return (
         <main>
-            <ArticleComponent />
+            <ArticlesComponent />
             <NewsletterComponent />
             <ContactUsComponent />
         </main>
