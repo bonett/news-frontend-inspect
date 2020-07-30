@@ -40,17 +40,18 @@ img {
 
 section {
     min-height: 576px;
+    padding: 20px 0;
 
     .wrapper {
         &__content {
             &__heading {
                 margin: 12px 0;
             }
-        
+
             &__body {
                 margin: 12px 0;
             }
-        
+
             &__footer {
                 margin: 30px 0;
             }
@@ -58,6 +59,46 @@ section {
     }
 }
 
+article {
+    .media {
+        height: 152px;
+        position: relative;
+        overflow: hidden;
+        text-align: center;
+
+        .img {
+            &--size {
+                height: auto;
+                max-width: 100%;
+                width: auto;
+            }
+        }
+    }
+
+    .caption {
+        .article {
+            &--title {
+                font-size: 21px;
+                font-weight: 600;
+                letter-spacing: -0.11px;
+                line-height: 28px;
+                margin: 18px 0 22px 0;
+                text-transform: lowercase;
+            }
+
+            &--description {
+                font-size: 16px;
+                letter-spacing: -0.09px;
+                line-height: 22px;
+            }
+        }
+    }
+}
+
 .eui-navbar.open .eui-navbar-bar {
     box-shadow: none;
+}
+
+.eui-panel .eui-panel-body {
+    padding: 41px 29px;
 }
