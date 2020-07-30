@@ -1,15 +1,42 @@
+@import '../variables/colors.scss';
+
 /***********************************
     RESPONSIVE DEVICES
 ************************************/
 
 @media (min-width: 316px) {
-
+    .navbar {
+        &__menu {
+            padding-left: 0;
+            
+            &__item {
+                &:nth-child(2) {
+                    border-top: 1px solid $line-separator;
+                }
+            }
+        }
+    }
 }
 
 @media (min-width: 768px) {
 
     .container {
         width: 720px;
+    }
+}
+
+@media (min-width: 894px) {
+
+    .navbar {
+        &__menu {
+            padding-left: 24px;
+
+            &__item {
+                &:nth-child(2) {
+                    border-top: none;
+                }
+            }
+        }
     }
 }
 

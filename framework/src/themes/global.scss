@@ -1,4 +1,5 @@
 @import './partials/reset.scss';
+@import './partials/responsive.scss';
 @import './variables/colors.scss';
 
 html {
@@ -206,4 +207,8 @@ label::first-letter {
     font-weight: 300;
     margin: 0;
     padding: 0 4px;
+}
+
+.eui-navbar.open .eui-navbar-bar {
+    box-shadow: none;
 }

@@ -1,13 +1,49 @@
 @import './../../themes/variables/colors.scss';
 
-.eui-navbar {
-    align-items: center;
-    background-color: $white;
-    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.18);
-    justify-content: center;
-    height: 66px !important;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 4;
+.navbar {
+    &__content {
+        background-color: $white;
+        box-shadow: 0 2px 2px 0 $shadow-nav !important;
+        height: 66px !important;
+        position: fixed;
+        width: 100%;
+    }
+
+    &__menu {
+        &__item {
+            color: $gray-jet !important;
+
+            &:first-child {
+                &>button {
+                    &:after {
+                        background: $white !important;
+                    }
+
+                    &:hover {
+                        color: $gray-jet !important;
+                    }
+                }
+            }
+
+            &:after {
+                background: $white !important;
+            }
+
+            &:hover {
+                color: $gray-jet !important;
+            }
+        }
+    }
+
+    &__account {
+        &__dropdown {
+            &:first-child {
+                &>button {
+                    &:after {
+                        background: $white !important;
+                    }
+                }
+            }
+        }
+    }
 }
