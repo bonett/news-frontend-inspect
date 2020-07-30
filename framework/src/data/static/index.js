@@ -2,7 +2,7 @@ export default {
     alert: {
         message: "Welcome to the new look of News.com. Keep scrolling to discover interesting new features and news.",
     },
-    stories: {
+    article: {
         heading: "Tops news",
         btnLoadMore: "View more stories"
     },

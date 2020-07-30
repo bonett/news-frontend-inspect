@@ -1,71 +1,15 @@
 import React from 'react';
 
-import AlertComponent from './../../components/common/alert';
-import ButtonComponent from '../../components/common/button';
-import HeadingComponent from '../../components/common/heading';
-import ParagraphComponent from '../../components/common/paragraph';
-
-import data from '../../data/static';
+import ArticleComponent from '../../components/particular/article';
+import NewsletterComponent from '../../components/particular/newsletter';
+import ContactUsComponent from '../../components/particular/contact-us';
 
 const HomeContainer = () => {
-
-    const alert = data && data.alert,
-        stories = data && data.stories,
-        newsletter = data && data.newsletter;
-
     return (
         <main>
-            <section id="stories" className="stories">
-                <div className="container">
-                    <div className="stories__wrapper">
-                        <div className="stories__wrapper__alert">
-                            <AlertComponent
-                                color="info"
-                                closable={true}
-                                message={alert.message} />
-                        </div>
-                        <div className="stories__wrapper__content">
-                            <div className="heading">
-                                <HeadingComponent
-                                    title={stories.heading}
-                                    size="extra-large" />
-                            </div>
-                            <div className="article">
-                                <article className="article__item">
-                                    Article
-                                </article>
-                            </div>
-                        </div>
-                        <div className="stories__wrapper__action">
-                            <ButtonComponent
-                                color="primary"
-                                title={stories.btnLoadMore}
-                                closable={false} />
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section id="newsletter" className="newsletter">
-                <div className="container">
-                    <div className="newsletter__content">
-                        <div className="heading">
-                            <HeadingComponent
-                                title={newsletter.heading}
-                                size="large" />
-                        </div>
-                        <div className="description">
-                            <ParagraphComponent color ="light" text={newsletter.message} />
-                        </div>
-                        <div className="footer">
-                            <ButtonComponent
-                                color="primary"
-                                title={newsletter.btnSubscribe}
-                                closable={false} />
-                        </div>
-                    </div>
-                </div>
-            </section>
+            <ArticleComponent />
+            <NewsletterComponent />
+            <ContactUsComponent />
         </main>
     );
 }
