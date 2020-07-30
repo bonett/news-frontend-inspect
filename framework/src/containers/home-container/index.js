@@ -1,9 +1,9 @@
 import React from 'react';
 
-import AlertComponent from './../../components/alert';
-import ButtonComponent from '../../components/button';
-import HeadingComponent from '../../components/heading';
-import ParagraphComponent from '../../components/paragraph';
+import AlertComponent from './../../components/common/alert';
+import ButtonComponent from '../../components/common/button';
+import HeadingComponent from '../../components/common/heading';
+import ParagraphComponent from '../../components/common/paragraph';
 
 import data from '../../data/static';
 

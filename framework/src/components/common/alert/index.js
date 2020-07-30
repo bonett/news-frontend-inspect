@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Alert from 'emerald-ui/lib/Alert';
-import ButtonComponent from '../../components/button';
+import ButtonComponent from '../button';
 
 import './style.scss';
 

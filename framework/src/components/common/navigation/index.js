@@ -11,7 +11,7 @@ import './style.scss';
 
 const NavigationComponent = () => {
 
-    const logoImage = require('../../assets/img/logo.svg');
+    const logoImage = require('../../../assets/img/logo.svg');
     
     return (
         <Navbar breakAt="md" barClassName="container" className="navbar__content">

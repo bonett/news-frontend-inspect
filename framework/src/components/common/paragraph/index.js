@@ -5,15 +5,15 @@ import './style.scss';
 
 const ParagraphComponent = (props) => {
 
-    const { title, color } = props;
+    const { text, color } = props;
 
     return (
-        <p className={"paragraph " + color}>{title}</p>
+        <p className={"paragraph color--" + color}>{text}</p>
     );
 }
 
 ParagraphComponent.propTypes = {
-    title: PropTypes.string.isRequired,
+    text: PropTypes.string.isRequired,
     color: PropTypes.string.isRequired,
 }
 
