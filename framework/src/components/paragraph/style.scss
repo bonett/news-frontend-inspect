@@ -1,0 +1,14 @@
+@import "./../../themes/variables/colors.scss";
+
+.paragraph {
+    letter-spacing: -0.09px;
+    line-height: 22px;
+
+    &.dark {
+        color: $gray-jet;
+    }
+    
+    &.light {
+        color: $white;
+    }
+}

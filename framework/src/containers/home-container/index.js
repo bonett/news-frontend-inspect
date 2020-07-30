@@ -2,27 +2,33 @@ import React from 'react';
 
 import AlertComponent from './../../components/alert';
 import ButtonComponent from '../../components/button';
+import HeadingComponent from '../../components/heading';
+import ParagraphComponent from '../../components/paragraph';
 
 import data from '../../data/static';
 
 const HomeContainer = () => {
 
-    const alertMessage = data && data.ALERT_MESSAGE;
+    const alert = data && data.alert,
+        stories = data && data.stories,
+        newsletter = data && data.newsletter;
 
     return (
         <main>
-            <section className="stories">
+            <section id="stories" className="stories">
                 <div className="container">
                     <div className="stories__wrapper">
                         <div className="stories__wrapper__alert">
                             <AlertComponent
                                 color="info"
                                 closable={true}
-                                message={alertMessage} />
+                                message={alert.message} />
                         </div>
                         <div className="stories__wrapper__content">
                             <div className="heading">
-                                <h1 className="heading__title">Tops news</h1>
+                                <HeadingComponent
+                                    title={stories.heading}
+                                    size="extra-large" />
                             </div>
                             <div className="article">
                                 <article className="article__item">
@@ -33,7 +39,7 @@ const HomeContainer = () => {
                         <div className="stories__wrapper__action">
                             <ButtonComponent
                                 color="primary"
-                                title="View more stories"
+                                title={stories.btnLoadMore}
                                 closable={false} />
                         </div>
                     </div>
@@ -43,13 +49,20 @@ const HomeContainer = () => {
             <section id="newsletter" className="newsletter">
                 <div className="container">
                     <div className="newsletter__content">
-                        <h2 className="newsletter__title--size color--white">Subscribe to our newsletter.</h2>
-                        <p className="newsletter__paragraph--size color--white">Subscribe to our newsletter to receive
-                        weekly digests of the best and most
-                        ground-breaking news.
-                        Also receive a discount on your monthly subscription.</p>
-                        <button type="button"
-                            className="newsletter__button--unlog primary">subscribe</button>
+                        <div className="heading">
+                            <HeadingComponent
+                                title={newsletter.heading}
+                                size="large" />
+                        </div>
+                        <div className="description">
+                            <ParagraphComponent color ="light" text={newsletter.message} />
+                        </div>
+                        <div className="footer">
+                            <ButtonComponent
+                                color="primary"
+                                title={newsletter.btnSubscribe}
+                                closable={false} />
+                        </div>
                     </div>
                 </div>
             </section>
