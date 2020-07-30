@@ -1,16 +1,31 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import Alert from 'emerald-ui/lib/Alert';
+import ButtonComponent from '../../components/button';
+
 import './style.scss';
 
-const Alert = () => {
-  return (
-     <h3>Alert</h3>
-  );
+const AlertComponent = (props) => {
+
+    const { message, closable, color } = props;
+
+    return (
+        <Alert className="alert__content" color={color}>
+            <div className="alert__content__message">
+                {message}
+          </div>
+            <div className="alert__content__button btn-toolbar">
+                <ButtonComponent closable={closable} />
+            </div>
+        </Alert>
+    );
 }
 
-Alert.propTypes = {
-
+AlertComponent.propTypes = {
+    color: PropTypes.string.isRequired,
+    message: PropTypes.string.isRequired,
+    closable: PropTypes.bool.isRequired,
 }
 
-export default Alert;
+export default AlertComponent;

@@ -9,7 +9,7 @@ import Navbar from 'emerald-ui/lib/Navbar';
 
 import './style.scss';
 
-const Navigation = () => {
+const NavigationComponent = () => {
 
     const logoImage = require('../../assets/img/logo.svg');
     
@@ -47,8 +47,8 @@ const Navigation = () => {
     );
 }
 
-Navigation.propTypes = {
+NavigationComponent.propTypes = {
 
 }
 
-export default Navigation;
+export default NavigationComponent;

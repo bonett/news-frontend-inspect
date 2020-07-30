@@ -1,0 +1,33 @@
+@import '../../themes/variables/colors.scss';
+
+.btn {
+    &-toolbar {
+        &>button {
+            background-color: $gray-raven;
+            background-size: 17px 17px;
+            border: none;
+            color: $gray-pearl;
+            height: 17px;
+            margin-right: 8px !important;
+            opacity: 0.8 !important;
+            width: 17px;
+
+            &:hover,
+            &:active,
+            &:focus,
+            &:visited {
+                background-color: $gray-raven !important;
+
+                &:before {
+                    background-color: initial;
+                }
+            }
+
+            i {
+                font-size: 16px !important;
+                margin: 0 !important;
+                padding-top: 1.3px;
+            }
+        }
+    }
+}

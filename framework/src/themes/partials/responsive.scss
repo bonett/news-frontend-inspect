@@ -8,7 +8,7 @@
     .navbar {
         &__menu {
             padding-left: 0;
-            
+
             &__item {
                 &:nth-child(2) {
                     border-top: 1px solid $line-separator;
@@ -20,9 +20,9 @@
 
 @media (min-width: 768px) {
 
-    .container {
+    /* .container {
         width: 720px;
-    }
+    } */
 }
 
 @media (min-width: 894px) {
@@ -42,14 +42,14 @@
 
 @media (min-width: 992px) {
 
-    .container {
+    /* .container {
         width: 760px;
-    }
+    } */
 }
 
 @media (min-width: 1200px) {
 
-    .container {
+    /* .container {
         width: 960px;
-    }
+    } */
 }

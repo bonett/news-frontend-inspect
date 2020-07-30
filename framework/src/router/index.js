@@ -1,19 +1,25 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Navigation from '../components/navigation';
+
+import NavigationComponent from '../components/navigation';
+
+import HomeContainer from '../containers/home-container';
+import NotFoundContainer from '../containers/not-found-container';
 
 const RouterApp = () => {
 
     return (
         <Router>
             <>
-                <Navigation />
+                <header>
+                    <NavigationComponent />
+                </header>
                 <Switch>
                     <Route exact path="/" redirect="/home">
-                        <h4>Hpme</h4>
+                        <HomeContainer />
                     </Route>
                     <Route path="*">
-                        <h4>Notfound</h4>
+                        <NotFoundContainer />
                     </Route>
                 </Switch>
             </>
