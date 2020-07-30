@@ -30,41 +30,41 @@ const ContactUsComponent = () => {
                 <div className="wrapper__content__body">
                     <Panel className="contact-us__content">
                         <Panel.Body>
-                            <form class="submit__form">
-                                <Row className="submit__form__group">
-                                    <Col xs={12} sm={6} md={6} lg={6}>
+                            <form class="form__content">
+                                <Row>
+                                    <Col xs={12} sm={6} md={6} lg={6} className="form-group">
                                         <TextFieldComponent
                                             label={contactUs.firstname} />
                                     </Col>
-                                    <Col xs={12} sm={6} md={6} lg={6}>
+                                    <Col xs={12} sm={6} md={6} lg={6} className="form-group">
                                         <TextFieldComponent
                                             label={contactUs.lastname} />
                                     </Col>
                                 </Row>
-                                <Row className="submit__form__group">
-                                    <Col xs={12} sm={6} md={6} lg={6}>
+                                <Row>
+                                    <Col xs={12} sm={6} md={6} lg={6} className="form-group">
                                         <TextFieldComponent
                                             label={contactUs.email} />
                                     </Col>
-                                    <Col xs={12} sm={6} md={6} lg={6}>
+                                    <Col xs={12} sm={6} md={6} lg={6} className="form-group">
                                         <TextFieldComponent
                                             label={contactUs.phoneNumber} />
                                     </Col>
                                 </Row>
-                                <Row className="submit__form__group">
-                                    <Col xs={12} sm={12} md={12} lg={12}>
+                                <Row>
+                                    <Col xs={12} sm={12} md={12} lg={12} className="form-group">
                                         <TextFieldComponent
                                             label={contactUs.message} className="textarea" />
                                     </Col>
                                 </Row>
-                                <Row className="submit__form__group">
-                                    <Col xs={12} sm={12} md={12} lg={12}>
+                                <Row>
+                                    <Col xs={12} sm={12} md={12} lg={12} className="form-group">
                                         <CheckBoxComponent
                                             label={contactUs.checkSendEmail} />
                                     </Col>
                                 </Row>
-                                <Row className="submit__form__group">
-                                    <Col xs={12} sm={12} md={12} lg={12}>
+                                <Row>
+                                    <Col xs={12} sm={12} md={12} lg={12} className="form-group">
                                         <ButtonComponent
                                             color="primary"
                                             title={contactUs.btnSubmit}
