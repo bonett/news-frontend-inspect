@@ -14,32 +14,8 @@ const NavigationComponent = () => {
 
     const logoImage  = require('../../../assets/img/logo.svg');
 
-    useEffect(() => {
-        const elem   = document.querySelector('.eui-navbar'),
-              sticky = elem.offsetTop;
-        
-        const scrollCallBack = window.addEventListener('scroll', () => {
-            if (window.pageYOffset > sticky) {
-                addStickyBar(elem);
-            } else {
-                removeStickyBar(elem);
-            }
-        });
-        return () => {
-            window.removeEventListener('scroll', scrollCallBack);
-        };
-    }, []);
-
-    const addStickyBar = (elem) => {
-        elem.classList.add("sticky");
-    }
-
-    const removeStickyBar = (elem) => {
-        elem.classList.remove("sticky");
-    }
-
     return (
-        <Navbar breakAt="sm" barClassName="container" className="navbar__content">
+        <Navbar breakAt="sm" barClassName="container" className="navbar__content" fixedAtTop="true">
             <Navbar.Brand className="navbar__logo">
                 <a href="#foo">
                     <img src={logoImage} alt="News" />
