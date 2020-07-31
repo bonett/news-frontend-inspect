@@ -12,12 +12,27 @@ export default {
         btnSubscribe: "Subscribe"
     },
     contact: {
-        heading       : "Contact Us",
-        firstname     : "First name",
-        lastname      : "Last name",
-        email         : "Email",
-        phoneNumber   : "Phone number",
-        message       : "Message",
+        heading  : "Contact Us",
+        firstname: {
+            label: "First name",
+            id   : "firstname"
+        },
+        lastname: {
+            label: "Last name",
+            id   : "lastname"
+        },
+        email: {
+            label: "Email",
+            id   : "email"
+        },
+        phoneNumber: {
+            label: "Phone number",
+            id   : "phonenumber"
+        },
+        message: {
+            label: "Message",
+            id   : "message"
+        },
         checkSendEmail: "Send me emails about breaking news and promotions.",
         btnSubmit     : "Submit form"
     }

@@ -7,23 +7,22 @@ import './style.scss';
 
 const TextFieldComponent = (props) => {
 
-    const { label, errorMessage, className } = props;
+    const { id, label, errorMessage } = props;
 
     return (
         <TextField
-            id={label}
+            id={id}
             label={label}
-            ariaLabel={label}
+            ariaLabel={id}
             role="textbox"
-            className={className}
-            errorMessage={errorMessage}/>
+            errorMessage={errorMessage} />
     );
 }
 
 TextFieldComponent.propTypes = {
+    id          : PropTypes.string.isRequired,
     label       : PropTypes.string.isRequired,
-    className   : PropTypes.string,
-    errorMessage: PropTypes.string
+    errorMessage: PropTypes.string.isRequired,
 }
 
 export default TextFieldComponent;

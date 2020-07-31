@@ -16,7 +16,12 @@ import TextFieldComponent from '../../common/text-field';
 
 const ContactUsComponent = () => {
 
-    const contactUs = data && data.contact;
+    const contactUs   = data && data.contact,
+          firstname   = contactUs && contactUs.firstname,
+          lastname    = contactUs && contactUs.lastname,
+          email       = contactUs && contactUs.email,
+          phoneNumber = contactUs && contactUs.phoneNumber,
+          message     = contactUs && contactUs.message;
 
     return (
         <section id="contact-us" className="contact-us">
@@ -34,27 +39,35 @@ const ContactUsComponent = () => {
                                 <Row>
                                     <Col xs={12} sm={6} md={6} lg={6} className="form-group">
                                         <TextFieldComponent
-                                            label={contactUs.firstname} />
+                                            id={firstname.id}
+                                            label={firstname.label}
+                                            errorMessage="" />
                                     </Col>
                                     <Col xs={12} sm={6} md={6} lg={6} className="form-group">
                                         <TextFieldComponent
-                                            label={contactUs.lastname} />
+                                            id={lastname.id}
+                                            label={lastname.label}
+                                            errorMessage=""/>
                                     </Col>
                                 </Row>
                                 <Row>
                                     <Col xs={12} sm={6} md={6} lg={6} className="form-group">
                                         <TextFieldComponent
-                                            label={contactUs.email} />
+                                            id={email.id}
+                                            label={email.label}
+                                            errorMessage="" />
                                     </Col>
                                     <Col xs={12} sm={6} md={6} lg={6} className="form-group">
                                         <TextFieldComponent
-                                            label={contactUs.phoneNumber} />
+                                            id={phoneNumber.id}
+                                            label={phoneNumber.label}
+                                            errorMessage="" />
                                     </Col>
                                 </Row>
                                 <Row>
                                     <Col xs={12} sm={12} md={12} lg={12} className="form-group">
-                                        <TextFieldComponent
-                                            label={contactUs.message} className="textarea" />
+                                        <textarea name={message.id} id={message.id} cols="30" rows="10"></textarea>
+                                        <label for={message.id}>{message.label}</label>
                                     </Col>
                                 </Row>
                                 <Row>
