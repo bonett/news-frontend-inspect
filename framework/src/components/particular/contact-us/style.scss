@@ -1,14 +1,14 @@
 @import '../../../themes/partials/variables.scss';
 
 .contact-us {
-    padding: 36px 0;
+    padding: 36px 0 !important;
 
     &__heading {
         align-items: center;
         display: flex;
         flex-direction: row;
         justify-content: center;
-        margin: 20px 0 16px 0 !important;
+        margin: 21px 0 5px 0 !important;
     }
 
     &__content {

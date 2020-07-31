@@ -16,78 +16,80 @@ import TextFieldComponent from '../../common/text-field';
 
 const ContactUsComponent = () => {
 
-    const contactUs   = data && data.contact,
-          firstname   = contactUs && contactUs.firstname,
-          lastname    = contactUs && contactUs.lastname,
-          email       = contactUs && contactUs.email,
-          phoneNumber = contactUs && contactUs.phoneNumber,
-          message     = contactUs && contactUs.message;
+    const contactUs = data && data.contact,
+        firstname = contactUs && contactUs.firstname,
+        lastname = contactUs && contactUs.lastname,
+        email = contactUs && contactUs.email,
+        phoneNumber = contactUs && contactUs.phoneNumber,
+        message = contactUs && contactUs.message;
 
     return (
         <section id="contact-us" className="contact-us">
             <div className="container">
-                <div className="wrapper__content__heading contact-us__heading">
-                    <HeadingComponent
-                        color="dark"
-                        title={contactUs.heading}
-                        size="extra-large" />
-                </div>
-                <div className="wrapper__content__body">
-                    <Panel className="contact-us__content">
-                        <Panel.Body>
-                            <form className="form__content">
-                                <Row>
-                                    <Col xs={12} sm={6} md={6} lg={6} className="form-group">
-                                        <TextFieldComponent
-                                            id={firstname.id}
-                                            label={firstname.label}
-                                            errorMessage="" />
-                                    </Col>
-                                    <Col xs={12} sm={6} md={6} lg={6} className="form-group">
-                                        <TextFieldComponent
-                                            id={lastname.id}
-                                            label={lastname.label}
-                                            errorMessage=""/>
-                                    </Col>
-                                </Row>
-                                <Row>
-                                    <Col xs={12} sm={6} md={6} lg={6} className="form-group">
-                                        <TextFieldComponent
-                                            id={email.id}
-                                            label={email.label}
-                                            errorMessage="" />
-                                    </Col>
-                                    <Col xs={12} sm={6} md={6} lg={6} className="form-group">
-                                        <TextFieldComponent
-                                            id={phoneNumber.id}
-                                            label={phoneNumber.label}
-                                            errorMessage="" />
-                                    </Col>
-                                </Row>
-                                <Row>
-                                    <Col xs={12} sm={12} md={12} lg={12} className="form-group">
-                                        <textarea name={message.id} id={message.id} cols="30" rows="10"></textarea>
-                                        <label htmlFor={message.id}>{message.label}</label>
-                                    </Col>
-                                </Row>
-                                <Row>
-                                    <Col xs={12} sm={12} md={12} lg={12} className="form-group">
-                                        <CheckBoxComponent
-                                            label={contactUs.checkSendEmail} />
-                                    </Col>
-                                </Row>
-                                <Row>
-                                    <Col xs={12} sm={12} md={12} lg={12} className="form-group">
-                                        <ButtonComponent
-                                            color="primary"
-                                            title={contactUs.btnSubmit}
-                                            closable={false} />
-                                    </Col>
-                                </Row>
-                            </form>
-                        </Panel.Body>
-                    </Panel>
-                </div>
+                <Row>
+                    <Col xs={12} sm={12} md={12} lg={12} className="wrapper__content__heading contact-us__heading">
+                        <HeadingComponent
+                            color="dark"
+                            title={contactUs.heading}
+                            size="extra-large" />
+                    </Col>
+                    <Col xs={12} sm={12} md={12} lg={12} className="wrapper__content__body">
+                        <Panel className="contact-us__content">
+                            <Panel.Body>
+                                <form className="form__content">
+                                    <Row>
+                                        <Col xs={12} sm={6} md={6} lg={6} className="form-group">
+                                            <TextFieldComponent
+                                                id={firstname.id}
+                                                label={firstname.label}
+                                                errorMessage="" />
+                                        </Col>
+                                        <Col xs={12} sm={6} md={6} lg={6} className="form-group">
+                                            <TextFieldComponent
+                                                id={lastname.id}
+                                                label={lastname.label}
+                                                errorMessage="" />
+                                        </Col>
+                                    </Row>
+                                    <Row>
+                                        <Col xs={12} sm={6} md={6} lg={6} className="form-group">
+                                            <TextFieldComponent
+                                                id={email.id}
+                                                label={email.label}
+                                                errorMessage="" />
+                                        </Col>
+                                        <Col xs={12} sm={6} md={6} lg={6} className="form-group">
+                                            <TextFieldComponent
+                                                id={phoneNumber.id}
+                                                label={phoneNumber.label}
+                                                errorMessage="" />
+                                        </Col>
+                                    </Row>
+                                    <Row>
+                                        <Col xs={12} sm={12} md={12} lg={12} className="form-group">
+                                            <textarea name={message.id} id={message.id} cols="30" rows="10"></textarea>
+                                            <label htmlFor={message.id}>{message.label}</label>
+                                        </Col>
+                                    </Row>
+                                    <Row>
+                                        <Col xs={12} sm={12} md={12} lg={12} className="form-group">
+                                            <CheckBoxComponent
+                                                label={contactUs.checkSendEmail} />
+                                        </Col>
+                                    </Row>
+                                    <Row>
+                                        <Col xs={12} sm={12} md={12} lg={12} className="form-group">
+                                            <ButtonComponent
+                                                color="primary"
+                                                title={contactUs.btnSubmit}
+                                                closable={false} />
+                                        </Col>
+                                    </Row>
+                                </form>
+                            </Panel.Body>
+                        </Panel>
+                    </Col>
+                </Row>
             </div>
         </section>
     );
