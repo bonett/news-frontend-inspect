@@ -95,18 +95,24 @@ article {
     }
 }
 
-.eui-navbar.open .eui-navbar-bar {
-    box-shadow: none;
-}
+.eui {
+    &-navbar {
+        &-bar {
+            box-shadow: none !important;
+        }
+    }
 
-.eui-panel .eui-panel-body {
-    padding: 41px 29px;
-}
+    &-panel {
+        &-body {
+            padding: 41px 29px;
+        }
+    }
 
-.eui-checkbox.focused {
-    box-shadow: none !important;
-}
-
-.eui-checkbox {
-    padding: 0 0px 3px !important;
+    &-checkbox {
+        padding: 0 0px 3px !important;
+        
+        &.focused {
+            box-shadow: none !important;
+        }
+    }
 }

@@ -16,12 +16,12 @@ import TextFieldComponent from '../../common/text-field';
 
 const ContactUsComponent = () => {
 
-    const contactUs = data && data.contact,
-        firstname = contactUs && contactUs.firstname,
-        lastname = contactUs && contactUs.lastname,
-        email = contactUs && contactUs.email,
-        phoneNumber = contactUs && contactUs.phoneNumber,
-        message = contactUs && contactUs.message;
+    const contactUs   = data && data.contact,
+          firstname   = contactUs && contactUs.firstname,
+          lastname    = contactUs && contactUs.lastname,
+          email       = contactUs && contactUs.email,
+          phoneNumber = contactUs && contactUs.phoneNumber,
+          message     = contactUs && contactUs.message;
 
     return (
         <section id="contact-us" className="contact-us">
