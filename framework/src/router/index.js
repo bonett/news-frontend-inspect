@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import NavigationComponent from '../components/common/navigation';
 
 import HomeContainer from '../containers/home-container';
-import NotFoundContainer from '../containers/not-found-container';
 
 const RouterApp = () => {
 
@@ -17,9 +16,6 @@ const RouterApp = () => {
                 <Switch>
                     <Route exact path="/" redirect="/home">
                         <HomeContainer />
-                    </Route>
-                    <Route path="*">
-                        <NotFoundContainer />
                     </Route>
                 </Switch>
             </>

@@ -46,13 +46,6 @@ const ArticlesComponent = () => {
                 description: "Cueensland police are investigating whether young women at the centre of the state's latest coronavirus controversy were coached by an organised crime syndicate to cover their tracks at the border.",
                 image: "https://1v1d1e1lmiki1lgcvx32p49h8fe-wpengine.netdna-ssl.com/wp-content/uploads/2020/07/12506738-3x2-large-2-960x600.jpg",
                 url: "https://thenewdaily.com.au/news/2020/07/31/queensland-police-brisbane-teens-coronavirus/"
-            },
-            {
-                id: 4,
-                title: "COlombian investigate crime syndicate involvement after teens c...",
-                description: "Cueensland police are investigating whether young women at the centre of the state's latest coronavirus controversy were coached by an organised crime syndicate to cover their tracks at the border.",
-                image: "https://1v1d1e1lmiki1lgcvx32p49h8fe-wpengine.netdna-ssl.com/wp-content/uploads/2020/07/12506738-3x2-large-2-960x600.jpg",
-                url: "https://thenewdaily.com.au/news/2020/07/31/queensland-police-brisbane-teens-coronavirus/"
             }
         ];
 
@@ -79,7 +72,7 @@ const ArticlesComponent = () => {
                             size="extra-large" />
                     </Col>
                     <Col xs={12} sm={12} md={12} lg={12} className="wrapper__content__body">
-                        <Panel>
+                        <Panel className="article__panel">
                             <Panel.Body>
                                 <Row className="article__content__list">
                                     {

@@ -1,0 +1,28 @@
+@import '../../../themes/partials/variables.scss';
+
+article {
+    height: 338px;
+    min-height: 338px;
+}
+
+@media (min-width: 316px) {
+    
+    article {
+        margin: 20px 0 6px 0 !important;
+        width: 100%;
+    }
+}
+
+@media (min-width: 768px) {
+    
+    article {
+        margin: 20px 0 88px 0 !important;
+        width: 300px;
+    }
+}
+
+@media (min-width: 992px) {
+    article {
+        width: 403px;
+    }
+}
