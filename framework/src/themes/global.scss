@@ -102,3 +102,7 @@ article {
 .eui-panel .eui-panel-body {
     padding: 41px 29px;
 }
+
+.eui-checkbox.focused {
+    box-shadow: none !important;
+}

@@ -35,7 +35,7 @@ const ContactUsComponent = () => {
                 <div className="wrapper__content__body">
                     <Panel className="contact-us__content">
                         <Panel.Body>
-                            <form class="form__content">
+                            <form className="form__content">
                                 <Row>
                                     <Col xs={12} sm={6} md={6} lg={6} className="form-group">
                                         <TextFieldComponent
@@ -67,7 +67,7 @@ const ContactUsComponent = () => {
                                 <Row>
                                     <Col xs={12} sm={12} md={12} lg={12} className="form-group">
                                         <textarea name={message.id} id={message.id} cols="30" rows="10"></textarea>
-                                        <label for={message.id}>{message.label}</label>
+                                        <label htmlFor={message.id}>{message.label}</label>
                                     </Col>
                                 </Row>
                                 <Row>
