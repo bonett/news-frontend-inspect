@@ -1,5 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+
+import { useEffect } from "react";
 
 import Avatar from 'emerald-ui/lib/Avatar';
 import DropdownButton from 'emerald-ui/lib/DropdownButton';
@@ -11,8 +12,32 @@ import './style.scss';
 
 const NavigationComponent = () => {
 
-    const logoImage = require('../../../assets/img/logo.svg');
-    
+    const logoImage  = require('../../../assets/img/logo.svg');
+
+    useEffect(() => {
+        const elem   = document.querySelector('.eui-navbar'),
+              sticky = elem.offsetTop;
+        
+        const scrollCallBack = window.addEventListener('scroll', () => {
+            if (window.pageYOffset > sticky) {
+                addStickyBar(elem);
+            } else {
+                removeStickyBar(elem);
+            }
+        });
+        return () => {
+            window.removeEventListener('scroll', scrollCallBack);
+        };
+    }, []);
+
+    const addStickyBar = (elem) => {
+        elem.classList.add("sticky");
+    }
+
+    const removeStickyBar = (elem) => {
+        elem.classList.remove("sticky");
+    }
+
     return (
         <Navbar breakAt="sm" barClassName="container" className="navbar__content">
             <Navbar.Brand className="navbar__logo">
@@ -45,10 +70,6 @@ const NavigationComponent = () => {
 
         </Navbar>
     );
-}
-
-NavigationComponent.propTypes = {
-
 }
 
 export default NavigationComponent;

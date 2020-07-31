@@ -95,6 +95,14 @@ article {
     }
 }
 
+.animateIn{
+    transform: translateY(0px);
+}
+  
+.animateOut{
+    transform: translateY(-100%);
+}
+
 .eui {
     &-navbar {
         &-bar {
