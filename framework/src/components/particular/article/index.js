@@ -20,7 +20,7 @@ const ArticlesComponent = ({articles}) => {
     const article  = data && data.article,
           alert    = data && data.alert;
 
-    console.log(articles);
+    console.log('assadasdad', articles);
 
     const loaderSkeleton = () => {
         return (
@@ -32,10 +32,10 @@ const ArticlesComponent = ({articles}) => {
         return (
             <>
                 {
-                    !articles ? loaderSkeleton() :
+                    articles && articles.length > 0 ?
                     articles.map((item) => {
                         return <ArticleComponent article={item} key={item.id} />
-                    }) 
+                    }) : loaderSkeleton()
                 }
             </>
         )

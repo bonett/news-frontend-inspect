@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
-import { handlerHiddenMsg } from '../../../actions/alertAction';
+import { handlerHiddenMsg } from '../../../actions/alert';
 
 import Alert from 'emerald-ui/lib/Alert';
 import ButtonComponent from '../button';

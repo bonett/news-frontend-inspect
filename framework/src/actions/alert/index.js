@@ -1,7 +1,7 @@
 import { 
     ALERT_MSG_HIDDEN,
     ALERT_MSG_SHOW
-} from '../types';
+} from '../../types';
 
 export const alertMsgShow = (opt) => {
     return {

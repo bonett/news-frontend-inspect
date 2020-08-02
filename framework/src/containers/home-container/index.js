@@ -1,23 +1,21 @@
 import React, { useEffect, useState } from 'react';
-
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { fetchArticles } from '../../actions';
+import { fetchArticles } from '../../actions/article';
 
 import ArticlesComponent from '../../components/particular/article';
 import NewsletterComponent from '../../components/particular/newsletter';
 import ContactUsComponent from '../../components/particular/contact-us';
 
-const HomeContainer = ({ fetchArticles }) => {
-    
-    const [articles, setArticles] =  useState([]);
-    
+const HomeContainer = ({ fetchArticles, articles }) => {
+
     useEffect(() => {
-        setArticles(fetchArticles());
-    }, [articles]);
+        fetchArticles();
+    }, []);
 
     return (
         <main>
-            <ArticlesComponent articles={articles}/>
+            <ArticlesComponent articles={articles.list}/>
             <NewsletterComponent />
             <ContactUsComponent />
         </main>
@@ -26,7 +24,7 @@ const HomeContainer = ({ fetchArticles }) => {
 
 const mapStateToProps = state => {
     return {
-        articleData: state.article
+        articles: state.articles
     }
 }
 
@@ -34,6 +32,11 @@ const mapDispatchToProps = dispatch => {
     return {
         fetchArticles: () => dispatch(fetchArticles())
     }
+}
+
+
+HomeContainer.propTypes = {
+    data: PropTypes.any,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomeContainer);
