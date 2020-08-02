@@ -1,1 +1,0 @@
-export const API_URL = "http://eventregistry.org/api/v1/article/getArticles";

@@ -13,12 +13,15 @@ import Col from 'emerald-ui/lib/Col';
 import './style.scss';
 
 import data from '../../../data/static';
+import SkeletonComponent from '../../common/skeleton';
 
-const ArticlesComponent = () => {
+const ArticlesComponent = (props) => {
 
     const article  = data && data.article,
-          alert    = data && data.alert,
-          articles = [
+          alert    = data && data.alert;
+
+    const { articles } = props;
+          /* articles = [
             {
                 id: 0,
                 title: "Atlantci investigate crime syndicate involvement after teens c...",
@@ -47,13 +50,24 @@ const ArticlesComponent = () => {
                 image: "https://1v1d1e1lmiki1lgcvx32p49h8fe-wpengine.netdna-ssl.com/wp-content/uploads/2020/07/12506738-3x2-large-2-960x600.jpg",
                 url: "https://thenewdaily.com.au/news/2020/07/31/queensland-police-brisbane-teens-coronavirus/"
             }
-        ];
+        ]; */
+
+    const loaderSkeleton = () => {
+        return (
+            [1,2,3,4].map((index) => { return <SkeletonComponent key={index} /> })
+        )
+    }
 
     const getArticleByItem = () => {
         return (
-            articles.map((item) => {
-                return <ArticleComponent article={item} key={item.id} />
-            })
+            <>
+                {
+                    articles ? loaderSkeleton() :
+                    articles.map((item) => {
+                        return <ArticleComponent article={item} key={item.id} />
+                    }) 
+                }
+            </>
         )
     }
 
@@ -95,7 +109,7 @@ const ArticlesComponent = () => {
 }
 
 ArticlesComponent.propTypes = {
-
+    articles: PropTypes.any.isRequired,
 }
 
 export default ArticlesComponent;

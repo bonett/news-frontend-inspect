@@ -15,7 +15,7 @@ const NavigationComponent = () => {
     const logoImage  = require('../../../assets/img/logo.svg');
 
     return (
-        <Navbar breakAt="sm" barClassName="container" className="navbar__content" fixedAtTop="true">
+        <Navbar breakAt="sm" barClassName="container" className="navbar__content" fixedAtTop={true}>
             <Navbar.Brand className="navbar__logo">
                 <a href="#foo">
                     <img src={logoImage} alt="News" />
