@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { SHOW_ALERT } from '../../../constants';
+import { SHOW_ALERT } from '../../../types';
 import Alert from 'emerald-ui/lib/Alert';
 import ButtonComponent from '../button';
 

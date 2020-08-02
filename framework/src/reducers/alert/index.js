@@ -1,4 +1,4 @@
-import { SHOW_ALERT } from '../../constants';
+/* import { SHOW_ALERT } from '../../constants';
 
 const INITIAL_STATE = true;
 
@@ -9,4 +9,4 @@ export const AlertPreviewReducer = (state = INITIAL_STATE, action) => {
         default:
             return state;
     }
-}
+} */

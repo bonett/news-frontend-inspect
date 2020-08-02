@@ -5,6 +5,7 @@ import AlertComponent from './../../common/alert';
 import ArticleComponent from './../../common/article';
 import ButtonComponent from './../../common/button';
 import HeadingComponent from './../../common/heading';
+import SkeletonComponent from '../../common/skeleton';
 
 import Panel from 'emerald-ui/lib/Panel';
 import Row from 'emerald-ui/lib/Row';
@@ -13,14 +14,11 @@ import Col from 'emerald-ui/lib/Col';
 import './style.scss';
 
 import data from '../../../data/static';
-import SkeletonComponent from '../../common/skeleton';
 
-const ArticlesComponent = (props) => {
+const ArticlesComponent = ({articles}) => {
 
     const article  = data && data.article,
           alert    = data && data.alert;
-
-    const { articles } = props;
           /* articles = [
             {
                 id: 0,
@@ -52,6 +50,7 @@ const ArticlesComponent = (props) => {
             }
         ]; */
 
+        console.log(articles)
     const loaderSkeleton = () => {
         return (
             [1,2,3,4].map((index) => { return <SkeletonComponent key={index} /> })
@@ -62,7 +61,7 @@ const ArticlesComponent = (props) => {
         return (
             <>
                 {
-                    articles ? loaderSkeleton() :
+                    !articles ? loaderSkeleton() :
                     articles.map((item) => {
                         return <ArticleComponent article={item} key={item.id} />
                     }) 

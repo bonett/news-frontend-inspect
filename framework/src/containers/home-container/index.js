@@ -1,42 +1,42 @@
 import React, { useEffect, useState } from 'react';
 
 import { connect } from 'react-redux';
-import { getArticles } from '../../actions';
+import { fetchArticles } from '../../actions';
+import {
+    FETCH_ARTICLES_REQUEST,
+    FETCH_ARTICLES_SUCCESS,
+    FETCH_ARTICLES_FAILURE
+} from '../../types';
+
 
 import ArticlesComponent from '../../components/particular/article';
 import NewsletterComponent from '../../components/particular/newsletter';
 import ContactUsComponent from '../../components/particular/contact-us';
 
-const HomeContainer = (props) => {
-    
-    const [articles, setArticles] = useState(null);
-    const { data, getArticles } = props;
-
+const HomeContainer = ({ fetchArticles}) => {
+    const [articles, setArticles] =  useState(null);
     useEffect(() => {
-       setArticles(getArticles)
+        setArticles(fetchArticles());
     }, [articles]);
 
     return (
         <main>
-            <ArticlesComponent
-                articles={data} />
+            <ArticlesComponent articles={articles}/>
             <NewsletterComponent />
             <ContactUsComponent />
         </main>
     );
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
     return {
-        data: state.articles
+        articleData: state.article
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
     return {
-        getArticles: () => {
-            dispatch(getArticles())
-        }
+        fetchArticles: () => dispatch(fetchArticles())
     }
 }
 

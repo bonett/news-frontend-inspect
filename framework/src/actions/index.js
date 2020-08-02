@@ -1,40 +1,41 @@
-/* import axios from "axios";
-;
-
-const fetchedArticles = (articles) => {
-    return { type: FETCHED_ARTICLES, articles }
-}
-
-const loadingArticles = () => {
-    return { type: LOADING_ARTICLES }
-}
-
-const fetchingArticles = () => {
-    return dispatch => {
-        dispatch(loadingArticles());
-        axios.get(`https://jsonplaceholder.typicode.com/todos`)
-            .then(res => {
-                console.log(res)
-                res.data;
-            })
-            .then(data => {
-                dispatch(fetchedArticles(data))
-            })
-    };
-}
-export { fetchingArticles }; */
-
 import axios from "axios";
-import { API_URL, GET_ARTICLES_FAILURE, GET_ARTICLES_SUCCESS } from '../constants';
+import {
+    FETCH_ARTICLES_REQUEST,
+    FETCH_ARTICLES_SUCCESS,
+    FETCH_ARTICLES_FAILURE
+} from '../types';
 
-export const getArticles = () => {
+export const fetchArticlesRequest = () => {
+    return {
+        type: FETCH_ARTICLES_REQUEST
+    }
+}
+
+export const fetchArticlesSuccess = articles => {
+    return {
+        type   : FETCH_ARTICLES_SUCCESS,
+        payload: articles
+    }
+}
+
+export const fetchArticlesFailure = error => {
+    return {
+        type   : FETCH_ARTICLES_FAILURE,
+        payload: error
+    }
+}
+
+export const fetchArticles = () => {
     return (dispatch) => {
-        // Return promise with success and failure actions
-        return axios.get('https://jsonplaceholder.typicode.com/todos')
-        .then(
-            res  => res.data,
-            data => dispatch({ type: GET_ARTICLES_SUCCESS, data }),
-            err  => dispatch({ type: GET_ARTICLES_FAILURE, err })
-        );
+        dispatch(fetchArticlesRequest)
+        axios.get('https://jsonplaceholder.typicode.com/todos')
+            .then(response => {
+                const articles = response.data;
+                dispatch(fetchArticlesSuccess(articles));
+            })
+            .catch(error => {
+                const errorMessage = error.message;
+                dispatch(FETCH_ARTICLES_FAILURE(errorMessage));
+            })
     };
 };

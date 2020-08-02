@@ -1,16 +1,34 @@
-import { API_URL, GET_ARTICLES_FAILURE, GET_ARTICLES_SUCCESS } from '../../constants';
+import {
+    FETCH_ARTICLES_REQUEST,
+    FETCH_ARTICLES_SUCCESS,
+    FETCH_ARTICLES_FAILURE
+} from '../../types'
 
-const INITIAL_STATE = []
+const initialState = {
+    loading: false,
+    articles: [],
+    error: ''
+}
 
-export const ArticlesReducer = (state = INITIAL_STATE, action) => {
-    console.log('reducer', state, action);
+export const articleReducer = (state = initialState, action) => {
     switch (action.type) {
-        case GET_ARTICLES_SUCCESS:
+        case FETCH_ARTICLES_REQUEST:
             return {
                 ...state,
-                articles: state.concat(action.payload)
+                loading: true
             }
-        default:
-            return state;
+        case FETCH_ARTICLES_SUCCESS:
+            return {
+                loading: false,
+                list: action.payload,
+                error: ''
+            }
+        case FETCH_ARTICLES_FAILURE:
+            return {
+                loading: false,
+                list: [],
+                error: action.payload
+            }
+        default: return state
     }
 }

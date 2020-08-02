@@ -1,4 +1,4 @@
-import { SHOW_LOADER } from '../../constants';
+/* import { SHOW_LOADER } from '../../constants';
 
 const INITIAL_STATE = false;
 
@@ -9,4 +9,4 @@ export const LoadingReducer = (state = INITIAL_STATE, action) => {
         default:
             return state;
     }
-}
+} */
