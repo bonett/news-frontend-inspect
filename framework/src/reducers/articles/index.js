@@ -8,13 +8,13 @@ const initialState = {
     loading: false,
     articles: [],
     error: ''
-}
+};
 
 export const articleReducer = (state = initialState, action) => {
     switch (action.type) {
         case FETCH_ARTICLES_REQUEST:
             return {
-                ...state,
+                
                 loading: true
             }
         case FETCH_ARTICLES_SUCCESS:
@@ -29,6 +29,7 @@ export const articleReducer = (state = initialState, action) => {
                 list: [],
                 error: action.payload
             }
-        default: return state
+        default: 
+            return state;
     }
 }

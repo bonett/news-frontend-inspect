@@ -14,7 +14,7 @@ import NewsletterComponent from '../../components/particular/newsletter';
 import ContactUsComponent from '../../components/particular/contact-us';
 
 const HomeContainer = ({ fetchArticles}) => {
-    const [articles, setArticles] =  useState(null);
+    const [articles, setArticles] =  useState([]);
     useEffect(() => {
         setArticles(fetchArticles());
     }, [articles]);

@@ -1,12 +1,17 @@
-/* import { SHOW_ALERT } from '../../constants';
+import { SHOW_ALERT_MSG } from '../../types';
 
-const INITIAL_STATE = true;
+const initialState = {
+    isOpen: true
+};
 
-export const AlertPreviewReducer = (state = INITIAL_STATE, action) => {
+export const alertReducer = (state = initialState, action) => {
     switch (action.type) {
-        case SHOW_ALERT:
-            return false;
-        default:
+        case SHOW_ALERT_MSG: 
+            return {
+                ...state,
+                isOpen: false
+            }
+        default: 
             return state;
     }
-} */
+}

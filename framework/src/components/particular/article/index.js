@@ -19,38 +19,9 @@ const ArticlesComponent = ({articles}) => {
 
     const article  = data && data.article,
           alert    = data && data.alert;
-          /* articles = [
-            {
-                id: 0,
-                title: "Atlantci investigate crime syndicate involvement after teens c...",
-                description: "Cueensland police are investigating whether young women at the centre of the state's latest coronavirus controversy were coached by an organised crime syndicate to cover their tracks at the border.",
-                image: "https://1v1d1e1lmiki1lgcvx32p49h8fe-wpengine.netdna-ssl.com/wp-content/uploads/2020/07/12506738-3x2-large-2-960x600.jpg",
-                url: "https://thenewdaily.com.au/news/2020/07/31/queensland-police-brisbane-teens-coronavirus/"
-            },
-            {
-                id: 1,
-                title: "Contintnela investigate crime syndicate involvement after teens c...",
-                description: "Cueensland police are investigating whether young women at the centre of the state's latest coronavirus controversy were coached by an organised crime syndicate to cover their tracks at the border.",
-                image: "https://1v1d1e1lmiki1lgcvx32p49h8fe-wpengine.netdna-ssl.com/wp-content/uploads/2020/07/12506738-3x2-large-2-960x600.jpg",
-                url: "https://thenewdaily.com.au/news/2020/07/31/queensland-police-brisbane-teens-coronavirus/"
-            },
-            {
-                id: 2,
-                title: "Argentina investigate crime syndicate involvement after teens c...",
-                description: "Cueensland police are investigating whether young women at the centre of the state's latest coronavirus controversy were coached by an organised crime syndicate to cover their tracks at the border.",
-                image: "https://1v1d1e1lmiki1lgcvx32p49h8fe-wpengine.netdna-ssl.com/wp-content/uploads/2020/07/12506738-3x2-large-2-960x600.jpg",
-                url: "https://thenewdaily.com.au/news/2020/07/31/queensland-police-brisbane-teens-coronavirus/"
-            },
-            {
-                id: 3,
-                title: "Brasil Has been investigate crime syndicate involvement after teens c...",
-                description: "Cueensland police are investigating whether young women at the centre of the state's latest coronavirus controversy were coached by an organised crime syndicate to cover their tracks at the border.",
-                image: "https://1v1d1e1lmiki1lgcvx32p49h8fe-wpengine.netdna-ssl.com/wp-content/uploads/2020/07/12506738-3x2-large-2-960x600.jpg",
-                url: "https://thenewdaily.com.au/news/2020/07/31/queensland-police-brisbane-teens-coronavirus/"
-            }
-        ]; */
 
-        console.log(articles)
+    console.log(articles);
+
     const loaderSkeleton = () => {
         return (
             [1,2,3,4].map((index) => { return <SkeletonComponent key={index} /> })
@@ -108,7 +79,39 @@ const ArticlesComponent = ({articles}) => {
 }
 
 ArticlesComponent.propTypes = {
-    articles: PropTypes.any.isRequired,
+    articles: PropTypes.any,
 }
 
 export default ArticlesComponent;
+
+
+/* articles = [
+            {
+                id: 0,
+                title: "Atlantci investigate crime syndicate involvement after teens c...",
+                description: "Cueensland police are investigating whether young women at the centre of the state's latest coronavirus controversy were coached by an organised crime syndicate to cover their tracks at the border.",
+                image: "https://1v1d1e1lmiki1lgcvx32p49h8fe-wpengine.netdna-ssl.com/wp-content/uploads/2020/07/12506738-3x2-large-2-960x600.jpg",
+                url: "https://thenewdaily.com.au/news/2020/07/31/queensland-police-brisbane-teens-coronavirus/"
+            },
+            {
+                id: 1,
+                title: "Contintnela investigate crime syndicate involvement after teens c...",
+                description: "Cueensland police are investigating whether young women at the centre of the state's latest coronavirus controversy were coached by an organised crime syndicate to cover their tracks at the border.",
+                image: "https://1v1d1e1lmiki1lgcvx32p49h8fe-wpengine.netdna-ssl.com/wp-content/uploads/2020/07/12506738-3x2-large-2-960x600.jpg",
+                url: "https://thenewdaily.com.au/news/2020/07/31/queensland-police-brisbane-teens-coronavirus/"
+            },
+            {
+                id: 2,
+                title: "Argentina investigate crime syndicate involvement after teens c...",
+                description: "Cueensland police are investigating whether young women at the centre of the state's latest coronavirus controversy were coached by an organised crime syndicate to cover their tracks at the border.",
+                image: "https://1v1d1e1lmiki1lgcvx32p49h8fe-wpengine.netdna-ssl.com/wp-content/uploads/2020/07/12506738-3x2-large-2-960x600.jpg",
+                url: "https://thenewdaily.com.au/news/2020/07/31/queensland-police-brisbane-teens-coronavirus/"
+            },
+            {
+                id: 3,
+                title: "Brasil Has been investigate crime syndicate involvement after teens c...",
+                description: "Cueensland police are investigating whether young women at the centre of the state's latest coronavirus controversy were coached by an organised crime syndicate to cover their tracks at the border.",
+                image: "https://1v1d1e1lmiki1lgcvx32p49h8fe-wpengine.netdna-ssl.com/wp-content/uploads/2020/07/12506738-3x2-large-2-960x600.jpg",
+                url: "https://thenewdaily.com.au/news/2020/07/31/queensland-police-brisbane-teens-coronavirus/"
+            }
+        ]; */
