@@ -1,0 +1,37 @@
+@import '../../../themes/partials/variables.scss';
+
+.newsletter {
+    background-image: url('../../../assets/img/newsletter.jpg');
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 576px;
+
+    &__content {
+        display: flex;
+        min-height: 576px;
+    }
+
+    @media (min-width: 316px) {
+
+        &__content {
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 24px !important;
+            text-align: center;
+            width: 100%;
+        }
+    }
+
+    @media (min-width: 992px) {
+
+        &__content {
+            align-items: flex-start;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 32px 0 53px !important;
+            text-align: left;
+        }
+    }
+}

@@ -1,0 +1,99 @@
+@import '../../../themes/partials/variables.scss';
+
+.contact-us {
+    padding: 36px 0 !important;
+
+    &__heading {
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin: 21px 0 5px 0 !important;
+    }
+
+    &__content {
+        padding: 0 !important;
+
+        .eui-panel-body {
+            padding: 44px 29px 0 29px !important;
+        }
+
+        .eui-row {
+            &:nth-child(3) {
+                .form {
+                    &-group {
+                        align-items: flex-start;
+                        display: flex;
+                        flex-direction: column-reverse;
+
+                        label {
+                            font-size: 13px;
+                            margin: 0 0 5px 0;
+                            transition: .2s ease-out;
+                            color: $gray-stone;
+                            -webkit-tap-highlight-color: transparent!important;
+
+                            &:focus {
+                                color: $blue-lapis;
+                            }
+                        }
+
+                        textarea {
+                            border: 1px solid $border-area;
+                            border-radius: 3px;
+                            box-sizing: border-box;
+                            color: $gray-raven;
+                            font-size: 13px !important;
+                            font-family: inherit !important;
+                            height: 88px;
+                            min-height: 88px;
+                            padding: 10px;
+                            resize: none;
+                            width: 100%;
+
+                            &:focus {
+                                border-color: $blue-lapis;
+                            }
+
+                            &:focus-within~label {
+                                color: #0073e9;
+                            }
+                        }
+                    }
+                }
+
+                &:focus {
+                    border-color: $blue-lapis;
+                }
+            }
+
+            &:nth-child(4) {
+                .form {
+                    &-group {
+                        margin-bottom: 36px !important;
+                    }
+                }
+            }
+
+            &:last-child {
+                .form-group {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    margin-bottom: 25px !important;
+                }
+            }
+        }
+
+        .form {
+            &__content {
+                padding-top: 2px;
+                padding-bottom: 20px;
+            }
+
+            &-group {
+                margin-bottom: 44px;
+            }
+        }
+    }
+}

@@ -1,0 +1,50 @@
+@import '../../../themes/partials/variables.scss';
+
+.article {
+    padding-top: 68px;
+
+    &__content {
+        padding: 6px 0;
+
+        .article {
+            &__panel {
+                .eui-panel-body {
+                    padding: 4px 29px !important;
+                }
+            }
+        }
+
+        &__list {
+            padding: 14px 10px 0 10px;
+
+            .eui-col {
+                padding: 0 10px !important;
+
+                @media (min-width: 316px) {
+                    &:nth-child(even) {
+                        article {
+                            float: none;
+                        }
+                    }
+                }
+
+                @media (min-width: 768px) {
+                    &:nth-child(even) {
+                        article {
+                            float: right;
+                        }
+                    }
+                }
+
+            }
+        }
+
+        &__button {
+            align-items: center;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            margin: 2px 0 56px 0 !important;
+        }
+    }
+}

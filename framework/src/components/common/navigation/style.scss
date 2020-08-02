@@ -1,0 +1,75 @@
+@import '../../../themes/partials/variables.scss';
+
+.navbar {
+    &__content {
+        background-color: $white;
+        box-shadow: 0 2px 2px 0 $shadow-nav !important;
+        height: 66px !important;
+        position: relative;
+        width: 100%;
+    }
+
+    &__menu {
+        &__item {
+            color: $gray-jet !important;
+
+            &:first-child {
+                &>button {
+                    &:after {
+                        background: $white !important;
+                    }
+
+                    &:hover {
+                        color: $gray-jet !important;
+                    }
+                }
+            }
+
+            &:after {
+                background: $white !important;
+            }
+
+            &:hover {
+                color: $gray-jet !important;
+            }
+
+            @media (min-width: 316px) {
+                &:nth-child(2) {
+                    border-top: 1px solid $line-separator;
+                }
+            }
+
+
+            @media (min-width: 894px) {
+
+                &:nth-child(2) {
+                    border-top: none;
+                }
+            }
+        }
+    }
+
+    @media (min-width: 316px) {
+        &__menu {
+            padding-left: 0;
+        }
+    }
+
+    @media (min-width: 894px) {
+        &__menu {
+            padding-left: 24px;
+        }
+    }
+
+    &__account {
+        &__dropdown {
+            &:first-child {
+                &>button {
+                    &:after {
+                        background: $white !important;
+                    }
+                }
+            }
+        }
+    }
+}

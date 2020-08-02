@@ -1,0 +1,33 @@
+@import './variables.scss';
+
+/***********************************
+    COLORS STYLES
+************************************/
+
+.color {
+    &--dark {
+        color: $gray-jet;
+    }
+
+    &--light {
+        color: $white;
+    }
+
+    &--error {
+        color: $red-candy;
+    }
+}
+
+/***********************************
+    BACKGROUND COLORS
+************************************/
+
+.background {
+    &--dark {
+        color: $gray-jet;
+    }
+
+    &--light {
+        color: $white;
+    }
+}
