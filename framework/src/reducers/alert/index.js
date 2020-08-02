@@ -1,4 +1,4 @@
-import { SHOW_ALERT_MSG } from '../../types';
+import { ALERT_MSG_HIDDEN, ALERT_MSG_SHOW } from '../../types';
 
 const initialState = {
     isOpen: true
@@ -6,12 +6,17 @@ const initialState = {
 
 export const alertReducer = (state = initialState, action) => {
     switch (action.type) {
-        case SHOW_ALERT_MSG: 
+        case ALERT_MSG_SHOW:
             return {
                 ...state,
-                isOpen: false
+                isOpen: action.payload
             }
-        default: 
+        case ALERT_MSG_HIDDEN:
+            return {
+                ...state,
+                isOpen: action.payload
+            }
+        default:
             return state;
     }
 }

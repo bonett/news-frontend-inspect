@@ -6,16 +6,14 @@ import Button from 'emerald-ui/lib/Button';
 
 import './style.scss';
 
-const ButtonComponent = (props) => {
-
-    const { title, color, shape, className, closable } = props;
+const ButtonComponent = ({ title, color, shape, className, closable, handleClickToClose }) => {
 
     return (
         <>
             {
                 !closable ?
                     <Button color={color} className={className} shape={shape}>{title}</Button> :
-                    <IconButton ariaLabel="Close" icon="close" title="Close" />
+                    <IconButton ariaLabel="Close" onClick={() => handleClickToClose(false) } icon="close" title="Close" />
             }
         </>
     );
@@ -27,6 +25,7 @@ ButtonComponent.propTypes = {
     className: PropTypes.string,
     shape: PropTypes.string,
     closable: PropTypes.bool.isRequired,
+    handleClickToClose: PropTypes.func,
 }
 
 export default ButtonComponent;

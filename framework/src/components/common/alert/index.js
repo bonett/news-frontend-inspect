@@ -1,33 +1,54 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import { connect } from 'react-redux';
-import { SHOW_ALERT } from '../../../types';
+import { handlerHiddenMsg } from '../../../actions/alertAction';
+
 import Alert from 'emerald-ui/lib/Alert';
 import ButtonComponent from '../button';
 
 import './style.scss';
 
-const AlertComponent = (props) => {
+const AlertComponent = ({ message, closable, color, alertOption, alertMsgHidden }) => {
 
-    const { message, closable, color } = props;
+    const handleOption = (opt) => {
+        alertMsgHidden(opt);
+    }
+
+    const showAlertMsg = () => {
+        return (
+            <Alert className="alert__content" color={color}>
+                <div className="alert__content__message">
+                    {message}
+                </div>
+                <div className="alert__content__button btn-toolbar">
+                    <ButtonComponent closable={closable} handleClickToClose={handleOption} />
+                </div>
+            </Alert>
+        )
+    }
 
     return (
-        
-                    <Alert className="alert__content" color={color}>
-                        <div className="alert__content__message">
-                            {message}
-                        </div>
-                        <div className="alert__content__button btn-toolbar">
-                            <ButtonComponent closable={closable} />
-                        </div>
-                    </Alert> 
+        <> { alertOption.isOpen ? showAlertMsg() : null } </>
     );
 }
 
 AlertComponent.propTypes = {
-    color    : PropTypes.string.isRequired,
-    message  : PropTypes.string.isRequired,
-    closable : PropTypes.bool.isRequired,
+    color   : PropTypes.string.isRequired,
+    message : PropTypes.string.isRequired,
+    closable: PropTypes.bool.isRequired,
 }
 
-export default AlertComponent;
+const mapStateToProps = state => {
+    return {
+        alertOption: state.alertMsg
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        alertMsgHidden: (opt) => dispatch(handlerHiddenMsg(opt))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(AlertComponent);;
