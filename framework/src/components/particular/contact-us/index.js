@@ -62,18 +62,25 @@ const ContactUsComponent = () => {
     }
 
     const submitFormVerified = () => {
-        const payload = {
-            firstname: fname.value,
-            lastname: lname.value,
-            email: mail.value,
-            phoneNumber: pnumber.value,
-            message: mssge.value,
-            checked: false,
-        };
-
-        setSubmitData(payload);
-        handleControlDialog(false);
-
+        if ((fname.verified && lname.verified && mail.verified && pnumber.verified && mssge.verified) === false) {
+            handleControlValidation(fname.value, 'firstname');
+            handleControlValidation(lname.value, 'lastname');
+            handleControlValidation(mail.value, 'email');
+            handleControlValidation(pnumber.value, 'phonenumber');
+            handleControlValidation(mssge.value, 'message');
+        } else {
+            const payload = {
+                firstname: fname.value,
+                lastname: lname.value,
+                email: mail.value,
+                phoneNumber: pnumber.value,
+                message: mssge.value,
+                checked: false,
+            };
+    
+            setSubmitData(payload);
+            handleControlDialog(false);
+        }
     };
 
     const handleControlDialog = (isClear) => {
@@ -187,13 +194,6 @@ const ContactUsComponent = () => {
                                             <ButtonComponent
                                                 color="primary"
                                                 handleClickButton={submitFormVerified}
-                                                isDisabled={(
-                                                    fname.verified &&
-                                                    lname.verified &&
-                                                    mail.verified &&
-                                                    pnumber.verified &&
-                                                    mssge.verified) === false
-                                                }
                                                 title={contactUs.btnSubmit}
                                                 closable={false}
                                             />
