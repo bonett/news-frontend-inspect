@@ -14,7 +14,8 @@ import './style.scss';
 
 import data from '../../../data/static';
 
-const ArticlesComponent = ({ articles }) => {
+const ArticlesComponent = ({ articles, onloadMoreData, disableLoadMoreBtn  }) => {
+
     const article = data && data.article,
         alert = data && data.alert;
 
@@ -27,7 +28,6 @@ const ArticlesComponent = ({ articles }) => {
     const getArticleByItem = () => {
         return (
             <>
-                {' '}
                 {articles && articles.length > 0
                     ? articles.map(item => {
                         return <ArticleComponent article={item} key={item.id} />;
@@ -35,10 +35,6 @@ const ArticlesComponent = ({ articles }) => {
                     : loaderSkeleton()}{' '}
             </>
         );
-    };
-
-    const handleOption = () => {
-        console.log('click');
     };
 
     return (
@@ -87,7 +83,8 @@ const ArticlesComponent = ({ articles }) => {
                     >
                         <ButtonComponent
                             color="primary"
-                            handleClickToClose={handleOption}
+                            isDisabled={disableLoadMoreBtn}
+                            handleClickButton={onloadMoreData}
                             title={article.btnLoadMore}
                             closable={false}
                         />
@@ -100,6 +97,8 @@ const ArticlesComponent = ({ articles }) => {
 
 ArticlesComponent.propTypes = {
     articles: PropTypes.array,
+    onloadMoreData: PropTypes.func,
+    disableLoadMoreBtn: PropTypes.bool
 };
 
 export default ArticlesComponent;

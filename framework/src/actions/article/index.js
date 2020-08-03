@@ -1,9 +1,11 @@
 import axios from 'axios';
-
+import _ from 'lodash';
 import {
     FETCH_ARTICLES_REQUEST,
     FETCH_ARTICLES_SUCCESS,
     FETCH_ARTICLES_FAILURE,
+    FETCH_LOAD_MORE,
+    LOAD_MORE_ENABLED
 } from '../../types';
 
 const data = [
@@ -185,11 +187,25 @@ export const fetchArticlesRequest = () => {
     };
 };
 
+export const loadMoreEnabled = (status) => {
+  return {
+      type: LOAD_MORE_ENABLED,
+      payload: status
+  };
+};
+
 export const fetchArticlesSuccess = articles => {
     return {
         type: FETCH_ARTICLES_SUCCESS,
         payload: articles,
     };
+};
+
+export const fetchLoadMoreArticles = newArticles => {
+  return {
+      type: FETCH_LOAD_MORE,
+      payload: newArticles,
+  };
 };
 
 export const fetchArticlesFailure = error => {
@@ -199,18 +215,32 @@ export const fetchArticlesFailure = error => {
     };
 };
 
-export const fetchArticles = () => {
+export const fetchArticles = (init, limit) => {
     return dispatch => {
         axios
             .get('https://jsonplaceholder.typicode.com/todos')
             .then(response => {
                 /* response.result; */
-                const articles = data;
-                dispatch(fetchArticlesSuccess(articles));
+                if(data) {
+                  const articles = data;
+                  dispatch(loadMoreEnabled(false));
+                  dispatch(fetchArticlesSuccess(articles));
+                }
             })
             .catch(error => {
                 const errorMessage = error.message;
                 dispatch(FETCH_ARTICLES_FAILURE(errorMessage));
             });
     };
+};
+
+export const fetchMoreArticles = (data, init, limit) => {
+  return dispatch => {
+    if (data.length - limit < 4) {
+      dispatch(fetchLoadMoreArticles(_.slice(data, init, data.length)));
+      dispatch(loadMoreEnabled(true)); 
+    } else {
+      dispatch(fetchLoadMoreArticles(_.slice(data, init, limit)));
+    }
+  };
 };

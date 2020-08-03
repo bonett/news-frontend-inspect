@@ -14,6 +14,7 @@ const ButtonComponent = ({
     closable,
     handleClickToClose,
     handleClickButton,
+    isDisabled
 }) => {
     return (
         <>
@@ -21,6 +22,7 @@ const ButtonComponent = ({
                 <Button
                     color={color}
                     className={className}
+                    disabled={isDisabled}
                     onClick={() => handleClickButton()}
                     shape={shape}
                 >
@@ -45,7 +47,8 @@ ButtonComponent.propTypes = {
     shape: PropTypes.string,
     closable: PropTypes.bool.isRequired,
     handleClickToClose: PropTypes.func,
-    handleClickButton: PropTypes.func
+    handleClickButton: PropTypes.func,
+    isDisabled: PropTypes.bool,
 };
 
 export default ButtonComponent;
