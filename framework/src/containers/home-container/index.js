@@ -8,35 +8,34 @@ import NewsletterComponent from '../../components/particular/newsletter';
 import ContactUsComponent from '../../components/particular/contact-us';
 
 const HomeContainer = ({ fetchArticles, articles }) => {
-
     useEffect(() => {
         fetchArticles();
     }, []);
 
     return (
         <main>
-            <ArticlesComponent 
-                articles={articles.list} />
+            <ArticlesComponent articles={articles.list} />
             <NewsletterComponent />
             <ContactUsComponent />
         </main>
     );
-}
+};
 
 const mapStateToProps = state => {
     return {
-        articles: state.articles
-    }
-}
+        articles: state.articles,
+    };
+};
 
 const mapDispatchToProps = dispatch => {
     return {
-        fetchArticles: () => dispatch(fetchArticles())
-    }
-}
+        fetchArticles: () => dispatch(fetchArticles()),
+    };
+};
 
 HomeContainer.propTypes = {
-    article: PropTypes.object
-}
+    articles: PropTypes.object,
+    fetchArticles: PropTypes.func,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomeContainer);

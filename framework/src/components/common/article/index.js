@@ -5,8 +5,7 @@ import Col from 'emerald-ui/lib/Col';
 
 import './style.scss';
 
-const ArticleComponent = (props) => {
-
+const ArticleComponent = props => {
     const { article } = props;
 
     return (
@@ -14,7 +13,11 @@ const ArticleComponent = (props) => {
             <article>
                 <a href={article.url} target="_blank" rel="noopener noreferrer">
                     <div className="media">
-                        <img className="img--size" src={article.image} alt={article.title} />
+                        <img
+                            className="img--size"
+                            src={article.image}
+                            alt={article.title}
+                        />
                     </div>
                     <div className="caption">
                         <h2 className="article--title">{article.title}</h2>
@@ -24,15 +27,15 @@ const ArticleComponent = (props) => {
             </article>
         </Col>
     );
-}
+};
 
 ArticleComponent.propTypes = {
     article: PropTypes.shape({
         title: PropTypes.string.isRequired,
         description: PropTypes.string.isRequired,
         image: PropTypes.string.isRequired,
-        url: PropTypes.string.isRequired
+        url: PropTypes.string.isRequired,
     }),
-}
+};
 
 export default ArticleComponent;

@@ -6,28 +6,49 @@ import Button from 'emerald-ui/lib/Button';
 
 import './style.scss';
 
-const ButtonComponent = ({ title, color, shape, className, closable, handleClickToClose, isDisabled, handleClickButton}) => {
-
+const ButtonComponent = ({
+    title,
+    color,
+    shape,
+    className,
+    closable,
+    handleClickToClose,
+    isDisabled,
+    handleClickButton,
+}) => {
     return (
         <>
-            {
-                !closable ?
-                    <Button color={color} disabled={isDisabled} className={className} onClick={() => handleClickButton()} shape={shape}>{title}</Button> :
-                    <IconButton ariaLabel="Close" onClick={() => handleClickToClose(false) } icon="close" title="Close" />
-            }
+            {!closable ? (
+                <Button
+                    color={color}
+                    disabled={isDisabled}
+                    className={className}
+                    onClick={() => handleClickButton()}
+                    shape={shape}
+                >
+                    {title}
+                </Button>
+            ) : (
+                <IconButton
+                    ariaLabel="Close"
+                    onClick={() => handleClickToClose(false)}
+                    icon="close"
+                    title="Close"
+                />
+            )}
         </>
     );
-}
+};
 
 ButtonComponent.propTypes = {
-    color             : PropTypes.string,
-    title             : PropTypes.string,
-    className         : PropTypes.string,
-    shape             : PropTypes.string,
-    closable          : PropTypes.bool.isRequired,
+    color: PropTypes.string,
+    title: PropTypes.string,
+    className: PropTypes.string,
+    shape: PropTypes.string,
+    closable: PropTypes.bool.isRequired,
     handleClickToClose: PropTypes.func,
-    handleClickButton : PropTypes.func,
-    isDisabled        : PropTypes.bool,
-}
+    handleClickButton: PropTypes.func,
+    isDisabled: PropTypes.bool,
+};
 
 export default ButtonComponent;

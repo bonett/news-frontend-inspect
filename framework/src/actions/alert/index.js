@@ -1,24 +1,21 @@
-import { 
-    ALERT_MSG_HIDDEN,
-    ALERT_MSG_SHOW
-} from '../../types';
+import { ALERT_MSG_HIDDEN, ALERT_MSG_SHOW } from '../../types';
 
-export const alertMsgShow = (opt) => {
+export const alertMsgShow = opt => {
     return {
         type: ALERT_MSG_SHOW,
-        payload: opt
-    }
-}
+        payload: opt,
+    };
+};
 
-export const alertMsgHidden = (opt) => {
+export const alertMsgHidden = opt => {
     return {
-        type   : ALERT_MSG_HIDDEN,
-        payload: opt
-    }
-}
+        type: ALERT_MSG_HIDDEN,
+        payload: opt,
+    };
+};
 
-export const handlerHiddenMsg = (opt) => {
-    return (dispatch) => {
-        dispatch(alertMsgHidden(opt))
+export const handlerHiddenMsg = opt => {
+    return dispatch => {
+        dispatch(alertMsgHidden(opt));
     };
 };
