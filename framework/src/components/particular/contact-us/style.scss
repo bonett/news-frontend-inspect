@@ -20,50 +20,12 @@
 
         .eui-row {
             &:nth-child(3) {
-                .form {
-                    &-group {
-                        align-items: flex-start;
-                        display: flex;
-                        flex-direction: column-reverse;
+                .eui-text-field {
+                    width: 100%;
 
-                        label {
-                            font-size: 13px;
-                            margin: 0 0 5px 0;
-                            transition: .2s ease-out;
-                            color: $gray-stone;
-                            -webkit-tap-highlight-color: transparent!important;
-
-                            &:focus {
-                                color: $blue-lapis;
-                            }
-                        }
-
-                        textarea {
-                            border: 1px solid $border-area;
-                            border-radius: 3px;
-                            box-sizing: border-box;
-                            color: $gray-raven;
-                            font-size: 13px !important;
-                            font-family: inherit !important;
-                            height: 88px;
-                            min-height: 88px;
-                            padding: 10px;
-                            resize: none;
-                            width: 100%;
-
-                            &:focus {
-                                border-color: $blue-lapis;
-                            }
-
-                            &:focus-within~label {
-                                color: #0073e9;
-                            }
-                        }
+                    input {
+                        height: 88px !important;
                     }
-                }
-
-                &:focus {
-                    border-color: $blue-lapis;
                 }
             }
 

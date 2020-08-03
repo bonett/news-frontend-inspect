@@ -7,192 +7,53 @@ import Col from 'emerald-ui/lib/Col';
 import ButtonComponent from '../../common/button';
 import CheckBoxComponent from '../../common/check-box';
 import HeadingComponent from '../../common/heading';
+import TextFieldComponent from '../../common/text-field';
+import ModalComponent from '../../common/modal';
+
+import data from '../../../data/static';
+import validateTextField from '../../../utils';
 
 import './style.scss';
 
-import data from '../../../data/static';
-import TextFieldComponent from '../../common/text-field';
-
-const emailRegexp = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-    phoneNumberRegexp = /^([0-9]{10})$/;
+const initialStatus = { value: '', verified: false, message: '' },
+      initForm      = { firstname: '', lastname: '', email: '', phoneNumber: '', message: '', checked: false };
 
 const ContactUsComponent = () => {
-    const [fname, setFname] = useState({
-        value: '',
-        verified: false,
-        message: '',
-    });
-    const [lname, setLname] = useState({
-        value: '',
-        verified: false,
-        message: '',
-    });
-    const [mail, setMail] = useState({
-        value: '',
-        verified: false,
-        message: '',
-    });
-    const [pnumber, setPnumber] = useState({
-        value: '',
-        verified: false,
-        message: '',
-    });
-    const [mssge, setMssge] = useState({
-        value: '',
-        verified: false,
-        message: '',
-    });
 
-    const [checked, setChecked] = useState(false);
-
-    const contactUs   = data && data.contact,
-        firstname   = contactUs && contactUs.firstname,
-        lastname    = contactUs && contactUs.lastname,
-        email       = contactUs && contactUs.email,
-        phoneNumber = contactUs && contactUs.phoneNumber,
-        message     = contactUs && contactUs.message;
+    const contactUs                   = data && data.contact,
+          firstname                   = contactUs && contactUs.firstname,
+          lastname                    = contactUs && contactUs.lastname,
+          email                       = contactUs && contactUs.email,
+          phoneNumber                 = contactUs && contactUs.phoneNumber,
+          message                     = contactUs && contactUs.message,
+          [fname, setFname]           = useState(initialStatus),
+          [lname, setLname]           = useState(initialStatus),
+          [mail, setMail]             = useState(initialStatus),
+          [pnumber, setPnumber]       = useState(initialStatus),
+          [mssge, setMssge]           = useState(initialStatus),
+          [submitData, setSubmitData] = useState(initForm),
+          [showDialog, setShowDialog] = useState(false),
+          [checked, setChecked]       = useState(false);
 
     const handleControlValidation = (value, id) => {
         switch (id) {
         case 'firstname':
-            checkField(value, id);
-            break;
-        case 'message':
-            checkField(value, id);
+            setFname(validateTextField(value, id));
             break;
         case 'lastname':
-            checkField(value, id);
+            setLname(validateTextField(value, id))
             break;
         case 'email':
-            checkEmail(value);
+            setMail(validateTextField(value, id))
             break;
         case 'phonenumber':
-            checkPhoneNumber(value);
+            setPnumber(validateTextField(value, id))
+            break;
+        case 'message':
+            setMssge(validateTextField(value, id));
             break;
         default:
             break;
-        }
-    };
-
-    const checkPhoneNumber = field => {
-        if (field !== '') {
-            if (field.length > 0 && phoneNumberRegexp.test(field)) {
-                setPnumber({
-                    value: field,
-                    verified: true,
-                    message: '',
-                });
-            } else {
-                setPnumber({
-                    value: field,
-                    verified: false,
-                    message: 'Phone number is required (10 digits)',
-                });
-            }
-        } else {
-            setPnumber({
-                value: field,
-                verified: false,
-                message: 'Phone number is required (10 digits)',
-            });
-        }
-    };
-
-    const checkEmail = field => {
-        if (field !== '') {
-            if (field.length > 0 && emailRegexp.test(field)) {
-                setMail({
-                    value: field,
-                    verified: true,
-                    message: '',
-                });
-            } else {
-                setMail({
-                    value: field,
-                    verified: false,
-                    message: 'Email is required',
-                });
-            }
-        } else {
-            setMail({
-                value: field,
-                verified: false,
-                message: 'Email is required',
-            });
-        }
-    };
-
-    const checkField = (field, id) => {
-        if (id === 'firstname') {
-            if (field !== '' || fname.value !== '') {
-                if (field.length > 0) {
-                    setFname({
-                        value: field,
-                        verified: true,
-                        message: '',
-                    });
-                } else {
-                    setFname({
-                        value: field,
-                        verified: false,
-                        message: 'Firstname is required',
-                    });
-                }
-            } else {
-                setFname({
-                    value: field,
-                    verified: false,
-                    message: 'Firstname is required',
-                });
-            }
-        }
-
-        if (id === 'lastname') {
-            if (field !== '' || lname.value !== '') {
-                if (field.length > 0) {
-                    setLname({
-                        value: field,
-                        verified: true,
-                        message: '',
-                    });
-                } else {
-                    setLname({
-                        value: field,
-                        verified: false,
-                        message: 'Lastname is required',
-                    });
-                }
-            } else {
-                setLname({
-                    value: field,
-                    verified: false,
-                    message: 'Lastname is required',
-                });
-            }
-        }
-
-        if (id === 'message') {
-            if (field !== '') {
-                if (field.length > 0 || mssge.value !== '') {
-                    setMssge({
-                        value: field,
-                        verified: true,
-                        message: '',
-                    });
-                } else {
-                    setMssge({
-                        value: field,
-                        verified: false,
-                        message: 'Message is required',
-                    });
-                }
-            } else {
-                setMssge({
-                    value: field,
-                    verified: false,
-                    message: 'Message is required',
-                });
-            }
         }
     };
 
@@ -209,12 +70,35 @@ const ContactUsComponent = () => {
             message: mssge.value,
             checked: false,
         };
-        console.log(payload);
+
+        setSubmitData(payload);
+        handleControlDialog(false);
+
     };
+
+    const handleControlDialog = (isClear) => {
+        setShowDialog(!showDialog);
+        if (isClear) clearForm();
+    }
+
+    const clearForm = () => {
+        setFname(initialStatus);
+        setLname(initialStatus);
+        setMail(initialStatus);
+        setPnumber(initialStatus);
+        setMssge(initialStatus);
+        setSubmitData(initForm);
+        setChecked(false);
+    }
 
     return (
         <section id="contact-us" className="contact-us">
             <div className="container">
+                <ModalComponent
+                    title="Submit form"
+                    payload={submitData}
+                    show={showDialog}
+                    handleControl={handleControlDialog} />
                 <Row>
                     <Col
                         xs={12}
@@ -281,27 +165,13 @@ const ContactUsComponent = () => {
                                     </Row>
                                     <Row>
                                         <Col xs={12} sm={12} md={12} lg={12} className="form-group">
-                                            {!mssge.verified && mssge.value !== '' ? (
-                                                <div className="eui-text-footer">
-                                                    <span
-                                                        id="lastnameErrorMessage"
-                                                        className="eui-text-field-message eui-text-field-error-message has-message"
-                                                        role="alert"
-                                                    >
-                                                        {mssge.message}
-                                                    </span>
-                                                    <span className="eui-text-field-message eui-text-field-help-text"></span>
-                                                </div>
-                                            ) : null}
-                                            <textarea
-                                                name={message.id}
+                                            <TextFieldComponent
                                                 id={message.id}
+                                                label={message.label}
                                                 value={mssge.value}
-                                                onChange={e => handleControlValidation(e.target.value, e.target.id)}
-                                                cols="30"
-                                                rows="10"
-                                            ></textarea>
-                                            <label htmlFor={message.id}>{message.label}</label>
+                                                handleInputControl={handleControlValidation}
+                                                errorMessage={mssge.message}
+                                            />
                                         </Col>
                                     </Row>
                                     <Row>

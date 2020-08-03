@@ -7,7 +7,7 @@ import './style.scss';
 
 const CheckBoxComponent = ({ label, isChecked, handleClickCheckbox }) => {
 
-    return <Checkbox label={label} checked={isChecked} onClick={(e) => handleClickCheckbox(e.target.checked)} />;
+    return <Checkbox label={label} checked={isChecked} onChange={(e) => handleClickCheckbox(e.target.checked)} />;
 };
 
 CheckBoxComponent.propTypes = {
