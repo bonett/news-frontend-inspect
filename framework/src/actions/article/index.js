@@ -204,7 +204,7 @@ export const fetchArticles = () => {
         axios
             .get('https://jsonplaceholder.typicode.com/todos')
             .then(response => {
-                response.result;
+                /* response.result; */
                 const articles = data;
                 dispatch(fetchArticlesSuccess(articles));
             })

@@ -74,7 +74,7 @@ const ContactUsComponent = () => {
     };
 
     const checkPhoneNumber = field => {
-        if (field.value != '') {
+        if (field.value !== '') {
             if (field.value.length > 0 && phoneNumberRegexp.test(field.value)) {
                 setPnumber({
                     value: field.value,
@@ -98,7 +98,7 @@ const ContactUsComponent = () => {
     };
 
     const checkEmail = field => {
-        if (field.value != '') {
+        if (field.value !== '') {
             if (field.value.length > 0 && emailRegexp.test(field.value)) {
                 setMail({
                     value: field.value,
@@ -124,7 +124,7 @@ const ContactUsComponent = () => {
     const checkField = field => {
         console.log(field);
         if (field.id === 'firstname') {
-            if (field.value != '' || fname.value !== '') {
+            if (field.value !== '' || fname.value !== '') {
                 if (field.value.length > 0) {
                     setFname({
                         value: field.value,
@@ -148,7 +148,7 @@ const ContactUsComponent = () => {
         }
 
         if (field.id === 'lastname') {
-            if (field.value != '' || lname.value !== '') {
+            if (field.value !== '' || lname.value !== '') {
                 if (field.value.length > 0) {
                     setLname({
                         value: field.value,
@@ -172,8 +172,8 @@ const ContactUsComponent = () => {
         }
 
         if (field.id === 'message') {
-            if (field.value != '') {
-                if (field.value.length > 0 || mssge.value != '') {
+            if (field.value !== '') {
+                if (field.value.length > 0 || mssge.value !== '') {
                     setMssge({
                         value: field.value,
                         verified: true,
@@ -310,12 +310,12 @@ const ContactUsComponent = () => {
                                             <ButtonComponent
                                                 color="primary"
                                                 handleClickButton={submitFormVerified}
-                                                isDisabled={
-                                                    !fname.verified ||
-                          !lname.verified ||
-                          !mail.verified ||
-                          !pnumber.verified ||
-                          !mssge.verified
+                                                isDisabled={(
+                                                    fname.verified &&
+                                                    lname.verified &&
+                                                    mail.verified &&
+                                                    pnumber.verified &&
+                                                    mssge.verified) === false
                                                 }
                                                 title={contactUs.btnSubmit}
                                                 closable={false}

@@ -8,9 +8,10 @@ import NewsletterComponent from '../../components/particular/newsletter';
 import ContactUsComponent from '../../components/particular/contact-us';
 
 const HomeContainer = ({ fetchArticles, articles }) => {
+
     useEffect(() => {
         fetchArticles();
-    }, []);
+    }, [fetchArticles]);
 
     return (
         <main>
