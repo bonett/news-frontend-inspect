@@ -1,0 +1,11 @@
+@import '../../../themes/partials/variables.scss';
+
+.paragraph {
+    &.dark {
+        color: $gray-jet;
+    }
+    
+    &.light {
+        color: $white;
+    }
+}
