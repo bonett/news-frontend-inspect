@@ -12,13 +12,13 @@ const ArticleComponent = (props) => {
     return (
         <Col xs={12} sm={6} md={6} lg={6}>
             <article>
-                <a href={article.url} target="_blank">
+                <a href={article.url} target="_blank" rel="noopener noreferrer">
                     <div className="media">
                         <img className="img--size" src={article.image} alt={article.title} />
                     </div>
                     <div className="caption">
                         <h2 className="article--title">{article.title}</h2>
-                        <p className="article--descrption">{article.description}</p>
+                        <p className="article--description">{article.description}</p>
                     </div>
                 </a>
             </article>

@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import Row from 'emerald-ui/lib/Row';
 import Col from 'emerald-ui/lib/Col';
@@ -43,10 +42,6 @@ const NewsletterComponent = () => {
             </div>
         </section>
     );
-}
-
-NewsletterComponent.propTypes = {
-
 }
 
 export default NewsletterComponent;

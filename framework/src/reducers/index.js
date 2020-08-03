@@ -5,7 +5,7 @@ import { articleReducer } from './articles';
 
 
 const rootReducer = combineReducers({
-    articles : articleReducer,
+    articles: articleReducer,
     alertMsg: alertReducer
 })
 

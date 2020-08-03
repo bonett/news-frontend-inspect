@@ -12,7 +12,7 @@ const ButtonComponent = ({ title, color, shape, className, closable, handleClick
         <>
             {
                 !closable ?
-                    <Button color={color} className={className} shape={shape}>{title}</Button> :
+                    <Button color={color} className={className} onClick={() => handleClickToClose()} shape={shape}>{title}</Button> :
                     <IconButton ariaLabel="Close" onClick={() => handleClickToClose(false) } icon="close" title="Close" />
             }
         </>

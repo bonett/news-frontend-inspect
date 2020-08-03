@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { fetchArticles } from '../../actions/article';
@@ -15,7 +15,8 @@ const HomeContainer = ({ fetchArticles, articles }) => {
 
     return (
         <main>
-            <ArticlesComponent articles={articles.list}/>
+            <ArticlesComponent 
+                articles={articles.list} />
             <NewsletterComponent />
             <ContactUsComponent />
         </main>
@@ -34,9 +35,8 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-
 HomeContainer.propTypes = {
-    data: PropTypes.any,
+    article: PropTypes.object
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomeContainer);

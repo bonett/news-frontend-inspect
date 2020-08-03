@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import Panel from 'emerald-ui/lib/Panel';
 import Row from 'emerald-ui/lib/Row';
@@ -93,10 +92,6 @@ const ContactUsComponent = () => {
             </div>
         </section>
     );
-}
-
-ContactUsComponent.propTypes = {
-
 }
 
 export default ContactUsComponent;

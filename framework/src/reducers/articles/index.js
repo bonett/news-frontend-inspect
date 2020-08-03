@@ -6,27 +6,28 @@ import {
 
 const initialState = {
     loading: false,
-    articles: [],
-    error: ''
+    list   : [],
+    error  : ''
 };
 
 export const articleReducer = (state = initialState, action) => {
+    console.log(action.payload)
     switch (action.type) {
-        case FETCH_ARTICLES_REQUEST:
+        case FETCH_ARTICLES_REQUEST: 
             return {
                 loading: true
             }
-        case FETCH_ARTICLES_SUCCESS:
+        case FETCH_ARTICLES_SUCCESS: 
             return {
                 loading: false,
-                list: action.payload,
-                error: ''
+                list   : action.payload,
+                error  : ''
             }
-        case FETCH_ARTICLES_FAILURE:
+        case FETCH_ARTICLES_FAILURE: 
             return {
                 loading: false,
-                list: [],
-                error: action.payload
+                list   : [],
+                error  : ''
             }
         default: 
             return state;

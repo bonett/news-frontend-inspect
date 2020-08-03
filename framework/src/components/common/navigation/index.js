@@ -1,7 +1,5 @@
 import React from 'react';
 
-import { useEffect } from "react";
-
 import Avatar from 'emerald-ui/lib/Avatar';
 import DropdownButton from 'emerald-ui/lib/DropdownButton';
 import DropdownItem from 'emerald-ui/lib/DropdownItem';
