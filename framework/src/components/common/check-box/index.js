@@ -5,14 +5,15 @@ import Checkbox from 'emerald-ui/lib/Checkbox';
 
 import './style.scss';
 
-const CheckBoxComponent = props => {
-    const { label } = props;
+const CheckBoxComponent = ({ label, isChecked, handleClickCheckbox }) => {
 
-    return <Checkbox label={label} />;
+    return <Checkbox label={label} checked={isChecked} onClick={(e) => handleClickCheckbox(e.target.checked)} />;
 };
 
 CheckBoxComponent.propTypes = {
     label: PropTypes.string.isRequired,
+    handleClickCheckbox: PropTypes.func,
+    isChecked: PropTypes.bool.isRequired,
 };
 
 export default CheckBoxComponent;
