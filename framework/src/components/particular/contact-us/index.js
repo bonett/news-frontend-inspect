@@ -16,24 +16,24 @@ import validateTextField from '../../../utils';
 import './style.scss';
 
 const initialStatus = { value: '', verified: false, message: '' },
-      initForm      = { firstname: '', lastname: '', email: '', phoneNumber: '', message: '', checked: false };
+    initForm      = { firstname: '', lastname: '', email: '', phoneNumber: '', message: '', checked: false };
 
 const ContactUsComponent = () => {
 
     const contactUs                   = data && data.contact,
-          firstname                   = contactUs && contactUs.firstname,
-          lastname                    = contactUs && contactUs.lastname,
-          email                       = contactUs && contactUs.email,
-          phoneNumber                 = contactUs && contactUs.phoneNumber,
-          message                     = contactUs && contactUs.message,
-          [fname, setFname]           = useState(initialStatus),
-          [lname, setLname]           = useState(initialStatus),
-          [mail, setMail]             = useState(initialStatus),
-          [pnumber, setPnumber]       = useState(initialStatus),
-          [mssge, setMssge]           = useState(initialStatus),
-          [submitData, setSubmitData] = useState(initForm),
-          [showDialog, setShowDialog] = useState(false),
-          [checked, setChecked]       = useState(false);
+        firstname                   = contactUs && contactUs.firstname,
+        lastname                    = contactUs && contactUs.lastname,
+        email                       = contactUs && contactUs.email,
+        phoneNumber                 = contactUs && contactUs.phoneNumber,
+        message                     = contactUs && contactUs.message,
+        [fname, setFname]           = useState(initialStatus),
+        [lname, setLname]           = useState(initialStatus),
+        [mail, setMail]             = useState(initialStatus),
+        [pnumber, setPnumber]       = useState(initialStatus),
+        [mssge, setMssge]           = useState(initialStatus),
+        [submitData, setSubmitData] = useState(initForm),
+        [showDialog, setShowDialog] = useState(false),
+        [checked, setChecked]       = useState(false);
 
     const handleControlValidation = (value, id) => {
         switch (id) {
@@ -41,13 +41,13 @@ const ContactUsComponent = () => {
             setFname(validateTextField(value, id));
             break;
         case 'lastname':
-            setLname(validateTextField(value, id))
+            setLname(validateTextField(value, id));
             break;
         case 'email':
-            setMail(validateTextField(value, id))
+            setMail(validateTextField(value, id));
             break;
         case 'phonenumber':
-            setPnumber(validateTextField(value, id))
+            setPnumber(validateTextField(value, id));
             break;
         case 'message':
             setMssge(validateTextField(value, id));
@@ -59,7 +59,7 @@ const ContactUsComponent = () => {
 
     const handleCheckboxCheked = (value) => {
         setChecked(value);
-    }
+    };
 
     const submitFormVerified = () => {
         if ((fname.verified && lname.verified && mail.verified && pnumber.verified && mssge.verified) === false) {
@@ -86,7 +86,7 @@ const ContactUsComponent = () => {
     const handleControlDialog = (isClear) => {
         setShowDialog(!showDialog);
         if (isClear) clearForm();
-    }
+    };
 
     const clearForm = () => {
         setFname(initialStatus);
@@ -96,7 +96,7 @@ const ContactUsComponent = () => {
         setMssge(initialStatus);
         setSubmitData(initForm);
         setChecked(false);
-    }
+    };
 
     return (
         <section id="contact-us" className="contact-us">

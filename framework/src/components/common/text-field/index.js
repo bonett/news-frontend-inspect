@@ -17,7 +17,7 @@ const TextFieldComponent = (props) => {
 
     const getInputData = (value, id) => {
         handleInputControl(value, id);
-    }
+    };
 
     return (
         <TextField
