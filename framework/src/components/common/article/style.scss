@@ -3,6 +3,26 @@
 article {
     height: 338px;
     min-height: 338px;
+
+    a {
+        color: $gray-jet !important;
+    }
+
+    .caption {
+        .article {
+            &--title {
+                color: $gray-jet !important;
+                font-size: 21px !important;
+                font-weight: 600 !important;
+                margin-bottom: 34px !important;
+            }
+
+            &--description {
+                color: $gray-jet !important;
+                font-size: 16px !important;
+            }
+        }
+    }
 }
 
 @media (min-width: 316px) {

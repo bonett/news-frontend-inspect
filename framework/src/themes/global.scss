@@ -28,6 +28,9 @@ h6 {
     line-height: 41px;
 }
 
+i{
+    margin-right: 6px !important;
+}
 a,
 button {
     cursor: pointer !important;
@@ -99,14 +102,6 @@ article {
     }
 }
 
-.animateIn{
-    transform: translateY(0px);
-}
-  
-.animateOut{
-    transform: translateY(-100%);
-}
-
 .eui {
     &-navbar {
         &-bar {
@@ -125,6 +120,12 @@ article {
         
         &.focused {
             box-shadow: none !important;
+        }
+    }
+
+    &-dropdown {
+        &-item {
+            padding: 10px !important;
         }
     }
 }

@@ -1,12 +1,10 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import NavigationComponent from '../components/common/navigation';
-
 import HomeContainer from '../containers/home-container';
 
 const RouterApp = () => {
-
     return (
         <Router>
             <>
@@ -21,6 +19,6 @@ const RouterApp = () => {
             </>
         </Router>
     );
-}
+};
 
 export default RouterApp;
