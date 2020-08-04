@@ -1,10 +1,12 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import AlertComponent from './../../common/alert';
 import ArticleComponent from './../../common/article';
 import ButtonComponent from './../../common/button';
 import HeadingComponent from './../../common/heading';
 import SkeletonComponent from '../../common/skeleton';
+import SpinnerComponent from '../../common/spinner';
 
 import Panel from 'emerald-ui/lib/Panel';
 import Row from 'emerald-ui/lib/Row';
@@ -14,10 +16,10 @@ import './style.scss';
 
 import data from '../../../data/static';
 
-const ArticlesComponent = ({ articles, onloadMoreData, disableLoadMoreBtn  }) => {
+const ArticlesComponent = ({ articles, onloadMoreData, disableLoadMoreBtn, loading }) => {
 
     const article = data && data.article,
-        alert = data && data.alert;
+          alert   = data && data.alert;
 
     const loaderSkeleton = () => {
         return [1, 2, 3, 4].map(index => {
@@ -30,7 +32,7 @@ const ArticlesComponent = ({ articles, onloadMoreData, disableLoadMoreBtn  }) =>
             <>
                 {articles && articles.length > 0
                     ? articles.map(item => {
-                        return <ArticleComponent article={item} key={item.id} />;
+                        return <ArticleComponent article={item} key={item.uri} />;
                     })
                     : loaderSkeleton()}{' '}
             </>
@@ -81,6 +83,8 @@ const ArticlesComponent = ({ articles, onloadMoreData, disableLoadMoreBtn  }) =>
                         lg={12}
                         className="wrapper__content__footer article__content__button"
                     >
+                        <SpinnerComponent
+                            show={loading}/>
                         <ButtonComponent
                             color="primary"
                             isDisabled={disableLoadMoreBtn}
@@ -95,10 +99,17 @@ const ArticlesComponent = ({ articles, onloadMoreData, disableLoadMoreBtn  }) =>
     );
 };
 
+const mapStateToProps = state => {
+    return {
+        loading  : state.articles.loading,
+    };
+};
+
 ArticlesComponent.propTypes = {
     articles: PropTypes.array,
     onloadMoreData: PropTypes.func,
-    disableLoadMoreBtn: PropTypes.bool
+    disableLoadMoreBtn: PropTypes.bool,
+    loading: PropTypes.bool.isRequired,
 };
 
-export default ArticlesComponent;
+export default connect(mapStateToProps, '')(ArticlesComponent);

@@ -8,6 +8,10 @@ import './style.scss';
 const ArticleComponent = props => {
     const { article } = props;
 
+    const getCoverImage = (source) => {
+        return (source !== null) ? source : "http://www.ceramicmarketing.com/wp-content/themes/ceramic/img/no-banner.jpg";
+    }
+
     return (
         <Col xs={12} sm={6} md={6} lg={6}>
             <article className="article-content">
@@ -15,7 +19,7 @@ const ArticleComponent = props => {
                     <div className="article-content__media">
                         <img
                             className="img--size"
-                            src={article.image}
+                            src={getCoverImage(article.image)}
                             alt={article.title}
                         />
                     </div>
@@ -27,7 +31,7 @@ const ArticleComponent = props => {
                             </h2>
                         <p className="description--size">
                             <Truncate lines={5}>
-                            {article.description}
+                            {article.body}
                             </Truncate>
                         </p>
                     </div>
@@ -40,8 +44,8 @@ const ArticleComponent = props => {
 ArticleComponent.propTypes = {
     article: PropTypes.shape({
         title: PropTypes.string.isRequired,
-        description: PropTypes.string.isRequired,
-        image: PropTypes.string.isRequired,
+        body: PropTypes.string.isRequired,
+        image: PropTypes.string,
         url: PropTypes.string.isRequired,
     }),
 };

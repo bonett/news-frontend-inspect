@@ -19,6 +19,7 @@ export const articleReducer = (state = initialState, action) => {
     switch (action.type) {
     case FETCH_ARTICLES_REQUEST:
         return {
+            ...state,
             loading: true,
         };
     case LOAD_MORE_ENABLED:
@@ -29,6 +30,7 @@ export const articleReducer = (state = initialState, action) => {
     case FETCH_LOAD_MORE:
         return {
             ...state,
+            loading: false,
             onload : state.onload.concat(action.payload)
         };
     case FETCH_ARTICLES_SUCCESS:
