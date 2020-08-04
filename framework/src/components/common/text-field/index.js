@@ -12,7 +12,7 @@ const TextFieldComponent = (props) => {
         label,
         errorMessage,
         handleInputControl,
-        value,
+        value
     } = props;
 
     const getInputData = (value, id) => {

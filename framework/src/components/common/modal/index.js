@@ -37,7 +37,14 @@ const ModalComponent = ({ title, payload, show, handleControl }) => {
 
 ModalComponent.propTypes = {
     title: PropTypes.string.isRequired,
-    payload: PropTypes.object.isRequired,
+    payload: PropTypes.shape({
+        firstname: PropTypes.string,
+        lastname: PropTypes.string,
+        email: PropTypes.string,
+        phoneNumber: PropTypes.string,
+        message: PropTypes.string,
+        checked: PropTypes.bool,
+    }),
     show: PropTypes.bool.isRequired,
     handleControl: PropTypes.func,
 };

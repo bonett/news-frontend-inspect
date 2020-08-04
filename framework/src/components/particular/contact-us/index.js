@@ -33,7 +33,7 @@ const ContactUsComponent = () => {
         [mssge, setMssge]           = useState(initialStatus),
         [submitData, setSubmitData] = useState(initForm),
         [showDialog, setShowDialog] = useState(false),
-        [checked, setChecked]       = useState(false);
+        [inputChecked, setinputChecked] = useState(false);
 
     const handleControlValidation = (value, id) => {
         switch (id) {
@@ -57,8 +57,9 @@ const ContactUsComponent = () => {
         }
     };
 
-    const handleCheckboxCheked = (value) => {
-        setChecked(value);
+    const handleCheckboxChecked = (e) => {
+        const isChecked = e.target.checked;
+        setinputChecked(isChecked);
     };
 
     const submitFormVerified = () => {
@@ -75,7 +76,7 @@ const ContactUsComponent = () => {
                 email: mail.value,
                 phoneNumber: pnumber.value,
                 message: mssge.value,
-                checked: false,
+                checked: inputChecked,
             };
     
             setSubmitData(payload);
@@ -95,7 +96,7 @@ const ContactUsComponent = () => {
         setPnumber(initialStatus);
         setMssge(initialStatus);
         setSubmitData(initForm);
-        setChecked(false);
+        setinputChecked(false);
     };
 
     return (
@@ -185,8 +186,8 @@ const ContactUsComponent = () => {
                                         <Col xs={12} sm={12} md={12} lg={12} className="form-group">
                                             <CheckBoxComponent
                                                 label={contactUs.checkSendEmail}
-                                                isChecked={checked}
-                                                handleClickCheckbox={handleCheckboxCheked} />
+                                                isChecked={inputChecked}
+                                                handleClickCheckbox={handleCheckboxChecked} />
                                         </Col>
                                     </Row>
                                     <Row>
