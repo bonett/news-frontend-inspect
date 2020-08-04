@@ -19,7 +19,7 @@ import data from '../../../data/static';
 const ArticlesComponent = ({ articles, onloadMoreData, disableLoadMoreBtn, loading }) => {
 
     const article = data && data.article,
-          alert   = data && data.alert;
+        alert   = data && data.alert;
 
     const loaderSkeleton = () => {
         return [1, 2, 3, 4].map(index => {

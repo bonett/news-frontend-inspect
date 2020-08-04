@@ -17,10 +17,10 @@ export const fetchArticlesRequest = () => {
 };
 
 export const loadMoreEnabled = (status) => {
-  return {
-      type: LOAD_MORE_ENABLED,
-      payload: status
-  };
+    return {
+        type: LOAD_MORE_ENABLED,
+        payload: status
+    };
 };
 
 export const fetchArticlesSuccess = articles => {
@@ -31,10 +31,10 @@ export const fetchArticlesSuccess = articles => {
 };
 
 export const fetchLoadMoreArticles = newArticles => {
-  return {
-      type: FETCH_LOAD_MORE,
-      payload: newArticles,
-  };
+    return {
+        type: FETCH_LOAD_MORE,
+        payload: newArticles,
+    };
 };
 
 export const fetchArticlesFailure = error => {
@@ -44,18 +44,18 @@ export const fetchArticlesFailure = error => {
     };
 };
 
-export const fetchArticles = (init, limit) => {
+export const fetchArticles = () => {
     return dispatch => {
         axios
             .get(`${BASE_URL}?query=%7B%22%24query%22%3A%7B%22lang%22%3A%22eng%22%7D%7D&dataType=news&resultType=articles&articlesSortBy=date&articlesPage=1&articlesCount=50&articleBodyLen=-1&apiKey=${API_KEY}`)
             .then(response => {
                 if(response) {
-                  const result   = response && response.data,
+                    const result   = response && response.data,
                         dataList = result && result.articles,
                         articles = dataList && dataList.results;
                         
-                  dispatch(loadMoreEnabled(false));
-                  dispatch(fetchArticlesSuccess(articles));
+                    dispatch(loadMoreEnabled(false));
+                    dispatch(fetchArticlesSuccess(articles));
                 }
             })
             .catch(error => {
@@ -66,19 +66,19 @@ export const fetchArticles = (init, limit) => {
 };
 
 export const fetchMoreArticles = (data, init, limit) => {
-  return dispatch => {
+    return dispatch => {
 
-    dispatch(fetchArticlesRequest());
+        dispatch(fetchArticlesRequest());
 
-    if (data.length - limit < 4) {
-     setTimeout(() => {
-      dispatch(fetchLoadMoreArticles(_.slice(data, init, data.length)));
-      dispatch(loadMoreEnabled(true)); 
-     }, 1000);
-    } else {
-      setTimeout(() => {
-        dispatch(fetchLoadMoreArticles(_.slice(data, init, limit)));
-      }, 1000);
-    }
-  };
+        if (data.length - limit < 4) {
+            setTimeout(() => {
+                dispatch(fetchLoadMoreArticles(_.slice(data, init, data.length)));
+                dispatch(loadMoreEnabled(true)); 
+            }, 1000);
+        } else {
+            setTimeout(() => {
+                dispatch(fetchLoadMoreArticles(_.slice(data, init, limit)));
+            }, 1000);
+        }
+    };
 };

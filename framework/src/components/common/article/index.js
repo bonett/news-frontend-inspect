@@ -9,8 +9,8 @@ const ArticleComponent = props => {
     const { article } = props;
 
     const getCoverImage = (source) => {
-        return (source !== null) ? source : "http://www.ceramicmarketing.com/wp-content/themes/ceramic/img/no-banner.jpg";
-    }
+        return (source !== null) ? source : 'http://www.ceramicmarketing.com/wp-content/themes/ceramic/img/no-banner.jpg';
+    };
 
     return (
         <Col xs={12} sm={6} md={6} lg={6}>
@@ -28,10 +28,10 @@ const ArticleComponent = props => {
                             <Truncate lines={2}>
                                 {article.title}
                             </Truncate>
-                            </h2>
+                        </h2>
                         <p className="description--size">
                             <Truncate lines={5}>
-                            {article.body}
+                                {article.body}
                             </Truncate>
                         </p>
                     </div>

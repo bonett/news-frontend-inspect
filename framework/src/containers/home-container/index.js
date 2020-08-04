@@ -10,10 +10,10 @@ import ContactUsComponent from '../../components/particular/contact-us';
 const HomeContainer = ({ fetchArticles, articles, fetchMoreArticles, disableBtn }) => {
 
     const [initial, setInitial] = useState(0),
-          [limit, setLimit]     = useState(4);
+        [limit, setLimit]     = useState(4);
 
     useEffect(() => {
-        fetchArticles(initial, limit);
+        fetchArticles();
         setInitial(4);
         setLimit(8);
     }, [fetchArticles]);
@@ -21,10 +21,12 @@ const HomeContainer = ({ fetchArticles, articles, fetchMoreArticles, disableBtn 
     const onLoadMoreData = () => {
         let index = initial + 4,
             end   = limit + 4;
+
         setInitial(index);
         setLimit(end);
+
         fetchMoreArticles(articles.list, index, end);
-    }
+    };
 
     return (
         <main>
@@ -47,7 +49,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        fetchArticles: (initial, limit) => dispatch(fetchArticles(initial, limit)),
+        fetchArticles: () => dispatch(fetchArticles()),
         fetchMoreArticles: (articles, initial, limit) => dispatch(fetchMoreArticles(articles, initial, limit))
     };
 };
@@ -55,6 +57,8 @@ const mapDispatchToProps = dispatch => {
 HomeContainer.propTypes = {
     articles: PropTypes.object,
     fetchArticles: PropTypes.func,
+    fetchMoreArticles: PropTypes.func,
+    disableBtn: PropTypes.bool.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomeContainer);
