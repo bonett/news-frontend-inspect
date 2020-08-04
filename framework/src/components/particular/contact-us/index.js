@@ -15,7 +15,7 @@ import validateTextField from '../../../utils';
 
 import './style.scss';
 
-const initialStatus = { value: '', verified: false, message: '' },
+const initialStatus = { value: '', verified: false, message: '', customized: false },
     initForm      = { firstname: '', lastname: '', email: '', phoneNumber: '', message: '', checked: false };
 
 const ContactUsComponent = () => {
@@ -36,6 +36,7 @@ const ContactUsComponent = () => {
         [inputChecked, setinputChecked] = useState(false);
 
     const handleControlValidation = (value, id) => {
+        console.log(value, id)
         switch (id) {
         case 'firstname':
             setFname(validateTextField(value, id));
@@ -173,13 +174,29 @@ const ContactUsComponent = () => {
                                     </Row>
                                     <Row>
                                         <Col xs={12} sm={12} md={12} lg={12} className="form-group">
-                                            <TextFieldComponent
-                                                id={message.id}
-                                                label={message.label}
-                                                value={mssge.value}
-                                                handleInputControl={handleControlValidation}
-                                                errorMessage={mssge.message}
-                                            />
+                                            <div className="form-group-customized">
+                                                    {
+                                                        mssge.customized ?
+                                                        <div className="error-footer">
+                                                            <span id="messageErrorMessage" className="has-error-message has-message" role="alert">
+                                                                {mssge.message}
+                                                            </span>
+                                                            <span className="eui-text-field-message eui-text-field-help-text"></span>
+                                                        </div> : null
+
+                                                    }
+                                                <textarea
+                                                    id={message.id}
+                                                    label={message.label}
+                                                    className={!mssge.customized ? 'area-customized' : 'area-customized error--border'}
+                                                    value={mssge.value}
+                                                    onChange={(e) => handleControlValidation(e.target.value, e.target.id)} >
+                                                </textarea>
+                                                <label
+                                                    for={message.id}
+                                                    id="label-message"
+                                                    className={!mssge.customized ? 'label-customized' : 'label-customized error--text'} >Message</label>
+                                            </div>
                                         </Col>
                                     </Row>
                                     <Row>

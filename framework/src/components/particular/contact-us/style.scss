@@ -19,16 +19,6 @@
         }
 
         .eui-row {
-            &:nth-child(3) {
-                .eui-text-field {
-                    width: 100%;
-
-                    input {
-                        height: 88px !important;
-                    }
-                }
-            }
-
             &:nth-child(4) {
                 .form {
                     &-group {
@@ -55,6 +45,83 @@
 
             &-group {
                 margin-bottom: 44px;
+
+                &-customized {
+                    align-items: flex-start;
+                    display: flex;
+                    flex-direction: column-reverse;
+                    justify-content: center;
+
+                    .area {
+                        &-customized {
+                            border: 1px solid $border-area;
+                            border-radius: 3px;
+                            box-sizing: border-box;
+                            color: $gray-raven;
+                            font-size: 13px !important;
+                            height: 88px;
+                            padding: 10px;
+                            resize: none;
+                            width: 100%;
+    
+                            &:focus {
+                                border-color: $blue-lapis;
+                            }
+    
+                            &:focus-within~label {
+                                color: $blue-lapis;
+                            }
+
+                            &.error {
+                                &--text {
+                                    &:focus-within~label {
+                                        border-color: $red-candy;
+                                    }       
+                                }
+                            }
+                        }
+                    }
+
+                    .label {
+                        &-customized {
+                            font-size: 13px;
+                            margin: 0 0 4px 0;
+                            left: 0;
+                            transition: .2s ease-out;
+                            color: $gray-stone;
+                            -webkit-tap-highlight-color: transparent!important;
+                        }
+                    }
+
+                    .error {
+                        &--text {
+                            color: $red-candy !important;
+                        }
+
+                        &--border {
+                            border-color: $red-candy !important;
+                        }
+
+                        &-footer {
+                            display: flex;
+                            position: relative;
+                            justify-content: space-between;
+
+                            .has {
+                                &-error {
+                                    &-message {
+                                        display: block;
+                                        color: $red-candy;
+                                        font-size: 11px;
+                                        margin-top: 5px;
+                                        min-height: 15px;
+                                        transition: transform .2s ease-out;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
     }

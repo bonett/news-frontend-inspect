@@ -14,12 +14,14 @@ const validateTextField = (field, id) => {
                     value: field,
                     verified: true,
                     message: '',
+                    customized: false
                 };
             } else {
                 result = {
                     value: field,
                     verified: false,
                     message: 'Firstname is required',
+                    customized: false
                 };
             }
         } else {
@@ -27,6 +29,7 @@ const validateTextField = (field, id) => {
                 value: field,
                 verified: false,
                 message: 'Firstname is required',
+                customized: false
             };
         }
     }
@@ -38,12 +41,14 @@ const validateTextField = (field, id) => {
                     value: field,
                     verified: true,
                     message: '',
+                    customized: false
                 };
             } else {
                 result = {
                     value: field,
                     verified: false,
                     message: 'Lastname is required',
+                    customized: false
                 };
             }
         } else {
@@ -51,6 +56,7 @@ const validateTextField = (field, id) => {
                 value: field,
                 verified: false,
                 message: 'Lastname is required',
+                customized: false
             };
         }
     }
@@ -62,12 +68,14 @@ const validateTextField = (field, id) => {
                     value: field,
                     verified: true,
                     message: '',
+                    customized: false
                 };
             } else {
                 result = {
                     value: field,
                     verified: false,
                     message: 'Message is required',
+                    customized: true
                 };
             }
         } else {
@@ -75,6 +83,7 @@ const validateTextField = (field, id) => {
                 value: field,
                 verified: false,
                 message: 'Message is required',
+                customized: true
             };
         }
     }
@@ -86,12 +95,14 @@ const validateTextField = (field, id) => {
                     value: field,
                     verified: true,
                     message: '',
+                    customized: false
                 };
             } else {
                 result = {
                     value: field,
                     verified: false,
                     message: 'Email is required',
+                    customized: false
                 };
             }
         } else {
@@ -99,6 +110,7 @@ const validateTextField = (field, id) => {
                 value: field,
                 verified: false,
                 message: 'Email is required',
+                customized: false
             };
         }
     }
@@ -110,12 +122,14 @@ const validateTextField = (field, id) => {
                     value: field,
                     verified: true,
                     message: '',
+                    customized: false
                 };
             } else {
                 result = {
                     value: field,
                     verified: false,
                     message: 'Phone number is required (10 digits)',
+                    customized: false
                 };
             }
         } else {
@@ -123,6 +137,7 @@ const validateTextField = (field, id) => {
                 value: field,
                 verified: false,
                 message: 'Phone number is required (10 digits)',
+                customized: false
             };
         }
     }
