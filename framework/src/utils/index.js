@@ -76,7 +76,7 @@ const defaultResponse = (field, verified, message, customized) => {
         verified: verified,
         message: message,
         customized: customized
-    }
-}
+    };
+};
 
 export default validateTextField;
