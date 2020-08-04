@@ -212,7 +212,6 @@ const ContactUsComponent = () => {
                                                 color="primary"
                                                 handleClickButton={submitFormVerified}
                                                 title={contactUs.btnSubmit}
-                                                closable={false}
                                             />
                                         </Col>
                                     </Row>

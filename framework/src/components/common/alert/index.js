@@ -5,13 +5,11 @@ import { connect } from 'react-redux';
 import { handlerHiddenMsg } from '../../../actions/alert';
 
 import Alert from 'emerald-ui/lib/Alert';
-import ButtonComponent from '../button';
 
 import './style.scss';
 
 const AlertComponent = ({
     message,
-    closable,
     color,
     alertOption,
     alertMsgHidden,
@@ -22,14 +20,8 @@ const AlertComponent = ({
 
     const showAlertMsg = () => {
         return (
-            <Alert className="alert__content" color={color}>
+            <Alert className="alert__content" color={color} dismissible={true} onDismiss={() => handleOption(false)}>
                 <div className="alert__content__message">{message}</div>
-                <div className="alert__content__button btn-toolbar">
-                    <ButtonComponent
-                        closable={closable}
-                        handleClickToClose={handleOption}
-                    />
-                </div>
             </Alert>
         );
     };
@@ -40,7 +32,6 @@ const AlertComponent = ({
 AlertComponent.propTypes = {
     color: PropTypes.string.isRequired,
     message: PropTypes.string.isRequired,
-    closable: PropTypes.bool.isRequired,
     alertOption: PropTypes.object,
     alertMsgHidden: PropTypes.func,
 };

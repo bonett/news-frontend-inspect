@@ -11,32 +11,19 @@ const ButtonComponent = ({
     color,
     shape,
     className,
-    closable,
-    handleClickToClose,
     handleClickButton,
     isDisabled
 }) => {
     return (
-        <>
-            {!closable ? (
-                <Button
-                    color={color}
-                    className={className}
-                    disabled={isDisabled}
-                    onClick={() => handleClickButton()}
-                    shape={shape}
-                >
-                    {title}
-                </Button>
-            ) : (
-                <IconButton
-                    ariaLabel="Close"
-                    onClick={() => handleClickToClose(false)}
-                    icon="close"
-                    title="Close"
-                />
-            )}
-        </>
+        <Button
+            color={color}
+            className={className}
+            disabled={isDisabled}
+            onClick={() => handleClickButton()}
+            shape={shape}
+        >
+            {title}
+        </Button>
     );
 };
 
@@ -45,8 +32,6 @@ ButtonComponent.propTypes = {
     title: PropTypes.string,
     className: PropTypes.string,
     shape: PropTypes.string,
-    closable: PropTypes.bool.isRequired,
-    handleClickToClose: PropTypes.func,
     handleClickButton: PropTypes.func,
     isDisabled: PropTypes.bool,
 };
