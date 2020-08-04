@@ -5,21 +5,26 @@ import TextField from 'emerald-ui/lib/TextField';
 
 import './style.scss';
 
-const TextFieldComponent = ({
-    id,
-    label,
-    errorMessage,
-    handleInputControl,
-    value,
-}) => {
+const TextFieldComponent = (props) => {
+
+    const {
+        id,
+        label,
+        errorMessage,
+        handleInputControl,
+        value
+    } = props;
+
+    const getInputData = (value, id) => {
+        handleInputControl(value, id);
+    };
+
     return (
         <TextField
             id={id}
             label={label}
-            defaultValue={value}
-            onChange={event => {
-                handleInputControl(event.target);
-            }}
+            value={value}
+            onChange={(event) => getInputData(event.target.value, event.target.id)}
             errorMessage={errorMessage}
         />
     );

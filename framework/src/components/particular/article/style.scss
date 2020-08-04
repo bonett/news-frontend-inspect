@@ -9,13 +9,13 @@
         .article {
             &__panel {
                 .eui-panel-body {
-                    padding: 4px 29px !important;
+                    padding: 0 29px !important;
                 }
             }
         }
 
         &__list {
-            padding: 14px 10px 0 10px;
+            padding: 0 10px;
 
             .eui-col {
                 padding: 0 10px !important;
@@ -42,7 +42,7 @@
         &__button {
             align-items: center;
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
             justify-content: center;
             margin: 2px 0 56px 0 !important;
         }

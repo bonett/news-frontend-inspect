@@ -13,16 +13,16 @@ const ButtonComponent = ({
     className,
     closable,
     handleClickToClose,
-    isDisabled,
     handleClickButton,
+    isDisabled
 }) => {
     return (
         <>
             {!closable ? (
                 <Button
                     color={color}
-                    disabled={isDisabled}
                     className={className}
+                    disabled={isDisabled}
                     onClick={() => handleClickButton()}
                     shape={shape}
                 >
