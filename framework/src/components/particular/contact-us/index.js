@@ -36,7 +36,6 @@ const ContactUsComponent = () => {
         [inputChecked, setinputChecked] = useState(false);
 
     const handleControlValidation = (value, id) => {
-        console.log(value, id);
         switch (id) {
         case 'firstname':
             setFname(validateTextField(value, id));
