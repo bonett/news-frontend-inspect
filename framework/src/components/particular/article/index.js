@@ -1,10 +1,12 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import AlertComponent from './../../common/alert';
 import ArticleComponent from './../../common/article';
 import ButtonComponent from './../../common/button';
 import HeadingComponent from './../../common/heading';
 import SkeletonComponent from '../../common/skeleton';
+import SpinnerComponent from '../../common/spinner';
 
 import Panel from 'emerald-ui/lib/Panel';
 import Row from 'emerald-ui/lib/Row';
@@ -14,9 +16,10 @@ import './style.scss';
 
 import data from '../../../data/static';
 
-const ArticlesComponent = ({ articles }) => {
+const ArticlesComponent = ({ articles, onloadMoreData, disableLoadMoreBtn, loading }) => {
+
     const article = data && data.article,
-        alert = data && data.alert;
+        alert   = data && data.alert;
 
     const loaderSkeleton = () => {
         return [1, 2, 3, 4].map(index => {
@@ -27,18 +30,13 @@ const ArticlesComponent = ({ articles }) => {
     const getArticleByItem = () => {
         return (
             <>
-                {' '}
                 {articles && articles.length > 0
                     ? articles.map(item => {
-                        return <ArticleComponent article={item} key={item.id} />;
+                        return <ArticleComponent article={item} key={item.uri} />;
                     })
                     : loaderSkeleton()}{' '}
             </>
         );
-    };
-
-    const handleOption = () => {
-        console.log('click');
     };
 
     return (
@@ -85,9 +83,12 @@ const ArticlesComponent = ({ articles }) => {
                         lg={12}
                         className="wrapper__content__footer article__content__button"
                     >
+                        <SpinnerComponent
+                            show={loading}/>
                         <ButtonComponent
                             color="primary"
-                            handleClickToClose={handleOption}
+                            isDisabled={disableLoadMoreBtn}
+                            handleClickButton={onloadMoreData}
                             title={article.btnLoadMore}
                             closable={false}
                         />
@@ -98,8 +99,17 @@ const ArticlesComponent = ({ articles }) => {
     );
 };
 
-ArticlesComponent.propTypes = {
-    articles: PropTypes.array,
+const mapStateToProps = state => {
+    return {
+        loading  : state.articles.loading,
+    };
 };
 
-export default ArticlesComponent;
+ArticlesComponent.propTypes = {
+    articles: PropTypes.array,
+    onloadMoreData: PropTypes.func,
+    disableLoadMoreBtn: PropTypes.bool,
+    loading: PropTypes.bool.isRequired,
+};
+
+export default connect(mapStateToProps, '')(ArticlesComponent);

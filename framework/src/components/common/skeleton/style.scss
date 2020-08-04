@@ -1,7 +1,38 @@
-.eui {
-    &-skeleton {
-        &-loader {
-            margin-left: 0 !important;
+.parent-content {
+    &__media {
+        height: 152px;
+        position: relative;
+        overflow: hidden;
+        text-align: center;
+    }
+
+    .eui {
+        &-skeleton {
+            &-loader {
+                margin-left: 0 !important;
+            }
         }
+    }
+}
+
+@media (min-width: 316px) {
+    
+    .parent-content {
+        margin: 36px 0 46px 0 !important;
+        width: 100%;
+    }
+}
+
+@media (min-width: 768px) {
+    
+    .parent-content {
+        margin: 36px 0 64px 0 !important;
+        width: 300px;
+    }
+}
+
+@media (min-width: 992px) {
+    .parent-content {
+        width: 403px;
     }
 }
