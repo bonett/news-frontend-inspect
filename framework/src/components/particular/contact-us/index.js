@@ -36,7 +36,6 @@ const ContactUsComponent = () => {
         [inputChecked, setinputChecked] = useState(false);
 
     const handleControlValidation = (value, id) => {
-        console.log(value, id)
         switch (id) {
         case 'firstname':
             setFname(validateTextField(value, id));
@@ -175,8 +174,8 @@ const ContactUsComponent = () => {
                                     <Row>
                                         <Col xs={12} sm={12} md={12} lg={12} className="form-group">
                                             <div className="form-group-customized">
-                                                    {
-                                                        mssge.customized ?
+                                                {
+                                                    mssge.customized ?
                                                         <div className="error-footer">
                                                             <span id="messageErrorMessage" className="has-error-message has-message" role="alert">
                                                                 {mssge.message}
@@ -184,7 +183,7 @@ const ContactUsComponent = () => {
                                                             <span className="eui-text-field-message eui-text-field-help-text"></span>
                                                         </div> : null
 
-                                                    }
+                                                }
                                                 <textarea
                                                     id={message.id}
                                                     label={message.label}
@@ -193,7 +192,7 @@ const ContactUsComponent = () => {
                                                     onChange={(e) => handleControlValidation(e.target.value, e.target.id)} >
                                                 </textarea>
                                                 <label
-                                                    for={message.id}
+                                                    htmlFor={message.id}
                                                     id="label-message"
                                                     className={!mssge.customized ? 'label-customized' : 'label-customized error--text'} >Message</label>
                                             </div>
