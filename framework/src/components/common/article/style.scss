@@ -1,25 +1,42 @@
 @import '../../../themes/partials/variables.scss';
 
 article {
-    height: 338px;
-    min-height: 338px;
-
     a {
         color: $gray-jet !important;
-    }
 
-    .caption {
-        .article {
-            &--title {
-                color: $gray-jet !important;
-                font-size: 21px !important;
-                font-weight: 600 !important;
-                margin-bottom: 34px !important;
+        .media {
+            height: 152px;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+    
+            .img {
+                &--size {
+                    height: auto;
+                    max-width: 100%;
+                    width: auto;
+                }
             }
-
-            &--description {
-                color: $gray-jet !important;
-                font-size: 16px !important;
+        }
+    
+        .caption {
+            .article {
+                &--title {
+                    color: $gray-jet !important;
+                    font-size: 21px !important;
+                    font-weight: 600 !important;
+                    letter-spacing: -0.11px;
+                    line-height: 28px;
+                    margin-top: 12px !important;
+                    margin-bottom: 30px !important;
+                }
+    
+                &--description {
+                    color: $gray-jet !important;
+                    font-size: 16px !important;
+                    letter-spacing: -0.09px;
+                    line-height: 22px;
+                }
             }
         }
     }
@@ -28,7 +45,7 @@ article {
 @media (min-width: 316px) {
     
     article {
-        margin: 20px 0 6px 0 !important;
+        margin: 36px 0 46px 0 !important;
         width: 100%;
     }
 }
@@ -36,7 +53,7 @@ article {
 @media (min-width: 768px) {
     
     article {
-        margin: 20px 0 88px 0 !important;
+        margin: 36px 0 64px 0 !important;
         width: 300px;
     }
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import Truncate from 'react-truncate';
 import Col from 'emerald-ui/lib/Col';
 
 import './style.scss';
@@ -20,8 +20,16 @@ const ArticleComponent = props => {
                         />
                     </div>
                     <div className="caption">
-                        <h2 className="article--title">{article.title}</h2>
-                        <p className="article--description">{article.description}</p>
+                        <h2 className="article--title">
+                            <Truncate lines={2}>
+                                {article.title}
+                            </Truncate>
+                            </h2>
+                        <p className="article--description">
+                            <Truncate lines={5}>
+                            {article.description}
+                            </Truncate>
+                        </p>
                     </div>
                 </a>
             </article>
