@@ -1,42 +1,40 @@
 @import '../../../themes/partials/variables.scss';
 
-article {
-    a {
-        color: $gray-jet !important;
+.article-content {
+    &__media {
+        height: 152px;
+        position: relative;
+        overflow: hidden;
+        text-align: center;
 
-        .media {
-            height: 152px;
-            position: relative;
-            overflow: hidden;
-            text-align: center;
-    
-            .img {
-                &--size {
-                    height: auto;
-                    max-width: 100%;
-                    width: auto;
-                }
+        .img {
+            &--size {
+                height: auto;
+                max-width: 100%;
+                width: auto;
             }
         }
-    
-        .caption {
-            .article {
-                &--title {
-                    color: $gray-jet !important;
-                    font-size: 21px !important;
-                    font-weight: 600 !important;
-                    letter-spacing: -0.11px;
-                    line-height: 28px;
-                    margin-top: 12px !important;
-                    margin-bottom: 30px !important;
-                }
-    
-                &--description {
-                    color: $gray-jet !important;
-                    font-size: 16px !important;
-                    letter-spacing: -0.09px;
-                    line-height: 22px;
-                }
+    }
+
+    &__caption {
+        .title {
+            &--size {
+                color: $gray-jet !important;
+                font-size: 21px !important;
+                font-weight: 600 !important;
+                letter-spacing: -0.11px;
+                line-height: 28px;
+                margin-top: 12px !important;
+                margin-bottom: 30px !important;
+            }
+        }
+        
+        .description {
+            &--size {
+                color: $gray-jet !important;
+                font-size: 16px !important;
+                letter-spacing: -0.09px;
+                line-height: 22px;
             }
         }
     }
@@ -44,7 +42,7 @@ article {
 
 @media (min-width: 316px) {
     
-    article {
+    .article-content {
         margin: 36px 0 46px 0 !important;
         width: 100%;
     }
@@ -52,14 +50,14 @@ article {
 
 @media (min-width: 768px) {
     
-    article {
+    .article-content {
         margin: 36px 0 64px 0 !important;
         width: 300px;
     }
 }
 
 @media (min-width: 992px) {
-    article {
+    .article-content {
         width: 403px;
     }
 }
