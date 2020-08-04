@@ -12,11 +12,11 @@ const HomeContainer = ({ fetchArticles, articles, fetchMoreArticles, disableBtn 
     const [initial, setInitial] = useState(0),
         [limit, setLimit]     = useState(4);
 
-   /*  useEffect(() => {
+    useEffect(() => {
         fetchArticles();
         setInitial(4);
         setLimit(8);
-    }, [fetchArticles]); */
+    }, [fetchArticles]);
 
     const onLoadMoreData = () => {
         let index = initial + 4,
