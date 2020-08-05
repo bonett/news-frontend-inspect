@@ -1,10 +1,16 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+import { shallow, configure } from 'enzyme';
 import { expect } from 'chai';
 
 import { NewsletterComponent } from './index';
 
-it('renders correctly', () => {
-    const wrapper = shallow(<NewsletterComponent />);
-    expect(wrapper).to.be.present();
+configure({adapter: new Adapter()});
+
+describe("NewsLetter Component", () => {
+    it('renders correctly', () => {
+        const component = shallow(<NewsletterComponent />);
+        const wrapper = component.find('.wrapper');
+        expect(wrapper.length).toBe(1);
+    });
 });
