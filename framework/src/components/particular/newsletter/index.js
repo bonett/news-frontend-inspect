@@ -32,7 +32,6 @@ const NewsletterComponent = () => {
                         <div className="wrapper__content__footer">
                             <ButtonComponent
                                 className="btn-inverse"
-                                closable={false}
                                 title={newsletter.btnSubscribe}
                             />
                         </div>

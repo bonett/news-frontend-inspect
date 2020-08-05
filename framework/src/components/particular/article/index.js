@@ -52,7 +52,6 @@ const ArticlesComponent = ({ articles, onloadMoreData, disableLoadMoreBtn, loadi
                     >
                         <AlertComponent
                             color="info"
-                            closable={true}
                             message={alert.message}
                         />
                         <HeadingComponent
@@ -90,7 +89,6 @@ const ArticlesComponent = ({ articles, onloadMoreData, disableLoadMoreBtn, loadi
                             isDisabled={disableLoadMoreBtn}
                             handleClickButton={onloadMoreData}
                             title={article.btnLoadMore}
-                            closable={false}
                         />
                     </Col>
                 </Row>
